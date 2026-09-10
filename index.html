@@ -8,7 +8,7 @@
 
     <meta
         name="description"
-        content="BigHelpAI turns huge ideas and descriptions into creative visual experiences."
+        content="BigHelpAI transforms huge ideas into images, 3D models, and creative experiences."
     >
 
     <link rel="stylesheet" href="style.css">
@@ -16,26 +16,41 @@
 
 <body>
 
+    <!-- =========================
+         HEADER
+    ========================== -->
+
     <header class="topbar">
-        <div class="logo">
+
+        <a href="#home" class="logo">
             <span class="logo-mark">B</span>
             <span>BigHelpAI</span>
-        </div>
+        </a>
 
         <nav>
             <a href="#home">Home</a>
             <a href="#create">Create</a>
+            <a href="#results">Results</a>
             <a href="#about">About</a>
         </nav>
+
     </header>
+
+
+    <!-- =========================
+         MAIN
+    ========================== -->
 
     <main>
 
+        <!-- HERO -->
+
         <section id="home" class="hero">
+
             <div class="hero-content">
 
                 <div class="badge">
-                    ✦ CREATIVE AI STUDIO
+                    ✦ BIGHELPAI CREATIVE STUDIO
                 </div>
 
                 <h1>
@@ -45,9 +60,9 @@
                 </h1>
 
                 <p>
-                    BigHelpAI is being built to understand enormous descriptions
-                    and eventually transform them into images, 3D scenes, and
-                    interactive experiences.
+                    Describe something simple or extremely complex.
+                    BigHelpAI is being built to turn huge descriptions
+                    into visual creations, images, and interactive 3D worlds.
                 </p>
 
                 <a href="#create" class="hero-button">
@@ -55,109 +70,509 @@
                 </a>
 
             </div>
+
         </section>
+
+
+        <!-- CREATE -->
 
         <section id="create" class="creator-section">
 
             <div class="section-heading">
+
                 <div>
-                    <div class="small-label">CREATE</div>
+
+                    <div class="small-label">
+                        CREATE
+                    </div>
 
                     <h2>
                         Describe anything
                     </h2>
 
                     <p>
-                        Start with a paragraph. The creative tools will come next.
+                        Your description can be short, detailed, or extremely long.
                     </p>
+
                 </div>
 
                 <div id="characterCount">
                     0 characters
                 </div>
+
             </div>
+
 
             <div class="creator-card">
 
                 <textarea
                     id="ideaInput"
                     placeholder="Paste your giant paragraph here..."
+                    aria-label="BigHelpAI description"
                 ></textarea>
+
+
+                <div class="creator-options">
+
+                    <div class="option-group">
+
+                        <label for="creationMode">
+                            Creation mode
+                        </label>
+
+                        <select id="creationMode">
+
+                            <option value="all">
+                                Image + 3D
+                            </option>
+
+                            <option value="image">
+                                Image
+                            </option>
+
+                            <option value="3d">
+                                3D Model
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="option-group">
+
+                        <label for="visualStyle">
+                            Visual style
+                        </label>
+
+                        <select id="visualStyle">
+
+                            <option value="cinematic">
+                                Cinematic
+                            </option>
+
+                            <option value="realistic">
+                                Realistic
+                            </option>
+
+                            <option value="futuristic">
+                                Futuristic
+                            </option>
+
+                            <option value="stylized">
+                                Stylized
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="option-group">
+
+                        <label for="detailLevel">
+                            Detail level
+                        </label>
+
+                        <select id="detailLevel">
+
+                            <option value="high">
+                                High
+                            </option>
+
+                            <option value="medium">
+                                Medium
+                            </option>
+
+                            <option value="extreme">
+                                Extreme
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
 
                 <div class="creator-controls">
 
-                    <button id="exampleButton" class="secondary-button">
+                    <button
+                        id="exampleButton"
+                        class="secondary-button"
+                        type="button"
+                    >
                         Load example
                     </button>
 
-                    <button id="clearButton" class="secondary-button">
+                    <button
+                        id="clearButton"
+                        class="secondary-button"
+                        type="button"
+                    >
                         Clear
                     </button>
 
-                    <button id="createButton" class="primary-button">
+                    <button
+                        id="createButton"
+                        class="primary-button"
+                        type="button"
+                    >
                         Create
                     </button>
 
                 </div>
 
+
+                <div class="creation-note">
+
+                    <span>✦</span>
+
+                    <p>
+                        Advanced AI generation will be connected after
+                        the BigHelpAI foundation is finished.
+                    </p>
+
+                </div>
+
             </div>
 
         </section>
 
-        <section class="features">
 
-            <div class="feature-card">
+        <!-- RESULTS -->
 
-                <div class="feature-icon">
-                    ◈
+        <section id="results" class="results-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <div class="small-label">
+                        RESULTS
+                    </div>
+
+                    <h2>
+                        Your creations
+                    </h2>
+
+                    <p>
+                        This area will hold your generated images and 3D models.
+                    </p>
+
                 </div>
-
-                <h3>
-                    Huge descriptions
-                </h3>
-
-                <p>
-                    Designed for long, detailed paragraphs containing complex
-                    objects, systems, environments, and ideas.
-                </p>
 
             </div>
 
-            <div class="feature-card">
 
-                <div class="feature-icon">
-                    ◇
-                </div>
+            <div class="results-grid">
 
-                <h3>
-                    Images
-                </h3>
+                <!-- DESCRIPTION RESULT -->
 
-                <p>
-                    An image-generation system will eventually turn your
-                    descriptions into detailed visual concepts.
-                </p>
+                <article class="result-card">
 
-            </div>
+                    <div class="result-card-header">
 
-            <div class="feature-card">
+                        <div>
 
-                <div class="feature-icon">
-                    ✦
-                </div>
+                            <div class="result-label">
+                                DESCRIPTION
+                            </div>
 
-                <h3>
-                    3D worlds
-                </h3>
+                            <h3>
+                                Project information
+                            </h3>
 
-                <p>
-                    The long-term goal is to create interactive 3D objects and
-                    scenes from your descriptions.
-                </p>
+                        </div>
+
+                        <span class="result-status">
+                            Ready
+                        </span>
+
+                    </div>
+
+
+                    <div id="descriptionResult" class="result-content">
+
+                        <div class="result-placeholder">
+
+                            <div class="placeholder-icon">
+                                ◈
+                            </div>
+
+                            <p>
+                                Your project information will appear here.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- IMAGE RESULT -->
+
+                <article class="result-card">
+
+                    <div class="result-card-header">
+
+                        <div>
+
+                            <div class="result-label">
+                                IMAGE
+                            </div>
+
+                            <h3>
+                                AI Image
+                            </h3>
+
+                        </div>
+
+                        <span class="result-status">
+                            Waiting
+                        </span>
+
+                    </div>
+
+
+                    <div id="imageResult" class="result-content">
+
+                        <div class="result-placeholder">
+
+                            <div class="placeholder-icon">
+                                ◇
+                            </div>
+
+                            <p>
+                                Your generated image will appear here.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- 3D RESULT -->
+
+                <article class="result-card result-card-wide">
+
+                    <div class="result-card-header">
+
+                        <div>
+
+                            <div class="result-label">
+                                THREE DIMENSIONAL
+                            </div>
+
+                            <h3>
+                                3D Model
+                            </h3>
+
+                        </div>
+
+                        <span class="result-status">
+                            Waiting
+                        </span>
+
+                    </div>
+
+
+                    <div id="modelResult" class="result-content model-result">
+
+                        <div class="result-placeholder">
+
+                            <div class="placeholder-icon">
+                                ✦
+                            </div>
+
+                            <p>
+                                Your interactive 3D model will appear here.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="model-controls">
+
+                        <button
+                            id="rotateModelButton"
+                            class="secondary-button"
+                            type="button"
+                        >
+                            Rotate
+                        </button>
+
+                        <button
+                            id="resetModelButton"
+                            class="secondary-button"
+                            type="button"
+                        >
+                            Reset view
+                        </button>
+
+                        <button
+                            id="downloadModelButton"
+                            class="secondary-button"
+                            type="button"
+                        >
+                            Download 3D Model
+                        </button>
+
+                    </div>
+
+                </article>
 
             </div>
 
         </section>
+
+
+        <!-- FEATURES -->
+
+        <section class="features-section">
+
+            <div class="section-heading centered">
+
+                <div>
+
+                    <div class="small-label">
+                        BUILT FOR BIG IDEAS
+                    </div>
+
+                    <h2>
+                        More than a text box.
+                    </h2>
+
+                    <p>
+                        BigHelpAI is being designed as a complete creative workspace.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="features">
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        ◈
+                    </div>
+
+                    <h3>
+                        Huge descriptions
+                    </h3>
+
+                    <p>
+                        Built around the idea of handling detailed descriptions
+                        containing many objects, materials, measurements, colors,
+                        systems, and relationships.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        ◇
+                    </div>
+
+                    <h3>
+                        Image creation
+                    </h3>
+
+                    <p>
+                        A future image-generation system will transform your
+                        descriptions into detailed visual concepts.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        ✦
+                    </div>
+
+                    <h3>
+                        3D generation
+                    </h3>
+
+                    <p>
+                        The long-term goal is to create interactive 3D objects
+                        and environments from your descriptions.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        ◎
+                    </div>
+
+                    <h3>
+                        Multiple AI specialists
+                    </h3>
+
+                    <p>
+                        Later, several specialized AI systems can work together
+                        to analyze, create, check, and improve results.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        ⬡
+                    </div>
+
+                    <h3>
+                        Creative workspace
+                    </h3>
+
+                    <p>
+                        Your future projects can contain images, 3D models,
+                        descriptions, settings, and saved creations.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        ↓
+                    </div>
+
+                    <h3>
+                        Export
+                    </h3>
+
+                    <p>
+                        The eventual system will let you save and export
+                        generated creations and 3D models.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ABOUT -->
 
         <section id="about" class="about-section">
 
@@ -171,15 +586,20 @@
             </h2>
 
             <p>
-                BigHelpAI is being built step-by-step. We are starting with the
-                website foundation before adding the advanced generation systems.
+                BigHelpAI is being built step-by-step. First comes the
+                website foundation. Then the interactive creative tools.
+                Advanced AI generation will come later.
             </p>
 
         </section>
 
     </main>
 
+
+    <!-- FOOTER -->
+
     <footer>
+
         <div>
             © 2026 BigHelpAI
         </div>
@@ -187,7 +607,9 @@
         <div>
             Building something bigger.
         </div>
+
     </footer>
+
 
     <script src="app.js"></script>
 
