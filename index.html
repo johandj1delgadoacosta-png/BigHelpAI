@@ -2,33 +2,553 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="BigHelpAI — Learn. Create. Build. Explore.">
-  <title>BigHelpAI</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div class="app-shell">
-    <header class="topbar">
-      <button class="mobile-menu" id="mobileMenu" aria-label="Open menu">☰</button>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-      <a class="brand" href="#dashboard" aria-label="BigHelpAI home">
+  <meta
+    name="description"
+    content="BigHelpAI — Learn. Create. Build. Explore."
+  >
+
+  <title>BigHelpAI</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Opening screen styles.
+       These are temporary foundation styles so we can test
+       the welcome page before changing style.css again. -->
+  <style>
+    .welcome-screen {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      overflow-y: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 35px 20px;
+      background:
+        radial-gradient(
+          circle at 20% 20%,
+          rgba(139, 92, 246, 0.24),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 80% 20%,
+          rgba(34, 211, 238, 0.14),
+          transparent 26%
+        ),
+        #05060a;
+    }
+
+    .welcome-shell {
+      width: min(1180px, 100%);
+      text-align: center;
+    }
+
+    .welcome-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 28px;
+      font-size: 21px;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+    }
+
+    .welcome-brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 13px;
+      display: grid;
+      place-items: center;
+      background:
+        linear-gradient(
+          135deg,
+          #8b5cf6,
+          #22d3ee
+        );
+      box-shadow:
+        0 14px 35px rgba(139, 92, 246, 0.30);
+    }
+
+    .welcome-title {
+      max-width: 930px;
+      margin: 0 auto;
+      font-size: clamp(42px, 7vw, 82px);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+      font-weight: 900;
+    }
+
+    .welcome-title span {
+      background:
+        linear-gradient(
+          90deg,
+          #a78bfa,
+          #67e8f9
+        );
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .welcome-subtitle {
+      max-width: 760px;
+      margin: 22px auto 0;
+      color: #b7bfd0;
+      font-size: clamp(16px, 2vw, 20px);
+      line-height: 1.55;
+    }
+
+    .welcome-video {
+      width: min(980px, 100%);
+      min-height: 330px;
+      margin: 38px auto 0;
+      padding: 2px;
+      border-radius: 24px;
+      background:
+        linear-gradient(
+          135deg,
+          rgba(139, 92, 246, 0.75),
+          rgba(34, 211, 238, 0.55),
+          rgba(139, 92, 246, 0.25)
+        );
+      box-shadow:
+        0 30px 100px rgba(0, 0, 0, 0.45);
+    }
+
+    .welcome-video-inner {
+      min-height: 326px;
+      border-radius: 22px;
+      overflow: hidden;
+      position: relative;
+      background:
+        radial-gradient(
+          circle at 50% 40%,
+          rgba(139, 92, 246, 0.24),
+          transparent 30%
+        ),
+        #0b0e17;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .preview-orb {
+      width: 110px;
+      height: 110px;
+      border-radius: 32px;
+      display: grid;
+      place-items: center;
+      font-size: 46px;
+      font-weight: 900;
+      color: white;
+      background:
+        linear-gradient(
+          135deg,
+          #7c3aed,
+          #22d3ee
+        );
+      box-shadow:
+        0 30px 80px rgba(34, 211, 238, 0.18);
+      animation: welcomeFloat 4s ease-in-out infinite;
+    }
+
+    .preview-caption {
+      position: absolute;
+      left: 24px;
+      right: 24px;
+      bottom: 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      text-align: left;
+    }
+
+    .preview-caption strong {
+      display: block;
+      color: white;
+      font-size: 15px;
+    }
+
+    .preview-caption span {
+      display: block;
+      margin-top: 4px;
+      color: #9da7ba;
+      font-size: 12px;
+    }
+
+    .preview-progress {
+      width: 180px;
+      height: 5px;
+      border-radius: 999px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.10);
+    }
+
+    .preview-progress span {
+      width: 65%;
+      height: 100%;
+      margin: 0;
+      background:
+        linear-gradient(
+          90deg,
+          #8b5cf6,
+          #22d3ee
+        );
+      animation: previewProgress 5s linear infinite;
+    }
+
+    .welcome-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .welcome-action {
+      min-width: 155px;
+      min-height: 48px;
+      padding: 12px 20px;
+      border-radius: 13px;
+      border: 1px solid rgba(255, 255, 255, 0.11);
+      color: white;
+      font-weight: 800;
+      transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease,
+        background 0.18s ease;
+    }
+
+    .welcome-action:hover {
+      transform: translateY(-2px);
+    }
+
+    .welcome-signin {
+      background:
+        linear-gradient(
+          135deg,
+          #8b5cf6,
+          #6d4ef3
+        );
+      box-shadow:
+        0 16px 38px rgba(109, 78, 243, 0.22);
+    }
+
+    .welcome-register {
+      background:
+        rgba(255, 255, 255, 0.05);
+    }
+
+    .welcome-guest {
+      background: transparent;
+      color: #aeb7ca;
+    }
+
+    .welcome-guest:hover {
+      color: white;
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .welcome-feature-row {
+      display: grid;
+      grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .welcome-feature {
+      padding: 17px;
+      text-align: left;
+      border:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      background:
+        rgba(255, 255, 255, 0.025);
+    }
+
+    .welcome-feature-icon {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .welcome-feature strong {
+      display: block;
+      color: white;
+      font-size: 13px;
+    }
+
+    .welcome-feature small {
+      display: block;
+      margin-top: 5px;
+      color: #8993a8;
+      font-size: 11px;
+      line-height: 1.45;
+    }
+
+    .welcome-footer {
+      margin-top: 28px;
+      color: #606a80;
+      font-size: 11px;
+    }
+
+    .welcome-hidden {
+      display: none !important;
+    }
+
+    @keyframes welcomeFloat {
+      0%,
+      100% {
+        transform: translateY(0) rotate(0deg);
+      }
+
+      50% {
+        transform: translateY(-10px) rotate(2deg);
+      }
+    }
+
+    @keyframes previewProgress {
+      0% {
+        width: 8%;
+      }
+
+      100% {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 850px) {
+      .welcome-feature-row {
+        grid-template-columns:
+          repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 560px) {
+      .welcome-screen {
+        align-items: flex-start;
+      }
+
+      .welcome-title {
+        font-size: 44px;
+      }
+
+      .welcome-video {
+        min-height: 255px;
+      }
+
+      .welcome-video-inner {
+        min-height: 251px;
+      }
+
+      .preview-caption {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .preview-progress {
+        width: 100%;
+      }
+
+      .welcome-feature-row {
+        grid-template-columns: 1fr;
+      }
+
+      .welcome-action {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================================================
+       FIRST OPENING SCREEN
+  ========================================================== -->
+
+  <section
+    class="welcome-screen"
+    id="welcomeScreen"
+    aria-label="Welcome to BigHelpAI"
+  >
+    <div class="welcome-shell">
+
+      <div class="welcome-brand">
+        <span class="welcome-brand-mark">B</span>
+        <span>BigHelpAI</span>
+      </div>
+
+      <h1 class="welcome-title">
+        One place to
+        <span>learn, create,</span>
+        build and explore.
+      </h1>
+
+      <p class="welcome-subtitle">
+        Meet BigHelpAI — an all-in-one AI ecosystem
+        designed to help you turn ideas into real projects.
+      </p>
+
+      <!-- Temporary feature-video area.
+           Real introduction videos can be connected later. -->
+      <div class="welcome-video">
+        <div class="welcome-video-inner">
+
+          <div class="preview-orb">B</div>
+
+          <div class="preview-caption">
+            <div>
+              <strong>
+                Discover what BigHelpAI can do
+              </strong>
+
+              <span>
+                AI • Learning • Coding • Creation • 3D • Music • More
+              </span>
+            </div>
+
+            <div
+              class="preview-progress"
+              aria-hidden="true"
+            >
+              <span></span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="welcome-actions">
+
+        <button
+          class="welcome-action welcome-signin"
+          id="welcomeSignIn"
+          type="button"
+        >
+          Sign In
+        </button>
+
+        <button
+          class="welcome-action welcome-register"
+          id="welcomeRegister"
+          type="button"
+        >
+          Register
+        </button>
+
+        <button
+          class="welcome-action welcome-guest"
+          id="continueGuest"
+          type="button"
+        >
+          Continue without an account
+        </button>
+
+      </div>
+
+      <div class="welcome-feature-row">
+
+        <div class="welcome-feature">
+          <div class="welcome-feature-icon">✨</div>
+          <strong>AI</strong>
+          <small>
+            Ask questions, research, write,
+            and work with files.
+          </small>
+        </div>
+
+        <div class="welcome-feature">
+          <div class="welcome-feature-icon">💻</div>
+          <strong>Create & Build</strong>
+          <small>
+            Code, create images, build 3D projects,
+            and simulate ideas.
+          </small>
+        </div>
+
+        <div class="welcome-feature">
+          <div class="welcome-feature-icon">🎓</div>
+          <strong>Learn</strong>
+          <small>
+            Study, follow curriculums,
+            and prepare for college.
+          </small>
+        </div>
+
+        <div class="welcome-feature">
+          <div class="welcome-feature-icon">🎵</div>
+          <strong>Create More</strong>
+          <small>
+            Make music, board games, books,
+            products, and much more.
+          </small>
+        </div>
+
+      </div>
+
+      <div class="welcome-footer">
+        BigHelpAI — Learn. Create. Build. Explore.
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================
+       MAIN BIGHELPAI APP
+  ========================================================== -->
+
+  <div
+    class="app-shell"
+    id="mainApp"
+  >
+
+    <header class="topbar">
+
+      <button
+        class="mobile-menu"
+        id="mobileMenu"
+        aria-label="Open menu"
+      >
+        ☰
+      </button>
+
+      <a
+        class="brand"
+        href="#dashboard"
+        aria-label="BigHelpAI home"
+      >
         <span class="brand-mark">B</span>
         <span>BigHelpAI</span>
       </a>
 
       <div class="top-search">
-        <span class="search-icon">⌕</span>
+
+        <span class="search-icon">
+          ⌕
+        </span>
+
         <input
           id="globalSearch"
           type="search"
           placeholder="Search BigHelpAI..."
           autocomplete="off"
         >
+
         <kbd>/</kbd>
+
       </div>
 
       <div class="top-actions">
+
         <button
           class="icon-button"
           id="notificationsBtn"
@@ -39,77 +559,269 @@
           <span class="notification-dot"></span>
         </button>
 
-        <button class="profile-button" id="profileBtn">
+        <button
+          class="profile-button"
+          id="profileBtn"
+        >
           <span class="avatar">JD</span>
-          <span class="profile-text">Profile</span>
+          <span class="profile-text">
+            Profile
+          </span>
           <span>⌄</span>
         </button>
+
       </div>
+
     </header>
 
+
     <div class="workspace">
-      <aside class="sidebar" id="sidebar">
+
+      <aside
+        class="sidebar"
+        id="sidebar"
+      >
+
         <nav>
-          <a class="nav-item active" href="#dashboard" data-route="dashboard">🏠 <span>Dashboard</span></a>
-          <a class="nav-item" href="#ai" data-route="ai">✨ <span>AI</span></a>
-          <a class="nav-item" href="#coding" data-route="coding">💻 <span>Coding</span></a>
-          <a class="nav-item" href="#study" data-route="study">📚 <span>Study</span></a>
-          <a class="nav-item" href="#learning" data-route="learning">🎓 <span>Learning</span></a>
-          <a class="nav-item" href="#creation" data-route="creation">🎨 <span>Creation</span></a>
-          <a class="nav-item" href="#3d-create" data-route="3d-create">🧊 <span>3D Create</span></a>
-          <a class="nav-item" href="#sim-lab" data-route="sim-lab">🧪 <span>Sim Lab</span></a>
-          <a class="nav-item" href="#build" data-route="build">🛠️ <span>Build</span></a>
-          <a class="nav-item" href="#board-games" data-route="board-games">🎲 <span>Board Games</span></a>
-          <a class="nav-item" href="#music" data-route="music">🎵 <span>Music Creator</span></a>
-          <a class="nav-item" href="#college" data-route="college">🎓 <span>College Hub</span></a>
-          <a class="nav-item" href="#sell" data-route="sell">🛍️ <span>Sell</span></a>
-          <a class="nav-item" href="#books" data-route="books">📖 <span>Publish Books</span></a>
-          <a class="nav-item" href="#therapy" data-route="therapy">💙 <span>Therapy</span></a>
-          <a class="nav-item" href="#browser" data-route="browser">🌐 <span>Private Browser</span></a>
-          <a class="nav-item" href="#navigation" data-route="navigation">🗺️ <span>Navigation</span></a>
+
+          <a
+            class="nav-item active"
+            href="#dashboard"
+            data-route="dashboard"
+          >
+            🏠
+            <span>Dashboard</span>
+          </a>
+
+          <a
+            class="nav-item"
+            href="#ai"
+            data-route="ai"
+          >
+            ✨
+            <span>AI</span>
+          </a>
+
+          <a
+            class="nav-item"
+            href="#coding"
+            data-route="coding"
+          >
+            💻
+            <span>Coding</span>
+          </a>
+
+          <a
+            class="nav-item"
+            href="#study"
+            data-route="study"
+          >
+            📚
+            <span>Study</span>
+          </a>
+
+          <a
+            class="nav-item"
+            href="#learning"
+            data-route="learning"
+          >
+            🎓
+            <span>Learning</span>
+          </a>
+
+          <a
+            class="nav-item"
+            href="#creation"
+            data-route="creation"
+          >
+            🎨
+            <span>Creation</span>
+          </a>
+
+          <a
+            class="nav-item"
+            href="#3d-create"
+            data-route="3d-create"
+          >
+            🧊
+            <span>3D Create</span>
+          </a>
+
+          <a
+            class="nav-item"
+            href="#sim-lab"
+            data-route="sim-lab"
+          >
+            🧪
+            <span>Sim Lab</span>
+          </a>
+
+          <a
+            class="nav-item"
+            href="#build"
+            data-route="build"
+          >
+            🛠️
+            <span>Build</span>
+          </a>
+
+          <a
+            class="nav-item"
+            href="#board-games"
+            data-route="board-games"
+          >
+            🎲
+            <span>Board Games</span>
+          </a>
+
+          <a
+            class="nav-item"
+            href="#music"
+            data-route="music"
+          >
+            🎵
+            <span>Music Creator</span>
+          </a>
+
+          <a
+            class="nav-item"
+            href="#college"
+            data-route="college"
+          >
+            🎓
+            <span>College Hub</span>
+          </a>
+
+          <a
+            class="nav-item"
+            href="#sell"
+            data-route="sell"
+          >
+            🛍️
+            <span>Sell</span>
+          </a>
+
+          <a
+            class="nav-item"
+            href="#books"
+            data-route="books"
+          >
+            📖
+            <span>Publish Books</span>
+          </a>
+
+          <a
+            class="nav-item"
+            href="#therapy"
+            data-route="therapy"
+          >
+            💙
+            <span>Therapy</span>
+          </a>
+
+          <a
+            class="nav-item"
+            href="#browser"
+            data-route="browser"
+          >
+            🌐
+            <span>Private Browser</span>
+          </a>
+
+          <a
+            class="nav-item"
+            href="#navigation"
+            data-route="navigation"
+          >
+            🗺️
+            <span>Navigation</span>
+          </a>
+
         </nav>
 
+
         <div class="sidebar-section">
-          <div class="section-label">Workspace</div>
 
-          <a class="nav-item" href="#projects" data-route="projects">
-            📁 <span>Projects</span>
+          <div class="section-label">
+            Workspace
+          </div>
+
+          <a
+            class="nav-item"
+            href="#projects"
+            data-route="projects"
+          >
+            📁
+            <span>Projects</span>
           </a>
 
-          <a class="nav-item" href="#notifications" data-route="notifications">
-            🔔 <span>Notifications</span>
+          <a
+            class="nav-item"
+            href="#notifications"
+            data-route="notifications"
+          >
+            🔔
+            <span>Notifications</span>
           </a>
 
-          <a class="nav-item" href="#settings" data-route="settings">
-            ⚙️ <span>Settings</span>
+          <a
+            class="nav-item"
+            href="#settings"
+            data-route="settings"
+          >
+            ⚙️
+            <span>Settings</span>
           </a>
+
         </div>
 
+
         <div class="sidebar-bottom">
+
           <div class="premium-card">
-            <div class="premium-icon">✦</div>
+
+            <div class="premium-icon">
+              ✦
+            </div>
 
             <div>
               <strong>Premium</strong>
-              <span>Unlock more of BigHelpAI</span>
+              <span>
+                Unlock more of BigHelpAI
+              </span>
             </div>
+
           </div>
 
           <div class="sidebar-footer">
             © BigHelpAI
           </div>
+
         </div>
+
       </aside>
 
+
       <main class="main-content">
-        <section class="dashboard" id="dashboardView">
+
+        <section
+          class="dashboard"
+          id="dashboardView"
+        >
+
           <div class="hero-row">
+
             <div>
-              <p class="eyebrow">YOUR AI WORKSPACE</p>
+
+              <p class="eyebrow">
+                YOUR AI WORKSPACE
+              </p>
 
               <h1>
                 Hi! My name is
-                <span class="accent">Hellpy</span>.
+                <span class="accent">
+                  Hellpy
+                </span>.
               </h1>
 
               <p class="hero-subtitle">
@@ -117,6 +829,7 @@
               </p>
 
               <div class="hero-actions">
+
                 <button
                   class="primary-button"
                   data-route-button="ai"
@@ -130,128 +843,246 @@
                 >
                   Open Projects
                 </button>
+
               </div>
+
             </div>
+
 
             <div class="hellpy-card">
-              <div class="hellpy-orb">H</div>
+
+              <div class="hellpy-orb">
+                H
+              </div>
 
               <div>
-                <strong>Hellpy</strong>
-                <span>Your general BigHelpAI assistant</span>
+                <strong>
+                  Hellpy
+                </strong>
+
+                <span>
+                  Your general BigHelpAI assistant
+                </span>
               </div>
+
             </div>
+
           </div>
+
 
           <div class="section-heading">
+
             <div>
-              <h2>What do you want to do?</h2>
-              <p>Jump into a BigHelpAI workspace.</p>
+
+              <h2>
+                What do you want to do?
+              </h2>
+
+              <p>
+                Jump into a BigHelpAI workspace.
+              </p>
+
             </div>
+
           </div>
 
-          <div class="mode-grid" id="modeGrid">
-            <button class="mode-card featured" data-route-button="ai">
+
+          <div
+            class="mode-grid"
+            id="modeGrid"
+          >
+
+            <button
+              class="mode-card featured"
+              data-route-button="ai"
+            >
               <span>✨</span>
               <strong>AI</strong>
-              <small>Ask, write, research & more</small>
+              <small>
+                Ask, write, research & more
+              </small>
             </button>
 
-            <button class="mode-card" data-route-button="coding">
+            <button
+              class="mode-card"
+              data-route-button="coding"
+            >
               <span>💻</span>
               <strong>Coding</strong>
-              <small>Build and debug projects</small>
+              <small>
+                Build and debug projects
+              </small>
             </button>
 
-            <button class="mode-card" data-route-button="study">
+            <button
+              class="mode-card"
+              data-route-button="study"
+            >
               <span>📚</span>
               <strong>Study</strong>
-              <small>Homework and practice</small>
+              <small>
+                Homework and practice
+              </small>
             </button>
 
-            <button class="mode-card" data-route-button="learning">
+            <button
+              class="mode-card"
+              data-route-button="learning"
+            >
               <span>🎓</span>
               <strong>Learning</strong>
-              <small>Lessons, quizzes and exams</small>
+              <small>
+                Lessons, quizzes and exams
+              </small>
             </button>
 
-            <button class="mode-card" data-route-button="creation">
+            <button
+              class="mode-card"
+              data-route-button="creation"
+            >
               <span>🎨</span>
               <strong>Creation</strong>
-              <small>Images and creative projects</small>
+              <small>
+                Images and creative projects
+              </small>
             </button>
 
-            <button class="mode-card" data-route-button="3d-create">
+            <button
+              class="mode-card"
+              data-route-button="3d-create"
+            >
               <span>🧊</span>
               <strong>3D Create</strong>
-              <small>Build objects and machines</small>
+              <small>
+                Build objects and machines
+              </small>
             </button>
 
-            <button class="mode-card" data-route-button="sim-lab">
+            <button
+              class="mode-card"
+              data-route-button="sim-lab"
+            >
               <span>🧪</span>
               <strong>Sim Lab</strong>
-              <small>Test physics and electronics</small>
+              <small>
+                Test physics and electronics
+              </small>
             </button>
 
-            <button class="mode-card" data-route-button="build">
+            <button
+              class="mode-card"
+              data-route-button="build"
+            >
               <span>🛠️</span>
               <strong>Build</strong>
-              <small>Connect code, 3D and AI</small>
+              <small>
+                Connect code, 3D and AI
+              </small>
             </button>
 
-            <button class="mode-card" data-route-button="board-games">
+            <button
+              class="mode-card"
+              data-route-button="board-games"
+            >
               <span>🎲</span>
               <strong>Board Games</strong>
-              <small>Create or learn games</small>
+              <small>
+                Create or learn games
+              </small>
             </button>
 
-            <button class="mode-card" data-route-button="music">
+            <button
+              class="mode-card"
+              data-route-button="music"
+            >
               <span>🎵</span>
               <strong>Music Creator</strong>
-              <small>Compose and arrange music</small>
+              <small>
+                Compose and arrange music
+              </small>
             </button>
 
-            <button class="mode-card" data-route-button="college">
+            <button
+              class="mode-card"
+              data-route-button="college"
+            >
               <span>🎓</span>
               <strong>College Hub</strong>
-              <small>College work and applications</small>
+              <small>
+                College work and applications
+              </small>
             </button>
 
-            <button class="mode-card" data-route-button="sell">
+            <button
+              class="mode-card"
+              data-route-button="sell"
+            >
               <span>🛍️</span>
               <strong>Sell</strong>
-              <small>Build and list products</small>
+              <small>
+                Build and list products
+              </small>
             </button>
 
-            <button class="mode-card" data-route-button="books">
+            <button
+              class="mode-card"
+              data-route-button="books"
+            >
               <span>📖</span>
               <strong>Publish Books</strong>
-              <small>Turn manuscripts into books</small>
+              <small>
+                Turn manuscripts into books
+              </small>
             </button>
 
-            <button class="mode-card" data-route-button="therapy">
+            <button
+              class="mode-card"
+              data-route-button="therapy"
+            >
               <span>💙</span>
               <strong>Therapy</strong>
-              <small>Support and next steps</small>
+              <small>
+                Support and next steps
+              </small>
             </button>
 
-            <button class="mode-card" data-route-button="browser">
+            <button
+              class="mode-card"
+              data-route-button="browser"
+            >
               <span>🌐</span>
               <strong>Private Browser</strong>
-              <small>Privacy-focused browsing</small>
+              <small>
+                Privacy-focused browsing
+              </small>
             </button>
 
-            <button class="mode-card" data-route-button="navigation">
+            <button
+              class="mode-card"
+              data-route-button="navigation"
+            >
               <span>🗺️</span>
               <strong>Navigation</strong>
-              <small>Plan trips and compare travel</small>
+              <small>
+                Plan trips and compare travel
+              </small>
             </button>
+
           </div>
 
+
           <div class="section-heading recent-heading">
+
             <div>
-              <h2>Recent Projects</h2>
-              <p>Your latest work in one place.</p>
+
+              <h2>
+                Recent Projects
+              </h2>
+
+              <p>
+                Your latest work in one place.
+              </p>
+
             </div>
 
             <button
@@ -260,18 +1091,28 @@
             >
               View all →
             </button>
+
           </div>
 
+
           <div class="project-list">
+
             <button
               class="project-row"
               data-project="Space Project"
             >
-              <span class="project-icon">🚀</span>
+              <span class="project-icon">
+                🚀
+              </span>
 
               <span class="project-main">
-                <strong>Space Project</strong>
-                <small>Creation · 3D</small>
+                <strong>
+                  Space Project
+                </strong>
+
+                <small>
+                  Creation · 3D
+                </small>
               </span>
 
               <span class="project-time">
@@ -279,45 +1120,65 @@
               </span>
             </button>
 
+
             <button
               class="project-row"
               data-project="Robot"
             >
-              <span class="project-icon">🤖</span>
+              <span class="project-icon">
+                🤖
+              </span>
 
               <span class="project-main">
-                <strong>Robot</strong>
-                <small>3D Create · Sim Lab</small>
+                <strong>
+                  Robot
+                </strong>
+
+                <small>
+                  3D Create · Sim Lab
+                </small>
               </span>
 
               <span class="project-time">
                 Updated yesterday
               </span>
             </button>
+
 
             <button
               class="project-row"
               data-project="Music Project"
             >
-              <span class="project-icon">🎵</span>
+              <span class="project-icon">
+                🎵
+              </span>
 
               <span class="project-main">
-                <strong>Music Project</strong>
-                <small>Music Creator</small>
+                <strong>
+                  Music Project
+                </strong>
+
+                <small>
+                  Music Creator
+                </small>
               </span>
 
               <span class="project-time">
                 Updated yesterday
               </span>
             </button>
+
           </div>
+
         </section>
+
 
         <section
           class="placeholder-view"
           id="placeholderView"
           hidden
         >
+
           <button
             class="back-button"
             data-route-button="dashboard"
@@ -348,6 +1209,7 @@
           </p>
 
           <div class="placeholder-actions">
+
             <button
               class="primary-button"
               id="placeholderPrimary"
@@ -361,16 +1223,23 @@
             >
               Back to dashboard
             </button>
+
           </div>
 
           <p class="prototype-note">
             This redesigned front end is the foundation.
-            Advanced backend services will be connected in later stages.
+            Advanced backend services will be connected
+            in later stages.
           </p>
+
         </section>
+
       </main>
+
     </div>
+
   </div>
+
 
   <div
     class="toast"
@@ -379,6 +1248,92 @@
     aria-live="polite"
   ></div>
 
+
+  <!-- =========================================================
+       OPENING SCREEN BEHAVIOR
+  ========================================================== -->
+
+  <script>
+    const welcomeScreen =
+      document.getElementById("welcomeScreen");
+
+    const mainApp =
+      document.getElementById("mainApp");
+
+    const continueGuest =
+      document.getElementById("continueGuest");
+
+    const welcomeSignIn =
+      document.getElementById("welcomeSignIn");
+
+    const welcomeRegister =
+      document.getElementById("welcomeRegister");
+
+
+    function enterBigHelpAI() {
+      welcomeScreen.classList.add(
+        "welcome-hidden"
+      );
+
+      mainApp.classList.remove(
+        "welcome-hidden"
+      );
+
+      document.body.style.overflow = "";
+    }
+
+
+    function showWelcomeMessage(message) {
+      window.alert(message);
+    }
+
+
+    continueGuest.addEventListener(
+      "click",
+      () => {
+        localStorage.setItem(
+          "bighelpai-welcome-seen",
+          "true"
+        );
+
+        enterBigHelpAI();
+      }
+    );
+
+
+    welcomeSignIn.addEventListener(
+      "click",
+      () => {
+        showWelcomeMessage(
+          "Sign In will be connected when the BigHelpAI account system is built."
+        );
+      }
+    );
+
+
+    welcomeRegister.addEventListener(
+      "click",
+      () => {
+        showWelcomeMessage(
+          "Register will be connected when the BigHelpAI account system is built."
+        );
+      }
+    );
+
+
+    /*
+      For now the welcome page is shown every time
+      the browser loads the site.
+
+      This lets us test the opening experience.
+    */
+
+    document.body.style.overflow = "hidden";
+  </script>
+
+
+  <!-- Existing BigHelpAI app logic -->
   <script src="app.js"></script>
+
 </body>
 </html>
