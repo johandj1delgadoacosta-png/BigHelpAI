@@ -1,3 +1,4 @@
+console.log("BigHelpAI app.js loaded");
 const modeInfo = {
   dashboard: {
     title: "Dashboard",
