@@ -1,617 +1,384 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>BigHelpAI</title>
-
-    <meta
-        name="description"
-        content="BigHelpAI transforms huge ideas into images, 3D models, and creative experiences."
-    >
-
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="BigHelpAI — Learn. Create. Build. Explore.">
+  <title>BigHelpAI</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-    <!-- =========================
-         HEADER
-    ========================== -->
-
+  <div class="app-shell">
     <header class="topbar">
+      <button class="mobile-menu" id="mobileMenu" aria-label="Open menu">☰</button>
 
-        <a href="#home" class="logo">
-            <span class="logo-mark">B</span>
-            <span>BigHelpAI</span>
-        </a>
+      <a class="brand" href="#dashboard" aria-label="BigHelpAI home">
+        <span class="brand-mark">B</span>
+        <span>BigHelpAI</span>
+      </a>
 
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#create">Create</a>
-            <a href="#results">Results</a>
-            <a href="#about">About</a>
-        </nav>
+      <div class="top-search">
+        <span class="search-icon">⌕</span>
+        <input
+          id="globalSearch"
+          type="search"
+          placeholder="Search BigHelpAI..."
+          autocomplete="off"
+        >
+        <kbd>/</kbd>
+      </div>
 
+      <div class="top-actions">
+        <button
+          class="icon-button"
+          id="notificationsBtn"
+          title="Notifications"
+          aria-label="Notifications"
+        >
+          🔔
+          <span class="notification-dot"></span>
+        </button>
+
+        <button class="profile-button" id="profileBtn">
+          <span class="avatar">JD</span>
+          <span class="profile-text">Profile</span>
+          <span>⌄</span>
+        </button>
+      </div>
     </header>
 
-
-    <!-- =========================
-         MAIN
-    ========================== -->
-
-    <main>
-
-        <!-- HERO -->
-
-        <section id="home" class="hero">
-
-            <div class="hero-content">
-
-                <div class="badge">
-                    ✦ BIGHELPAI CREATIVE STUDIO
-                </div>
-
-                <h1>
-                    Turn your biggest
-                    <span>ideas</span>
-                    into something real.
-                </h1>
-
-                <p>
-                    Describe something simple or extremely complex.
-                    BigHelpAI is being built to turn huge descriptions
-                    into visual creations, images, and interactive 3D worlds.
-                </p>
-
-                <a href="#create" class="hero-button">
-                    Start creating
-                </a>
-
-            </div>
-
-        </section>
-
-
-        <!-- CREATE -->
-
-        <section id="create" class="creator-section">
-
-            <div class="section-heading">
-
-                <div>
-
-                    <div class="small-label">
-                        CREATE
-                    </div>
-
-                    <h2>
-                        Describe anything
-                    </h2>
-
-                    <p>
-                        Your description can be short, detailed, or extremely long.
-                    </p>
-
-                </div>
-
-                <div id="characterCount">
-                    0 characters
-                </div>
-
-            </div>
-
-
-            <div class="creator-card">
-
-                <textarea
-                    id="ideaInput"
-                    placeholder="Paste your giant paragraph here..."
-                    aria-label="BigHelpAI description"
-                ></textarea>
-
-
-                <div class="creator-options">
-
-                    <div class="option-group">
-
-                        <label for="creationMode">
-                            Creation mode
-                        </label>
-
-                        <select id="creationMode">
-
-                            <option value="all">
-                                Image + 3D
-                            </option>
-
-                            <option value="image">
-                                Image
-                            </option>
-
-                            <option value="3d">
-                                3D Model
-                            </option>
-
-                        </select>
-
-                    </div>
-
-
-                    <div class="option-group">
-
-                        <label for="visualStyle">
-                            Visual style
-                        </label>
-
-                        <select id="visualStyle">
-
-                            <option value="cinematic">
-                                Cinematic
-                            </option>
-
-                            <option value="realistic">
-                                Realistic
-                            </option>
-
-                            <option value="futuristic">
-                                Futuristic
-                            </option>
-
-                            <option value="stylized">
-                                Stylized
-                            </option>
-
-                        </select>
-
-                    </div>
-
-
-                    <div class="option-group">
-
-                        <label for="detailLevel">
-                            Detail level
-                        </label>
-
-                        <select id="detailLevel">
-
-                            <option value="high">
-                                High
-                            </option>
-
-                            <option value="medium">
-                                Medium
-                            </option>
-
-                            <option value="extreme">
-                                Extreme
-                            </option>
-
-                        </select>
-
-                    </div>
-
-                </div>
-
-
-                <div class="creator-controls">
-
-                    <button
-                        id="exampleButton"
-                        class="secondary-button"
-                        type="button"
-                    >
-                        Load example
-                    </button>
-
-                    <button
-                        id="clearButton"
-                        class="secondary-button"
-                        type="button"
-                    >
-                        Clear
-                    </button>
-
-                    <button
-                        id="createButton"
-                        class="primary-button"
-                        type="button"
-                    >
-                        Create
-                    </button>
-
-                </div>
-
-
-                <div class="creation-note">
-
-                    <span>✦</span>
-
-                    <p>
-                        Advanced AI generation will be connected after
-                        the BigHelpAI foundation is finished.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- RESULTS -->
-
-        <section id="results" class="results-section">
-
-            <div class="section-heading">
-
-                <div>
-
-                    <div class="small-label">
-                        RESULTS
-                    </div>
-
-                    <h2>
-                        Your creations
-                    </h2>
-
-                    <p>
-                        This area will hold your generated images and 3D models.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="results-grid">
-
-                <!-- DESCRIPTION RESULT -->
-
-                <article class="result-card">
-
-                    <div class="result-card-header">
-
-                        <div>
-
-                            <div class="result-label">
-                                DESCRIPTION
-                            </div>
-
-                            <h3>
-                                Project information
-                            </h3>
-
-                        </div>
-
-                        <span class="result-status">
-                            Ready
-                        </span>
-
-                    </div>
-
-
-                    <div id="descriptionResult" class="result-content">
-
-                        <div class="result-placeholder">
-
-                            <div class="placeholder-icon">
-                                ◈
-                            </div>
-
-                            <p>
-                                Your project information will appear here.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-                <!-- IMAGE RESULT -->
-
-                <article class="result-card">
-
-                    <div class="result-card-header">
-
-                        <div>
-
-                            <div class="result-label">
-                                IMAGE
-                            </div>
-
-                            <h3>
-                                AI Image
-                            </h3>
-
-                        </div>
-
-                        <span class="result-status">
-                            Waiting
-                        </span>
-
-                    </div>
-
-
-                    <div id="imageResult" class="result-content">
-
-                        <div class="result-placeholder">
-
-                            <div class="placeholder-icon">
-                                ◇
-                            </div>
-
-                            <p>
-                                Your generated image will appear here.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-                <!-- 3D RESULT -->
-
-                <article class="result-card result-card-wide">
-
-                    <div class="result-card-header">
-
-                        <div>
-
-                            <div class="result-label">
-                                THREE DIMENSIONAL
-                            </div>
-
-                            <h3>
-                                3D Model
-                            </h3>
-
-                        </div>
-
-                        <span class="result-status">
-                            Waiting
-                        </span>
-
-                    </div>
-
-
-                    <div id="modelResult" class="result-content model-result">
-
-                        <div class="result-placeholder">
-
-                            <div class="placeholder-icon">
-                                ✦
-                            </div>
-
-                            <p>
-                                Your interactive 3D model will appear here.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="model-controls">
-
-                        <button
-                            id="rotateModelButton"
-                            class="secondary-button"
-                            type="button"
-                        >
-                            Rotate
-                        </button>
-
-                        <button
-                            id="resetModelButton"
-                            class="secondary-button"
-                            type="button"
-                        >
-                            Reset view
-                        </button>
-
-                        <button
-                            id="downloadModelButton"
-                            class="secondary-button"
-                            type="button"
-                        >
-                            Download 3D Model
-                        </button>
-
-                    </div>
-
-                </article>
-
-            </div>
-
-        </section>
-
-
-        <!-- FEATURES -->
-
-        <section class="features-section">
-
-            <div class="section-heading centered">
-
-                <div>
-
-                    <div class="small-label">
-                        BUILT FOR BIG IDEAS
-                    </div>
-
-                    <h2>
-                        More than a text box.
-                    </h2>
-
-                    <p>
-                        BigHelpAI is being designed as a complete creative workspace.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="features">
-
-                <div class="feature-card">
-
-                    <div class="feature-icon">
-                        ◈
-                    </div>
-
-                    <h3>
-                        Huge descriptions
-                    </h3>
-
-                    <p>
-                        Built around the idea of handling detailed descriptions
-                        containing many objects, materials, measurements, colors,
-                        systems, and relationships.
-                    </p>
-
-                </div>
-
-
-                <div class="feature-card">
-
-                    <div class="feature-icon">
-                        ◇
-                    </div>
-
-                    <h3>
-                        Image creation
-                    </h3>
-
-                    <p>
-                        A future image-generation system will transform your
-                        descriptions into detailed visual concepts.
-                    </p>
-
-                </div>
-
-
-                <div class="feature-card">
-
-                    <div class="feature-icon">
-                        ✦
-                    </div>
-
-                    <h3>
-                        3D generation
-                    </h3>
-
-                    <p>
-                        The long-term goal is to create interactive 3D objects
-                        and environments from your descriptions.
-                    </p>
-
-                </div>
-
-
-                <div class="feature-card">
-
-                    <div class="feature-icon">
-                        ◎
-                    </div>
-
-                    <h3>
-                        Multiple AI specialists
-                    </h3>
-
-                    <p>
-                        Later, several specialized AI systems can work together
-                        to analyze, create, check, and improve results.
-                    </p>
-
-                </div>
-
-
-                <div class="feature-card">
-
-                    <div class="feature-icon">
-                        ⬡
-                    </div>
-
-                    <h3>
-                        Creative workspace
-                    </h3>
-
-                    <p>
-                        Your future projects can contain images, 3D models,
-                        descriptions, settings, and saved creations.
-                    </p>
-
-                </div>
-
-
-                <div class="feature-card">
-
-                    <div class="feature-icon">
-                        ↓
-                    </div>
-
-                    <h3>
-                        Export
-                    </h3>
-
-                    <p>
-                        The eventual system will let you save and export
-                        generated creations and 3D models.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ABOUT -->
-
-        <section id="about" class="about-section">
-
-            <div class="small-label">
-                BIGHELPAI
-            </div>
-
-            <h2>
-                One paragraph.
-                <span>Big possibilities.</span>
-            </h2>
-
-            <p>
-                BigHelpAI is being built step-by-step. First comes the
-                website foundation. Then the interactive creative tools.
-                Advanced AI generation will come later.
-            </p>
-
-        </section>
-
-    </main>
-
-
-    <!-- FOOTER -->
-
-    <footer>
-
-        <div>
-            © 2026 BigHelpAI
+    <div class="workspace">
+      <aside class="sidebar" id="sidebar">
+        <nav>
+          <a class="nav-item active" href="#dashboard" data-route="dashboard">🏠 <span>Dashboard</span></a>
+          <a class="nav-item" href="#ai" data-route="ai">✨ <span>AI</span></a>
+          <a class="nav-item" href="#coding" data-route="coding">💻 <span>Coding</span></a>
+          <a class="nav-item" href="#study" data-route="study">📚 <span>Study</span></a>
+          <a class="nav-item" href="#learning" data-route="learning">🎓 <span>Learning</span></a>
+          <a class="nav-item" href="#creation" data-route="creation">🎨 <span>Creation</span></a>
+          <a class="nav-item" href="#3d-create" data-route="3d-create">🧊 <span>3D Create</span></a>
+          <a class="nav-item" href="#sim-lab" data-route="sim-lab">🧪 <span>Sim Lab</span></a>
+          <a class="nav-item" href="#build" data-route="build">🛠️ <span>Build</span></a>
+          <a class="nav-item" href="#board-games" data-route="board-games">🎲 <span>Board Games</span></a>
+          <a class="nav-item" href="#music" data-route="music">🎵 <span>Music Creator</span></a>
+          <a class="nav-item" href="#college" data-route="college">🎓 <span>College Hub</span></a>
+          <a class="nav-item" href="#sell" data-route="sell">🛍️ <span>Sell</span></a>
+          <a class="nav-item" href="#books" data-route="books">📖 <span>Publish Books</span></a>
+          <a class="nav-item" href="#therapy" data-route="therapy">💙 <span>Therapy</span></a>
+          <a class="nav-item" href="#browser" data-route="browser">🌐 <span>Private Browser</span></a>
+          <a class="nav-item" href="#navigation" data-route="navigation">🗺️ <span>Navigation</span></a>
+        </nav>
+
+        <div class="sidebar-section">
+          <div class="section-label">Workspace</div>
+
+          <a class="nav-item" href="#projects" data-route="projects">
+            📁 <span>Projects</span>
+          </a>
+
+          <a class="nav-item" href="#notifications" data-route="notifications">
+            🔔 <span>Notifications</span>
+          </a>
+
+          <a class="nav-item" href="#settings" data-route="settings">
+            ⚙️ <span>Settings</span>
+          </a>
         </div>
 
-        <div>
-            Building something bigger.
+        <div class="sidebar-bottom">
+          <div class="premium-card">
+            <div class="premium-icon">✦</div>
+
+            <div>
+              <strong>Premium</strong>
+              <span>Unlock more of BigHelpAI</span>
+            </div>
+          </div>
+
+          <div class="sidebar-footer">
+            © BigHelpAI
+          </div>
         </div>
+      </aside>
 
-    </footer>
+      <main class="main-content">
+        <section class="dashboard" id="dashboardView">
+          <div class="hero-row">
+            <div>
+              <p class="eyebrow">YOUR AI WORKSPACE</p>
 
+              <h1>
+                Hi! My name is
+                <span class="accent">Hellpy</span>.
+              </h1>
 
-    <script src="app.js"></script>
+              <p class="hero-subtitle">
+                What do you want to do today?
+              </p>
 
+              <div class="hero-actions">
+                <button
+                  class="primary-button"
+                  data-route-button="ai"
+                >
+                  Start with AI
+                </button>
+
+                <button
+                  class="secondary-button"
+                  data-route-button="projects"
+                >
+                  Open Projects
+                </button>
+              </div>
+            </div>
+
+            <div class="hellpy-card">
+              <div class="hellpy-orb">H</div>
+
+              <div>
+                <strong>Hellpy</strong>
+                <span>Your general BigHelpAI assistant</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="section-heading">
+            <div>
+              <h2>What do you want to do?</h2>
+              <p>Jump into a BigHelpAI workspace.</p>
+            </div>
+          </div>
+
+          <div class="mode-grid" id="modeGrid">
+            <button class="mode-card featured" data-route-button="ai">
+              <span>✨</span>
+              <strong>AI</strong>
+              <small>Ask, write, research & more</small>
+            </button>
+
+            <button class="mode-card" data-route-button="coding">
+              <span>💻</span>
+              <strong>Coding</strong>
+              <small>Build and debug projects</small>
+            </button>
+
+            <button class="mode-card" data-route-button="study">
+              <span>📚</span>
+              <strong>Study</strong>
+              <small>Homework and practice</small>
+            </button>
+
+            <button class="mode-card" data-route-button="learning">
+              <span>🎓</span>
+              <strong>Learning</strong>
+              <small>Lessons, quizzes and exams</small>
+            </button>
+
+            <button class="mode-card" data-route-button="creation">
+              <span>🎨</span>
+              <strong>Creation</strong>
+              <small>Images and creative projects</small>
+            </button>
+
+            <button class="mode-card" data-route-button="3d-create">
+              <span>🧊</span>
+              <strong>3D Create</strong>
+              <small>Build objects and machines</small>
+            </button>
+
+            <button class="mode-card" data-route-button="sim-lab">
+              <span>🧪</span>
+              <strong>Sim Lab</strong>
+              <small>Test physics and electronics</small>
+            </button>
+
+            <button class="mode-card" data-route-button="build">
+              <span>🛠️</span>
+              <strong>Build</strong>
+              <small>Connect code, 3D and AI</small>
+            </button>
+
+            <button class="mode-card" data-route-button="board-games">
+              <span>🎲</span>
+              <strong>Board Games</strong>
+              <small>Create or learn games</small>
+            </button>
+
+            <button class="mode-card" data-route-button="music">
+              <span>🎵</span>
+              <strong>Music Creator</strong>
+              <small>Compose and arrange music</small>
+            </button>
+
+            <button class="mode-card" data-route-button="college">
+              <span>🎓</span>
+              <strong>College Hub</strong>
+              <small>College work and applications</small>
+            </button>
+
+            <button class="mode-card" data-route-button="sell">
+              <span>🛍️</span>
+              <strong>Sell</strong>
+              <small>Build and list products</small>
+            </button>
+
+            <button class="mode-card" data-route-button="books">
+              <span>📖</span>
+              <strong>Publish Books</strong>
+              <small>Turn manuscripts into books</small>
+            </button>
+
+            <button class="mode-card" data-route-button="therapy">
+              <span>💙</span>
+              <strong>Therapy</strong>
+              <small>Support and next steps</small>
+            </button>
+
+            <button class="mode-card" data-route-button="browser">
+              <span>🌐</span>
+              <strong>Private Browser</strong>
+              <small>Privacy-focused browsing</small>
+            </button>
+
+            <button class="mode-card" data-route-button="navigation">
+              <span>🗺️</span>
+              <strong>Navigation</strong>
+              <small>Plan trips and compare travel</small>
+            </button>
+          </div>
+
+          <div class="section-heading recent-heading">
+            <div>
+              <h2>Recent Projects</h2>
+              <p>Your latest work in one place.</p>
+            </div>
+
+            <button
+              class="text-button"
+              data-route-button="projects"
+            >
+              View all →
+            </button>
+          </div>
+
+          <div class="project-list">
+            <button
+              class="project-row"
+              data-project="Space Project"
+            >
+              <span class="project-icon">🚀</span>
+
+              <span class="project-main">
+                <strong>Space Project</strong>
+                <small>Creation · 3D</small>
+              </span>
+
+              <span class="project-time">
+                Updated today
+              </span>
+            </button>
+
+            <button
+              class="project-row"
+              data-project="Robot"
+            >
+              <span class="project-icon">🤖</span>
+
+              <span class="project-main">
+                <strong>Robot</strong>
+                <small>3D Create · Sim Lab</small>
+              </span>
+
+              <span class="project-time">
+                Updated yesterday
+              </span>
+            </button>
+
+            <button
+              class="project-row"
+              data-project="Music Project"
+            >
+              <span class="project-icon">🎵</span>
+
+              <span class="project-main">
+                <strong>Music Project</strong>
+                <small>Music Creator</small>
+              </span>
+
+              <span class="project-time">
+                Updated yesterday
+              </span>
+            </button>
+          </div>
+        </section>
+
+        <section
+          class="placeholder-view"
+          id="placeholderView"
+          hidden
+        >
+          <button
+            class="back-button"
+            data-route-button="dashboard"
+          >
+            ← Dashboard
+          </button>
+
+          <div
+            class="placeholder-icon"
+            id="placeholderIcon"
+          >
+            ✨
+          </div>
+
+          <p
+            class="eyebrow"
+            id="placeholderLabel"
+          >
+            BIGHELPAI
+          </p>
+
+          <h1 id="placeholderTitle">
+            AI
+          </h1>
+
+          <p id="placeholderDescription">
+            Your workspace is ready for the next step.
+          </p>
+
+          <div class="placeholder-actions">
+            <button
+              class="primary-button"
+              id="placeholderPrimary"
+            >
+              Open workspace
+            </button>
+
+            <button
+              class="secondary-button"
+              data-route-button="dashboard"
+            >
+              Back to dashboard
+            </button>
+          </div>
+
+          <p class="prototype-note">
+            This redesigned front end is the foundation.
+            Advanced backend services will be connected in later stages.
+          </p>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <div
+    class="toast"
+    id="toast"
+    role="status"
+    aria-live="polite"
+  ></div>
+
+  <script src="app.js"></script>
 </body>
 </html>
