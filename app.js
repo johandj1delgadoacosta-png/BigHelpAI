@@ -213,9 +213,6 @@ const profileBtn =
 const globalSearch =
   document.getElementById("globalSearch");
 
-const premiumCard =
-  document.querySelector(".premium-card");
-
 
 /* =========================================================
    TOAST
@@ -227,7 +224,6 @@ function showToast(message) {
   }
 
   toast.textContent = message;
-
   toast.classList.add("show");
 
   clearTimeout(showToast.timer);
@@ -307,11 +303,13 @@ function renderRoute(route) {
   document.title =
     `${info.title} · BigHelpAI`;
 
-  placeholderPrimary.onclick = () => {
-    showToast(
-      `${info.title} workspace is ready for the next build stage.`
-    );
-  };
+  if (placeholderPrimary) {
+    placeholderPrimary.onclick = () => {
+      showToast(
+        `${info.title} workspace is ready for the next build stage.`
+      );
+    };
+  }
 
   closeMobileSidebar();
 }
@@ -411,48 +409,6 @@ document
       }
     );
   });
-
-
-/* =========================================================
-   PREMIUM
-========================================================= */
-
-if (premiumCard) {
-  premiumCard.setAttribute(
-    "role",
-    "button"
-  );
-
-  premiumCard.setAttribute(
-    "tabindex",
-    "0"
-  );
-
-  premiumCard.setAttribute(
-    "aria-label",
-    "Open BigHelpAI Premium"
-  );
-
-  premiumCard.addEventListener(
-    "click",
-    () => {
-      navigate("premium");
-    }
-  );
-
-  premiumCard.addEventListener(
-    "keydown",
-    event => {
-      if (
-        event.key === "Enter" ||
-        event.key === " "
-      ) {
-        event.preventDefault();
-        navigate("premium");
-      }
-    }
-  );
-}
 
 
 /* =========================================================
