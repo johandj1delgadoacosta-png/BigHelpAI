@@ -26,7 +26,6 @@
       position: fixed;
       inset: 0;
       z-index: 1000;
-
       overflow-y: auto;
 
       display: flex;
@@ -99,9 +98,7 @@
         );
 
       line-height: 0.98;
-
       letter-spacing: -0.055em;
-
       font-weight: 900;
     }
 
@@ -122,10 +119,7 @@
     .welcome-subtitle {
       max-width: 760px;
 
-      margin:
-        22px
-        auto
-        0;
+      margin: 22px auto 0;
 
       color: #b7bfd0;
 
@@ -146,14 +140,10 @@
     .feature-showcase {
       width: min(980px, 100%);
 
-      margin:
-        38px
-        auto
-        0;
+      margin: 38px auto 0;
 
       border:
-        1px
-        solid
+        1px solid
         rgba(255, 255, 255, 0.10);
 
       border-radius: 24px;
@@ -232,10 +222,7 @@
       width: 105px;
       height: 105px;
 
-      margin:
-        0
-        auto
-        20px;
+      margin: 0 auto 20px;
 
       border-radius: 30px;
 
@@ -256,12 +243,6 @@
         25px
         70px
         rgba(34, 211, 238, 0.15);
-
-      animation:
-        showcaseFloat
-        4s
-        ease-in-out
-        infinite;
     }
 
     .showcase-content h2 {
@@ -282,10 +263,7 @@
     .showcase-content p {
       max-width: 620px;
 
-      margin:
-        12px
-        auto
-        0;
+      margin: 12px auto 0;
 
       color: #aeb7ca;
 
@@ -299,9 +277,7 @@
 
       margin-top: 17px;
 
-      padding:
-        7px
-        11px;
+      padding: 7px 11px;
 
       border-radius: 999px;
 
@@ -309,8 +285,7 @@
         rgba(139, 92, 246, 0.12);
 
       border:
-        1px
-        solid
+        1px solid
         rgba(139, 92, 246, 0.22);
 
       color: #c4b5fd;
@@ -330,7 +305,6 @@
       bottom: 18px;
 
       display: flex;
-
       align-items: center;
       justify-content: space-between;
 
@@ -346,8 +320,7 @@
       border-radius: 12px;
 
       border:
-        1px
-        solid
+        1px solid
         rgba(255, 255, 255, 0.10);
 
       background:
@@ -358,14 +331,8 @@
       font-size: 17px;
     }
 
-    .showcase-arrow:hover {
-      background:
-        rgba(255, 255, 255, 0.08);
-    }
-
     .showcase-dots {
       display: flex;
-
       align-items: center;
       justify-content: center;
 
@@ -442,7 +409,6 @@
 
     .welcome-actions {
       display: flex;
-
       justify-content: center;
       flex-wrap: wrap;
 
@@ -455,15 +421,12 @@
       min-width: 155px;
       min-height: 48px;
 
-      padding:
-        12px
-        20px;
+      padding: 12px 20px;
 
       border-radius: 13px;
 
       border:
-        1px
-        solid
+        1px solid
         rgba(255, 255, 255, 0.11);
 
       color: white;
@@ -477,8 +440,7 @@
     }
 
     .welcome-action:hover {
-      transform:
-        translateY(-2px);
+      transform: translateY(-2px);
     }
 
     .welcome-signin {
@@ -502,9 +464,7 @@
     }
 
     .welcome-guest {
-      background:
-        transparent;
-
+      background: transparent;
       color: #aeb7ca;
     }
 
@@ -514,10 +474,6 @@
       background:
         rgba(255, 255, 255, 0.04);
     }
-
-    /* =====================================================
-       FEATURE CARDS
-    ===================================================== */
 
     .welcome-feature-row {
       display: grid;
@@ -539,8 +495,7 @@
       text-align: left;
 
       border:
-        1px
-        solid
+        1px solid
         rgba(255, 255, 255, 0.08);
 
       border-radius: 16px;
@@ -551,7 +506,6 @@
 
     .welcome-feature-icon {
       font-size: 22px;
-
       margin-bottom: 10px;
     }
 
@@ -588,7 +542,7 @@
     }
 
     /* =====================================================
-       AUTH SCREEN
+       POLISHED AUTHENTICATION
     ===================================================== */
 
     .auth-screen {
@@ -605,18 +559,18 @@
 
       background:
         radial-gradient(
-          circle at 20% 20%,
+          circle at 18% 18%,
           rgba(139, 92, 246, 0.22),
-          transparent 30%
-        ),
-        radial-gradient(
-          circle at 80% 20%,
-          rgba(34, 211, 238, 0.13),
           transparent 28%
         ),
-        rgba(5, 6, 10, 0.94);
+        radial-gradient(
+          circle at 82% 22%,
+          rgba(34, 211, 238, 0.13),
+          transparent 25%
+        ),
+        rgba(5, 6, 10, 0.95);
 
-      backdrop-filter: blur(18px);
+      backdrop-filter: blur(20px);
     }
 
     .auth-screen[hidden] {
@@ -624,87 +578,84 @@
     }
 
     .auth-card {
-      width: min(460px, 100%);
+      width: min(1020px, 100%);
 
-      max-height: 90vh;
+      min-height: 600px;
 
-      overflow-y: auto;
+      display: grid;
+
+      grid-template-columns:
+        minmax(0, 0.95fr)
+        minmax(0, 1.05fr);
 
       position: relative;
 
-      padding: 32px;
+      overflow: hidden;
 
       border:
-        1px
-        solid
+        1px solid
         rgba(255, 255, 255, 0.10);
 
-      border-radius: 24px;
+      border-radius: 28px;
 
       background:
         linear-gradient(
           145deg,
-          rgba(20, 23, 34, 0.98),
-          rgba(11, 13, 20, 0.98)
+          rgba(20, 23, 34, 0.99),
+          rgba(10, 12, 19, 0.99)
         );
 
       box-shadow:
         0
-        30px
-        100px
-        rgba(0, 0, 0, 0.55);
+        40px
+        120px
+        rgba(0, 0, 0, 0.60);
     }
 
-    .auth-close {
-      position: absolute;
+    .auth-showcase {
+      position: relative;
 
-      top: 16px;
-      right: 16px;
+      padding: 42px;
 
-      width: 38px;
-      height: 38px;
-
-      border-radius: 10px;
-
-      border:
-        1px
-        solid
-        rgba(255, 255, 255, 0.08);
-
-      background:
-        rgba(255, 255, 255, 0.04);
-
-      color: #d9deea;
-
-      font-size: 22px;
-    }
-
-    .auth-close:hover {
-      background:
-        rgba(255, 255, 255, 0.08);
-    }
-
-    .auth-brand {
       display: flex;
+      flex-direction: column;
+      justify-content: space-between;
 
+      background:
+        radial-gradient(
+          circle at 70% 25%,
+          rgba(34, 211, 238, 0.16),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 25% 70%,
+          rgba(139, 92, 246, 0.20),
+          transparent 36%
+        ),
+        #0d1019;
+
+      border-right:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+    }
+
+    .auth-showcase-brand {
+      display: flex;
       align-items: center;
-
-      gap: 10px;
+      gap: 11px;
 
       font-size: 18px;
       font-weight: 900;
-
-      margin-bottom: 26px;
     }
 
-    .auth-brand-mark {
-      width: 36px;
-      height: 36px;
+    .auth-showcase-mark {
+      width: 38px;
+      height: 38px;
 
       display: grid;
       place-items: center;
 
-      border-radius: 10px;
+      border-radius: 11px;
 
       background:
         linear-gradient(
@@ -714,25 +665,155 @@
         );
     }
 
+    .auth-showcase-content {
+      margin: auto 0;
+    }
+
+    .auth-showcase-content .eyebrow {
+      color: #9ca6ba;
+    }
+
+    .auth-showcase-content h2 {
+      margin: 0;
+
+      font-size: clamp(31px, 4vw, 49px);
+
+      line-height: 1.02;
+
+      letter-spacing: -0.045em;
+    }
+
+    .auth-showcase-content h2 span {
+      background:
+        linear-gradient(
+          90deg,
+          #a78bfa,
+          #67e8f9
+        );
+
+      background-clip: text;
+      -webkit-background-clip: text;
+
+      color: transparent;
+    }
+
+    .auth-showcase-content p {
+      max-width: 410px;
+
+      margin-top: 16px;
+
+      color: #a8b1c3;
+
+      line-height: 1.6;
+
+      font-size: 14px;
+    }
+
+    .auth-benefits {
+      display: grid;
+
+      gap: 9px;
+
+      margin-top: 24px;
+    }
+
+    .auth-benefit {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      color: #d7dceb;
+
+      font-size: 12px;
+    }
+
+    .auth-benefit-icon {
+      width: 25px;
+      height: 25px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 8px;
+
+      background:
+        rgba(139, 92, 246, 0.14);
+
+      border:
+        1px solid
+        rgba(139, 92, 246, 0.20);
+    }
+
+    .auth-showcase-footer {
+      color: #616b80;
+
+      font-size: 10px;
+
+      line-height: 1.45;
+    }
+
+    .auth-form-area {
+      padding: 42px;
+
+      display: flex;
+      flex-direction: column;
+
+      justify-content: center;
+
+      background:
+        rgba(8, 10, 16, 0.68);
+    }
+
+    .auth-close {
+      position: absolute;
+
+      top: 15px;
+      right: 15px;
+
+      z-index: 5;
+
+      width: 38px;
+      height: 38px;
+
+      border-radius: 11px;
+
+      border:
+        1px solid
+        rgba(255, 255, 255, 0.09);
+
+      background:
+        rgba(255, 255, 255, 0.04);
+
+      color: #dce1ed;
+
+      font-size: 23px;
+    }
+
+    .auth-close:hover {
+      background:
+        rgba(255, 255, 255, 0.08);
+    }
+
+    .auth-form-brand {
+      display: none;
+    }
+
     .auth-panel h2 {
       margin: 0;
 
-      font-size: 32px;
+      font-size: 33px;
 
-      letter-spacing: -0.03em;
+      letter-spacing: -0.035em;
     }
 
     .auth-subtitle {
-      margin:
-        9px
-        0
-        22px;
+      margin: 9px 0 22px;
 
       color: #9ea8ba;
 
       font-size: 13px;
 
-      line-height: 1.5;
+      line-height: 1.55;
     }
 
     .auth-panel form {
@@ -740,31 +821,30 @@
 
       flex-direction: column;
 
-      gap: 9px;
+      gap: 8px;
     }
 
     .auth-panel label {
       color: #dfe3ed;
 
-      font-size: 13px;
+      font-size: 12px;
 
-      font-weight: 700;
+      font-weight: 750;
 
-      margin-top: 5px;
+      margin-top: 6px;
     }
 
     .auth-panel input {
       width: 100%;
 
-      height: 46px;
+      height: 47px;
 
       padding:
         0
         13px;
 
       border:
-        1px
-        solid
+        1px solid
         rgba(255, 255, 255, 0.10);
 
       border-radius: 11px;
@@ -792,12 +872,20 @@
         rgba(139, 92, 246, 0.12);
     }
 
+    .auth-field-note {
+      color: #6f7a90;
+
+      font-size: 10px;
+
+      margin-top: -2px;
+    }
+
     .auth-primary {
       width: 100%;
 
-      min-height: 47px;
+      min-height: 48px;
 
-      margin-top: 10px;
+      margin-top: 13px;
 
       border: 0;
 
@@ -821,6 +909,10 @@
         rgba(109, 78, 243, 0.20);
     }
 
+    .auth-primary:hover {
+      transform: translateY(-1px);
+    }
+
     .auth-link,
     .auth-switch button {
       border: 0;
@@ -837,17 +929,11 @@
     .auth-link {
       display: block;
 
-      margin:
-        15px
-        auto
-        0;
+      margin: 14px auto 0;
     }
 
     .auth-switch {
-      margin:
-        22px
-        0
-        0;
+      margin: 21px 0 0;
 
       text-align: center;
 
@@ -860,24 +946,53 @@
       font-weight: 800;
     }
 
+    .auth-status {
+      min-height: 18px;
+
+      margin-top: 12px;
+
+      color: #95a0b4;
+
+      font-size: 11px;
+
+      text-align: center;
+    }
+
+    .auth-status.error {
+      color: #fca5a5;
+    }
+
+    .auth-status.success {
+      color: #86efac;
+    }
+
+    .auth-divider {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      margin: 22px 0 0;
+
+      color: #616b80;
+
+      font-size: 10px;
+    }
+
+    .auth-divider::before,
+    .auth-divider::after {
+      content: "";
+
+      flex: 1;
+
+      height: 1px;
+
+      background:
+        rgba(255, 255, 255, 0.08);
+    }
+
     /* =====================================================
        ANIMATIONS
     ===================================================== */
-
-    @keyframes showcaseFloat {
-      0%,
-      100% {
-        transform:
-          translateY(0)
-          rotate(0deg);
-      }
-
-      50% {
-        transform:
-          translateY(-10px)
-          rotate(2deg);
-      }
-    }
 
     @keyframes showcaseTimer {
       from {
@@ -890,7 +1005,7 @@
     }
 
     /* =====================================================
-       MOBILE
+       RESPONSIVE
     ===================================================== */
 
     @media (max-width: 850px) {
@@ -909,6 +1024,50 @@
       .showcase-timer {
         display: none;
       }
+
+      .auth-card {
+        grid-template-columns: 1fr;
+
+        width: min(560px, 100%);
+
+        min-height: auto;
+      }
+
+      .auth-showcase {
+        display: none;
+      }
+
+      .auth-form-area {
+        padding: 36px 30px;
+      }
+
+      .auth-form-brand {
+        display: flex;
+
+        align-items: center;
+        gap: 10px;
+
+        margin-bottom: 23px;
+
+        font-weight: 900;
+      }
+
+      .auth-form-brand-mark {
+        width: 36px;
+        height: 36px;
+
+        display: grid;
+        place-items: center;
+
+        border-radius: 10px;
+
+        background:
+          linear-gradient(
+            135deg,
+            #8b5cf6,
+            #22d3ee
+          );
+      }
     }
 
     @media (max-width: 560px) {
@@ -922,7 +1081,6 @@
 
       .showcase-stage {
         min-height: 330px;
-
         padding: 20px;
       }
 
@@ -955,13 +1113,8 @@
         width: 100%;
       }
 
-      .auth-card {
-        padding: 24px 19px;
-        border-radius: 20px;
-      }
-
-      .auth-panel h2 {
-        font-size: 28px;
+      .auth-form-area {
+        padding: 30px 20px;
       }
     }
   </style>
@@ -997,8 +1150,6 @@
         designed to help you turn ideas into real projects.
       </p>
 
-      <!-- FEATURE SHOWCASE -->
-
       <div
         class="feature-showcase"
         aria-label="BigHelpAI feature showcase"
@@ -1026,7 +1177,9 @@
                 bring your ideas to life.
               </p>
 
-              <span class="showcase-tag">AI</span>
+              <span class="showcase-tag">
+                AI
+              </span>
             </div>
           </article>
 
@@ -1045,7 +1198,9 @@
                 an AI coding assistant.
               </p>
 
-              <span class="showcase-tag">Coding</span>
+              <span class="showcase-tag">
+                Coding
+              </span>
             </div>
           </article>
 
@@ -1064,7 +1219,9 @@
                 checkpoints, tests, and exams.
               </p>
 
-              <span class="showcase-tag">Learning</span>
+              <span class="showcase-tag">
+                Learning
+              </span>
             </div>
           </article>
 
@@ -1083,7 +1240,9 @@
                 much more.
               </p>
 
-              <span class="showcase-tag">Creation</span>
+              <span class="showcase-tag">
+                Creation
+              </span>
             </div>
           </article>
 
@@ -1102,7 +1261,9 @@
                 and test your designs in Sim Lab.
               </p>
 
-              <span class="showcase-tag">3D Create</span>
+              <span class="showcase-tag">
+                3D Create
+              </span>
             </div>
           </article>
 
@@ -1120,7 +1281,9 @@
                 instruments, and complete music projects.
               </p>
 
-              <span class="showcase-tag">Music Creator</span>
+              <span class="showcase-tag">
+                Music Creator
+              </span>
             </div>
           </article>
 
@@ -1139,7 +1302,9 @@
                 requirements, and deadlines.
               </p>
 
-              <span class="showcase-tag">College Hub</span>
+              <span class="showcase-tag">
+                College Hub
+              </span>
             </div>
           </article>
 
@@ -1158,7 +1323,9 @@
                 and prepare listings.
               </p>
 
-              <span class="showcase-tag">Sell</span>
+              <span class="showcase-tag">
+                Sell
+              </span>
             </div>
           </article>
 
@@ -1177,7 +1344,9 @@
                 information, and review everything.
               </p>
 
-              <span class="showcase-tag">Publish Books</span>
+              <span class="showcase-tag">
+                Publish Books
+              </span>
             </div>
           </article>
 
@@ -1195,7 +1364,9 @@
                 how to play real board games.
               </p>
 
-              <span class="showcase-tag">Board Games</span>
+              <span class="showcase-tag">
+                Board Games
+              </span>
             </div>
           </article>
 
@@ -1219,70 +1390,60 @@
                 class="showcase-dot active"
                 type="button"
                 data-go-slide="0"
-                aria-label="Show AI"
               ></button>
 
               <button
                 class="showcase-dot"
                 type="button"
                 data-go-slide="1"
-                aria-label="Show Coding"
               ></button>
 
               <button
                 class="showcase-dot"
                 type="button"
                 data-go-slide="2"
-                aria-label="Show Learning"
               ></button>
 
               <button
                 class="showcase-dot"
                 type="button"
                 data-go-slide="3"
-                aria-label="Show Creation"
               ></button>
 
               <button
                 class="showcase-dot"
                 type="button"
                 data-go-slide="4"
-                aria-label="Show 3D Create"
               ></button>
 
               <button
                 class="showcase-dot"
                 type="button"
                 data-go-slide="5"
-                aria-label="Show Music Creator"
               ></button>
 
               <button
                 class="showcase-dot"
                 type="button"
                 data-go-slide="6"
-                aria-label="Show College Hub"
               ></button>
 
               <button
                 class="showcase-dot"
                 type="button"
                 data-go-slide="7"
-                aria-label="Show Sell"
               ></button>
 
               <button
                 class="showcase-dot"
                 type="button"
                 data-go-slide="8"
-                aria-label="Show Publish Books"
               ></button>
 
               <button
                 class="showcase-dot"
                 type="button"
                 data-go-slide="9"
-                aria-label="Show Board Games"
               ></button>
 
             </div>
@@ -1309,10 +1470,7 @@
           </div>
 
         </div>
-
       </div>
-
-      <!-- ACTIONS -->
 
       <div class="welcome-actions">
 
@@ -1341,8 +1499,6 @@
         </button>
 
       </div>
-
-      <!-- FEATURE CARDS -->
 
       <div class="welcome-feature-row">
 
@@ -1402,7 +1558,7 @@
 
 
   <!-- =====================================================
-       AUTH SCREEN
+       AUTHENTICATION
   ===================================================== -->
 
   <section
@@ -1418,183 +1574,319 @@
         class="auth-close"
         id="authClose"
         type="button"
-        aria-label="Close"
+        aria-label="Close account screen"
       >
         ×
       </button>
 
-      <div class="auth-brand">
-        <span class="auth-brand-mark">B</span>
-        <span>BigHelpAI</span>
+
+      <!-- LEFT SIDE -->
+      <div class="auth-showcase">
+
+        <div class="auth-showcase-brand">
+
+          <span class="auth-showcase-mark">
+            B
+          </span>
+
+          <span>
+            BigHelpAI
+          </span>
+
+        </div>
+
+
+        <div class="auth-showcase-content">
+
+          <p class="eyebrow">
+            YOUR BIGHELPAI ACCOUNT
+          </p>
+
+          <h2>
+            One account.
+            <span>
+              Your whole workspace.
+            </span>
+          </h2>
+
+          <p>
+            Sign in or create an account to save
+            projects, access account-based features,
+            keep your progress, and personalize
+            your BigHelpAI experience.
+          </p>
+
+
+          <div class="auth-benefits">
+
+            <div class="auth-benefit">
+              <span class="auth-benefit-icon">
+                ✓
+              </span>
+
+              Save your projects
+            </div>
+
+            <div class="auth-benefit">
+              <span class="auth-benefit-icon">
+                ✓
+              </span>
+
+              Keep your work across devices
+            </div>
+
+            <div class="auth-benefit">
+              <span class="auth-benefit-icon">
+                ✓
+              </span>
+
+              Use account-required features
+            </div>
+
+            <div class="auth-benefit">
+              <span class="auth-benefit-icon">
+                ✓
+              </span>
+
+              Manage privacy and security settings
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="auth-showcase-footer">
+          BigHelpAI uses secure account infrastructure
+          for authentication and account data.
+        </div>
+
       </div>
 
 
-      <!-- SIGN IN -->
+      <!-- RIGHT SIDE -->
+      <div class="auth-form-area">
 
-      <div
-        class="auth-panel"
-        id="signInPanel"
-      >
+        <!-- Mobile brand -->
 
-        <p class="eyebrow">
-          WELCOME BACK
-        </p>
+        <div class="auth-form-brand">
 
-        <h2>
-          Sign In
-        </h2>
+          <span class="auth-form-brand-mark">
+            B
+          </span>
 
-        <p class="auth-subtitle">
-          Sign in to continue to your BigHelpAI account.
-        </p>
+          <span>
+            BigHelpAI
+          </span>
 
-        <form id="signInForm">
+        </div>
 
-          <label for="signInEmail">
-            Email
-          </label>
 
-          <input
-            id="signInEmail"
-            type="email"
-            placeholder="you@example.com"
-            autocomplete="email"
-            required
-          >
+        <!-- SIGN IN -->
 
-          <label for="signInPassword">
-            Password
-          </label>
-
-          <input
-            id="signInPassword"
-            type="password"
-            placeholder="Enter your password"
-            autocomplete="current-password"
-            required
-          >
-
-          <button
-            class="auth-primary"
-            type="submit"
-          >
-            Sign In
-          </button>
-
-        </form>
-
-        <button
-          class="auth-link"
-          id="forgotPassword"
-          type="button"
+        <div
+          class="auth-panel"
+          id="signInPanel"
         >
-          Forgot password?
-        </button>
 
-        <p class="auth-switch">
-          Don't have an account?
+          <p class="eyebrow">
+            WELCOME BACK
+          </p>
 
-          <button
-            type="button"
-            id="showRegister"
-          >
-            Register
-          </button>
-        </p>
-
-      </div>
-
-
-      <!-- REGISTER -->
-
-      <div
-        class="auth-panel"
-        id="registerPanel"
-        hidden
-      >
-
-        <p class="eyebrow">
-          GET STARTED
-        </p>
-
-        <h2>
-          Create your account
-        </h2>
-
-        <p class="auth-subtitle">
-          Create a BigHelpAI account to unlock
-          account-based features and projects.
-        </p>
-
-        <form id="registerForm">
-
-          <label for="registerName">
-            Name
-          </label>
-
-          <input
-            id="registerName"
-            type="text"
-            placeholder="Your name"
-            autocomplete="name"
-            required
-          >
-
-          <label for="registerEmail">
-            Email
-          </label>
-
-          <input
-            id="registerEmail"
-            type="email"
-            placeholder="you@example.com"
-            autocomplete="email"
-            required
-          >
-
-          <label for="registerPassword">
-            Password
-          </label>
-
-          <input
-            id="registerPassword"
-            type="password"
-            placeholder="Create a password"
-            autocomplete="new-password"
-            required
-          >
-
-          <label for="registerConfirmPassword">
-            Confirm password
-          </label>
-
-          <input
-            id="registerConfirmPassword"
-            type="password"
-            placeholder="Enter your password again"
-            autocomplete="new-password"
-            required
-          >
-
-          <button
-            class="auth-primary"
-            type="submit"
-          >
-            Create Account
-          </button>
-
-        </form>
-
-        <p class="auth-switch">
-          Already have an account?
-
-          <button
-            type="button"
-            id="showSignIn"
-          >
+          <h2>
             Sign In
+          </h2>
+
+          <p class="auth-subtitle">
+            Sign in to continue to your
+            BigHelpAI account.
+          </p>
+
+          <form id="signInForm">
+
+            <label for="signInEmail">
+              Email
+            </label>
+
+            <input
+              id="signInEmail"
+              type="email"
+              placeholder="you@example.com"
+              autocomplete="email"
+              required
+            >
+
+
+            <label for="signInPassword">
+              Password
+            </label>
+
+            <input
+              id="signInPassword"
+              type="password"
+              placeholder="Enter your password"
+              autocomplete="current-password"
+              required
+            >
+
+
+            <button
+              class="auth-primary"
+              type="submit"
+            >
+              Sign In
+            </button>
+
+          </form>
+
+
+          <button
+            class="auth-link"
+            id="forgotPassword"
+            type="button"
+          >
+            Forgot password?
           </button>
-        </p>
+
+
+          <div
+            class="auth-status"
+            id="signInStatus"
+            aria-live="polite"
+          ></div>
+
+
+          <div class="auth-divider">
+            <span>
+              BigHelpAI account access
+            </span>
+          </div>
+
+
+          <p class="auth-switch">
+            Don't have an account?
+
+            <button
+              type="button"
+              id="showRegister"
+            >
+              Register
+            </button>
+          </p>
+
+        </div>
+
+
+        <!-- REGISTER -->
+
+        <div
+          class="auth-panel"
+          id="registerPanel"
+          hidden
+        >
+
+          <p class="eyebrow">
+            GET STARTED
+          </p>
+
+          <h2>
+            Create your account
+          </h2>
+
+          <p class="auth-subtitle">
+            Create a BigHelpAI account to save
+            your work and unlock account-based
+            features.
+          </p>
+
+          <form id="registerForm">
+
+            <label for="registerName">
+              Name
+            </label>
+
+            <input
+              id="registerName"
+              type="text"
+              placeholder="Your name"
+              autocomplete="name"
+              required
+            >
+
+
+            <label for="registerEmail">
+              Email
+            </label>
+
+            <input
+              id="registerEmail"
+              type="email"
+              placeholder="you@example.com"
+              autocomplete="email"
+              required
+            >
+
+
+            <label for="registerPassword">
+              Password
+            </label>
+
+            <input
+              id="registerPassword"
+              type="password"
+              placeholder="Create a password"
+              autocomplete="new-password"
+              required
+            >
+
+            <div class="auth-field-note">
+              Your real password will be protected by
+              the secure account backend we connect later.
+            </div>
+
+
+            <label for="registerConfirmPassword">
+              Confirm password
+            </label>
+
+            <input
+              id="registerConfirmPassword"
+              type="password"
+              placeholder="Enter your password again"
+              autocomplete="new-password"
+              required
+            >
+
+
+            <button
+              class="auth-primary"
+              type="submit"
+            >
+              Create Account
+            </button>
+
+          </form>
+
+
+          <div
+            class="auth-status"
+            id="registerStatus"
+            aria-live="polite"
+          ></div>
+
+
+          <p class="auth-switch">
+            Already have an account?
+
+            <button
+              type="button"
+              id="showSignIn"
+            >
+              Sign In
+            </button>
+          </p>
+
+        </div>
 
       </div>
 
@@ -1627,13 +1919,21 @@
         href="#dashboard"
         aria-label="BigHelpAI home"
       >
-        <span class="brand-mark">B</span>
-        <span>BigHelpAI</span>
+        <span class="brand-mark">
+          B
+        </span>
+
+        <span>
+          BigHelpAI
+        </span>
       </a>
+
 
       <div class="top-search">
 
-        <span class="search-icon">⌕</span>
+        <span class="search-icon">
+          ⌕
+        </span>
 
         <input
           id="globalSearch"
@@ -1642,9 +1942,12 @@
           autocomplete="off"
         >
 
-        <kbd>/</kbd>
+        <kbd>
+          /
+        </kbd>
 
       </div>
+
 
       <div class="top-actions">
 
@@ -1659,20 +1962,24 @@
           <span
             class="notification-dot"
           ></span>
-
         </button>
+
 
         <button
           class="profile-button"
           id="profileBtn"
         >
-          <span class="avatar">JD</span>
+          <span class="avatar">
+            JD
+          </span>
 
           <span class="profile-text">
             Profile
           </span>
 
-          <span>⌄</span>
+          <span>
+            ⌄
+          </span>
         </button>
 
       </div>
@@ -1698,6 +2005,7 @@
             <span>Dashboard</span>
           </a>
 
+
           <a
             class="nav-item"
             href="#ai"
@@ -1706,6 +2014,7 @@
             ✨
             <span>AI</span>
           </a>
+
 
           <a
             class="nav-item"
@@ -1716,6 +2025,7 @@
             <span>Coding</span>
           </a>
 
+
           <a
             class="nav-item"
             href="#study"
@@ -1724,6 +2034,7 @@
             📚
             <span>Study</span>
           </a>
+
 
           <a
             class="nav-item"
@@ -1734,6 +2045,7 @@
             <span>Learning</span>
           </a>
 
+
           <a
             class="nav-item"
             href="#creation"
@@ -1742,6 +2054,7 @@
             🎨
             <span>Creation</span>
           </a>
+
 
           <a
             class="nav-item"
@@ -1752,6 +2065,7 @@
             <span>3D Create</span>
           </a>
 
+
           <a
             class="nav-item"
             href="#sim-lab"
@@ -1760,6 +2074,7 @@
             🧪
             <span>Sim Lab</span>
           </a>
+
 
           <a
             class="nav-item"
@@ -1770,6 +2085,7 @@
             <span>Build</span>
           </a>
 
+
           <a
             class="nav-item"
             href="#board-games"
@@ -1778,6 +2094,7 @@
             🎲
             <span>Board Games</span>
           </a>
+
 
           <a
             class="nav-item"
@@ -1788,6 +2105,7 @@
             <span>Music Creator</span>
           </a>
 
+
           <a
             class="nav-item"
             href="#college"
@@ -1796,6 +2114,7 @@
             🎓
             <span>College Hub</span>
           </a>
+
 
           <a
             class="nav-item"
@@ -1806,6 +2125,7 @@
             <span>Sell</span>
           </a>
 
+
           <a
             class="nav-item"
             href="#books"
@@ -1814,6 +2134,7 @@
             📖
             <span>Publish Books</span>
           </a>
+
 
           <a
             class="nav-item"
@@ -1824,6 +2145,7 @@
             <span>Therapy</span>
           </a>
 
+
           <a
             class="nav-item"
             href="#browser"
@@ -1832,6 +2154,7 @@
             🌐
             <span>Private Browser</span>
           </a>
+
 
           <a
             class="nav-item"
@@ -1851,6 +2174,7 @@
             Workspace
           </div>
 
+
           <a
             class="nav-item"
             href="#projects"
@@ -1860,6 +2184,7 @@
             <span>Projects</span>
           </a>
 
+
           <a
             class="nav-item"
             href="#notifications"
@@ -1868,6 +2193,7 @@
             🔔
             <span>Notifications</span>
           </a>
+
 
           <a
             class="nav-item"
@@ -1909,6 +2235,7 @@
 
           </div>
 
+
           <div class="sidebar-footer">
             © BigHelpAI
           </div>
@@ -1945,6 +2272,7 @@
                 What do you want to do today?
               </p>
 
+
               <div class="hero-actions">
 
                 <button
@@ -1953,6 +2281,7 @@
                 >
                   Start with AI
                 </button>
+
 
                 <button
                   class="secondary-button"
@@ -2017,10 +2346,12 @@
             >
               <span>✨</span>
               <strong>AI</strong>
+
               <small>
                 Ask, write, research &amp; more
               </small>
             </button>
+
 
             <button
               class="mode-card"
@@ -2028,10 +2359,12 @@
             >
               <span>💻</span>
               <strong>Coding</strong>
+
               <small>
                 Build and debug projects
               </small>
             </button>
+
 
             <button
               class="mode-card"
@@ -2039,10 +2372,12 @@
             >
               <span>📚</span>
               <strong>Study</strong>
+
               <small>
                 Homework and practice
               </small>
             </button>
+
 
             <button
               class="mode-card"
@@ -2050,10 +2385,12 @@
             >
               <span>🎓</span>
               <strong>Learning</strong>
+
               <small>
                 Lessons, quizzes and exams
               </small>
             </button>
+
 
             <button
               class="mode-card"
@@ -2061,10 +2398,12 @@
             >
               <span>🎨</span>
               <strong>Creation</strong>
+
               <small>
                 Images and creative projects
               </small>
             </button>
+
 
             <button
               class="mode-card"
@@ -2072,10 +2411,12 @@
             >
               <span>🧊</span>
               <strong>3D Create</strong>
+
               <small>
                 Build objects and machines
               </small>
             </button>
+
 
             <button
               class="mode-card"
@@ -2083,10 +2424,12 @@
             >
               <span>🧪</span>
               <strong>Sim Lab</strong>
+
               <small>
                 Test physics and electronics
               </small>
             </button>
+
 
             <button
               class="mode-card"
@@ -2094,10 +2437,12 @@
             >
               <span>🛠️</span>
               <strong>Build</strong>
+
               <small>
                 Connect code, 3D and AI
               </small>
             </button>
+
 
             <button
               class="mode-card"
@@ -2105,10 +2450,12 @@
             >
               <span>🎲</span>
               <strong>Board Games</strong>
+
               <small>
                 Create or learn games
               </small>
             </button>
+
 
             <button
               class="mode-card"
@@ -2116,10 +2463,12 @@
             >
               <span>🎵</span>
               <strong>Music Creator</strong>
+
               <small>
                 Compose and arrange music
               </small>
             </button>
+
 
             <button
               class="mode-card"
@@ -2127,10 +2476,12 @@
             >
               <span>🎓</span>
               <strong>College Hub</strong>
+
               <small>
                 College work and applications
               </small>
             </button>
+
 
             <button
               class="mode-card"
@@ -2138,10 +2489,12 @@
             >
               <span>🛍️</span>
               <strong>Sell</strong>
+
               <small>
                 Build and list products
               </small>
             </button>
+
 
             <button
               class="mode-card"
@@ -2149,10 +2502,12 @@
             >
               <span>📖</span>
               <strong>Publish Books</strong>
+
               <small>
                 Turn manuscripts into books
               </small>
             </button>
+
 
             <button
               class="mode-card"
@@ -2160,10 +2515,12 @@
             >
               <span>💙</span>
               <strong>Therapy</strong>
+
               <small>
                 Support and next steps
               </small>
             </button>
+
 
             <button
               class="mode-card"
@@ -2171,10 +2528,12 @@
             >
               <span>🌐</span>
               <strong>Private Browser</strong>
+
               <small>
                 Privacy-focused browsing
               </small>
             </button>
+
 
             <button
               class="mode-card"
@@ -2182,6 +2541,7 @@
             >
               <span>🗺️</span>
               <strong>Navigation</strong>
+
               <small>
                 Plan trips and compare travel
               </small>
@@ -2205,6 +2565,7 @@
               </p>
 
             </div>
+
 
             <button
               class="text-button"
@@ -2300,8 +2661,6 @@
         </section>
 
 
-        <!-- PLACEHOLDER WORKSPACE -->
-
         <section
           class="placeholder-view"
           id="placeholderView"
@@ -2315,12 +2674,14 @@
             ← Dashboard
           </button>
 
+
           <div
             class="placeholder-icon"
             id="placeholderIcon"
           >
             ✨
           </div>
+
 
           <p
             class="eyebrow"
@@ -2329,13 +2690,16 @@
             BIGHELPAI
           </p>
 
+
           <h1 id="placeholderTitle">
             AI
           </h1>
 
+
           <p id="placeholderDescription">
             Your workspace is ready for the next step.
           </p>
+
 
           <div class="placeholder-actions">
 
@@ -2346,6 +2710,7 @@
               Open workspace
             </button>
 
+
             <button
               class="secondary-button"
               data-route-button="dashboard"
@@ -2354,6 +2719,7 @@
             </button>
 
           </div>
+
 
           <p class="prototype-note">
             This redesigned front end is the foundation.
@@ -2379,12 +2745,12 @@
 
 
   <!-- =====================================================
-       OPENING + AUTH + SHOWCASE SCRIPT
+       WELCOME + AUTH SCRIPT
   ===================================================== -->
 
   <script>
     /* =====================================================
-       ELEMENTS
+       WELCOME ELEMENTS
     ===================================================== */
 
     const welcomeScreen =
@@ -2429,8 +2795,11 @@
     const forgotPassword =
       document.getElementById("forgotPassword");
 
-    const premiumCard =
-      document.getElementById("premiumCard");
+    const signInStatus =
+      document.getElementById("signInStatus");
+
+    const registerStatus =
+      document.getElementById("registerStatus");
 
 
     /* =====================================================
@@ -2439,37 +2808,25 @@
 
     const slides =
       Array.from(
-        document.querySelectorAll(
-          ".showcase-slide"
-        )
+        document.querySelectorAll(".showcase-slide")
       );
 
     const dots =
       Array.from(
-        document.querySelectorAll(
-          ".showcase-dot"
-        )
+        document.querySelectorAll(".showcase-dot")
       );
 
     const previousButton =
-      document.getElementById(
-        "showcasePrevious"
-      );
+      document.getElementById("showcasePrevious");
 
     const nextButton =
-      document.getElementById(
-        "showcaseNext"
-      );
+      document.getElementById("showcaseNext");
 
     const showcaseTimer =
-      document.getElementById(
-        "showcaseTimer"
-      );
+      document.getElementById("showcaseTimer");
 
     const showcaseStage =
-      document.getElementById(
-        "showcaseStage"
-      );
+      document.getElementById("showcaseStage");
 
     let currentSlide = 0;
     let showcaseInterval = null;
@@ -2481,15 +2838,11 @@
         return;
       }
 
-      showcaseTimer.classList.remove(
-        "running"
-      );
+      showcaseTimer.classList.remove("running");
 
       void showcaseTimer.offsetWidth;
 
-      showcaseTimer.classList.add(
-        "running"
-      );
+      showcaseTimer.classList.add("running");
     }
 
 
@@ -2528,16 +2881,17 @@
 
 
     function startShowcase() {
-      clearInterval(
-        showcaseInterval
-      );
+      clearInterval(showcaseInterval);
 
       showcaseInterval =
-        setInterval(() => {
-          updateShowcase(
-            currentSlide + 1
-          );
-        }, 6000);
+        setInterval(
+          () => {
+            updateShowcase(
+              currentSlide + 1
+            );
+          },
+          6000
+        );
     }
 
 
@@ -2605,8 +2959,7 @@
           }
 
           const touchEndX =
-            event.changedTouches[0]
-              .clientX;
+            event.changedTouches[0].clientX;
 
           const distance =
             touchEndX -
@@ -2616,9 +2969,7 @@
             Math.abs(distance) >
             50
           ) {
-            if (
-              distance > 0
-            ) {
+            if (distance > 0) {
               updateShowcase(
                 currentSlide - 1
               );
@@ -2641,14 +2992,39 @@
 
 
     /* =====================================================
-       AUTH
+       AUTH SCREEN
     ===================================================== */
+
+    function setAuthStatus(
+      element,
+      message,
+      type = ""
+    ) {
+      if (!element) {
+        return;
+      }
+
+      element.textContent = message;
+
+      element.className =
+        `auth-status ${type}`;
+    }
+
 
     function showAuth(type) {
       authScreen.hidden = false;
 
-      document.body.style.overflow =
-        "hidden";
+      document.body.style.overflow = "hidden";
+
+      setAuthStatus(
+        signInStatus,
+        ""
+      );
+
+      setAuthStatus(
+        registerStatus,
+        ""
+      );
 
       if (type === "register") {
         signInPanel.hidden = true;
@@ -2663,8 +3039,7 @@
     function closeAuth() {
       authScreen.hidden = true;
 
-      document.body.style.overflow =
-        "";
+      document.body.style.overflow = "";
     }
 
 
@@ -2677,10 +3052,11 @@
         "welcome-hidden"
       );
 
-      document.body.style.overflow =
-        "";
+      document.body.style.overflow = "";
 
-      startShowcase();
+      clearInterval(
+        showcaseInterval
+      );
     }
 
 
@@ -2735,8 +3111,10 @@
     forgotPassword.addEventListener(
       "click",
       () => {
-        alert(
-          "Password recovery will be connected with the real account system."
+        setAuthStatus(
+          signInStatus,
+          "Password recovery will be connected with the secure account system.",
+          "success"
         );
       }
     );
@@ -2747,8 +3125,10 @@
       event => {
         event.preventDefault();
 
-        alert(
-          "The Sign In screen is working. The secure account backend will be connected next."
+        setAuthStatus(
+          signInStatus,
+          "The Sign In screen is working. Secure authentication will be connected next.",
+          "success"
         );
       }
     );
@@ -2769,62 +3149,35 @@
             "registerConfirmPassword"
           ).value;
 
+
         if (
           password !==
           confirmPassword
         ) {
-          alert(
-            "The passwords do not match."
+          setAuthStatus(
+            registerStatus,
+            "The passwords do not match.",
+            "error"
           );
 
           return;
         }
 
-        alert(
-          "The Register screen is working. The secure account backend will be connected next."
+
+        setAuthStatus(
+          registerStatus,
+          "Your form is ready. Secure account creation will be connected next.",
+          "success"
         );
       }
     );
 
 
     /* =====================================================
-       PREMIUM
-    ===================================================== */
-
-    function openPremium() {
-      window.location.hash =
-        "premium";
-    }
-
-
-    if (premiumCard) {
-      premiumCard.addEventListener(
-        "click",
-        openPremium
-      );
-
-      premiumCard.addEventListener(
-        "keydown",
-        event => {
-          if (
-            event.key === "Enter" ||
-            event.key === " "
-          ) {
-            event.preventDefault();
-
-            openPremium();
-          }
-        }
-      );
-    }
-
-
-    /* =====================================================
        START
     ===================================================== */
 
-    document.body.style.overflow =
-      "hidden";
+    document.body.style.overflow = "hidden";
 
     updateShowcase(0);
 
@@ -2832,7 +3185,7 @@
   </script>
 
 
-  <!-- Main BigHelpAI navigation -->
+  <!-- Existing navigation -->
   <script src="app.js"></script>
 
 </body>
