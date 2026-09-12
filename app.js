@@ -1,284 +1,527 @@
-const ideaInput = document.getElementById("ideaInput");
-const characterCount = document.getElementById("characterCount");
+const modeInfo = {
+  dashboard: {
+    title: "Dashboard",
+    icon: "🏠",
+    label: "YOUR AI WORKSPACE",
+    description: "Your central BigHelpAI workspace."
+  },
 
-const exampleButton = document.getElementById("exampleButton");
-const clearButton = document.getElementById("clearButton");
-const createButton = document.getElementById("createButton");
+  ai: {
+    title: "AI",
+    icon: "✨",
+    label: "HELLPY",
+    description:
+      "Ask questions, write, research, summarize, and work with files."
+  },
 
-const creationMode = document.getElementById("creationMode");
-const visualStyle = document.getElementById("visualStyle");
-const detailLevel = document.getElementById("detailLevel");
+  coding: {
+    title: "Coding",
+    icon: "💻",
+    label: "JAMES",
+    description:
+      "Build, debug, explain, and improve code projects."
+  },
 
-const descriptionResult = document.getElementById("descriptionResult");
+  study: {
+    title: "Study",
+    icon: "📚",
+    label: "ALBERT",
+    description:
+      "Get homework help, practice, hints, notes, and explanations."
+  },
 
-const exampleText = `Standing 45 feet tall and 25 feet wide, this colossal toy canister is covered in an almost completely black surface. Razor-sharp glowing green and purple crystalline veins cross the shell. A huge jeweled collar surrounds the upper neck, while transparent pipes carry glowing fluids around the structure. Through transparent sections, a gigantic mountain of colorful modeling compound can be seen inside. At the exact center is a brilliant fusion reactor surrounded by glowing light pipes.`;
+  learning: {
+    title: "Learning",
+    icon: "🎓",
+    label: "MATHEW",
+    description:
+      "Follow curriculums with lessons, quizzes, checkpoints, tests, and exams."
+  },
+
+  creation: {
+    title: "Creation",
+    icon: "🎨",
+    label: "OSWALT",
+    description:
+      "Create images and other creative projects."
+  },
+
+  "3d-create": {
+    title: "3D Create",
+    icon: "🧊",
+    label: "MELISA",
+    description:
+      "Build 3D objects, machines, mechanisms, motors, and electronics."
+  },
+
+  "sim-lab": {
+    title: "Sim Lab",
+    icon: "🧪",
+    label: "MELISA",
+    description:
+      "Test physics, electronics, motors, sensors, and simulated machines."
+  },
+
+  build: {
+    title: "Build",
+    icon: "🛠️",
+    label: "AI TEAM",
+    description:
+      "Connect AI, coding, creation, 3D, and simulation in one project."
+  },
+
+  "board-games": {
+    title: "Board Games",
+    icon: "🎲",
+    label: "HENRY",
+    description:
+      "Create board games or learn how to play real games."
+  },
+
+  music: {
+    title: "Music Creator",
+    icon: "🎵",
+    label: "LEMY",
+    description:
+      "Compose, arrange, and build music projects."
+  },
+
+  college: {
+    title: "College Hub",
+    icon: "🎓",
+    label: "MAX",
+    description:
+      "Get help with college work and prepare for college or university applications."
+  },
+
+  sell: {
+    title: "Sell",
+    icon: "🛍️",
+    label: "WILLIAMS",
+    description:
+      "Create, organize, advertise, and prepare products for trusted marketplaces."
+  },
+
+  books: {
+    title: "Publish Books",
+    icon: "📖",
+    label: "EMILY",
+    description:
+      "Turn a manuscript or PDF into a structured publishing project."
+  },
+
+  therapy: {
+    title: "Therapy",
+    icon: "💙",
+    label: "LISSA",
+    description:
+      "Supportive conversations and safety-aware next steps."
+  },
+
+  browser: {
+    title: "Private Browser",
+    icon: "🌐",
+    label: "BROWSER",
+    description:
+      "A privacy-focused browsing workspace."
+  },
+
+  navigation: {
+    title: "Navigation",
+    icon: "🗺️",
+    label: "MAPSY",
+    description:
+      "Plan trips, compare travel options, and organize stops."
+  },
+
+  projects: {
+    title: "Projects",
+    icon: "📁",
+    label: "PROJECTS",
+    description:
+      "Open and organize your BigHelpAI projects."
+  },
+
+  notifications: {
+    title: "Notifications",
+    icon: "🔔",
+    label: "NOTIFICATIONS",
+    description:
+      "View safety, security, project, and account notifications."
+  },
+
+  settings: {
+    title: "Settings",
+    icon: "⚙️",
+    label: "SETTINGS",
+    description:
+      "Manage your account, privacy, security, and preferences."
+  }
+};
 
 
-/* =========================
-   CHARACTER COUNTER
-========================= */
+/* =========================================================
+   ELEMENTS
+========================================================= */
 
-function updateCharacterCount() {
-    const count = ideaInput.value.length;
+const dashboardView =
+  document.getElementById("dashboardView");
 
-    characterCount.textContent =
-        `${count.toLocaleString()} character${count === 1 ? "" : "s"}`;
+const placeholderView =
+  document.getElementById("placeholderView");
+
+const placeholderIcon =
+  document.getElementById("placeholderIcon");
+
+const placeholderLabel =
+  document.getElementById("placeholderLabel");
+
+const placeholderTitle =
+  document.getElementById("placeholderTitle");
+
+const placeholderDescription =
+  document.getElementById("placeholderDescription");
+
+const placeholderPrimary =
+  document.getElementById("placeholderPrimary");
+
+const toast =
+  document.getElementById("toast");
+
+const sidebar =
+  document.getElementById("sidebar");
+
+const mobileMenu =
+  document.getElementById("mobileMenu");
+
+const notificationsBtn =
+  document.getElementById("notificationsBtn");
+
+const profileBtn =
+  document.getElementById("profileBtn");
+
+const globalSearch =
+  document.getElementById("globalSearch");
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+function showToast(message) {
+  if (!toast) {
+    return;
+  }
+
+  toast.textContent = message;
+
+  toast.classList.add("show");
+
+  window.clearTimeout(
+    showToast.timer
+  );
+
+  showToast.timer =
+    window.setTimeout(
+      () => {
+        toast.classList.remove("show");
+      },
+      2400
+    );
 }
 
 
-/* =========================
-   HTML SAFETY
-========================= */
+/* =========================================================
+   NAVIGATION
+========================================================= */
 
-function escapeHTML(text) {
-    const div = document.createElement("div");
-
-    div.textContent = text;
-
-    return div.innerHTML;
+function setActiveNav(route) {
+  document
+    .querySelectorAll(".nav-item")
+    .forEach(item => {
+      item.classList.toggle(
+        "active",
+        item.dataset.route === route
+      );
+    });
 }
 
 
-/* =========================
-   CREATE PROJECT
-========================= */
+function renderRoute(route) {
+  if (!modeInfo[route]) {
+    route = "dashboard";
+  }
 
-function createProject() {
+  setActiveNav(route);
 
-    const description = ideaInput.value.trim();
+  if (route === "dashboard") {
+    dashboardView.hidden = false;
+    placeholderView.hidden = true;
 
-    if (description.length === 0) {
+    document.title =
+      "BigHelpAI";
 
-        descriptionResult.innerHTML = `
-            <div class="result-placeholder">
+    closeMobileSidebar();
 
-                <div class="placeholder-icon">
-                    !
-                </div>
+    return;
+  }
 
-                <p>
-                    Paste a description before creating a project.
-                </p>
 
-            </div>
-        `;
+  dashboardView.hidden = true;
+  placeholderView.hidden = false;
+
+  const info =
+    modeInfo[route];
+
+
+  placeholderIcon.textContent =
+    info.icon;
+
+  placeholderLabel.textContent =
+    info.label;
+
+  placeholderTitle.textContent =
+    info.title;
+
+  placeholderDescription.textContent =
+    info.description;
+
+
+  document.title =
+    `${info.title} · BigHelpAI`;
+
+
+  placeholderPrimary.onclick =
+    () => {
+      showToast(
+        `${info.title} workspace is ready for the next build stage.`
+      );
+    };
+
+
+  closeMobileSidebar();
+}
+
+
+function navigate(route) {
+  const destination =
+    `#${route}`;
+
+  if (
+    window.location.hash !==
+    destination
+  ) {
+    window.location.hash =
+      route;
+  } else {
+    renderRoute(route);
+  }
+}
+
+
+/* =========================================================
+   MOBILE SIDEBAR
+========================================================= */
+
+function closeMobileSidebar() {
+  if (!sidebar) {
+    return;
+  }
+
+  sidebar.classList.remove(
+    "open"
+  );
+}
+
+
+/* =========================================================
+   ROUTE BUTTONS
+========================================================= */
+
+document
+  .querySelectorAll(
+    "[data-route-button]"
+  )
+  .forEach(button => {
+    button.addEventListener(
+      "click",
+      () => {
+        navigate(
+          button.dataset.routeButton
+        );
+      }
+    );
+  });
+
+
+/* =========================================================
+   PROJECTS
+========================================================= */
+
+document
+  .querySelectorAll(
+    ".project-row"
+  )
+  .forEach(button => {
+    button.addEventListener(
+      "click",
+      () => {
+        const projectName =
+          button.dataset.project ||
+          "Project";
+
+        showToast(
+          `Project selected: ${projectName}`
+        );
+      }
+    );
+  });
+
+
+/* =========================================================
+   NOTIFICATIONS
+========================================================= */
+
+if (notificationsBtn) {
+  notificationsBtn.addEventListener(
+    "click",
+    () => {
+      navigate(
+        "notifications"
+      );
+    }
+  );
+}
+
+
+/* =========================================================
+   PROFILE
+========================================================= */
+
+if (profileBtn) {
+  profileBtn.addEventListener(
+    "click",
+    () => {
+      showToast(
+        "Profile will be connected when the account system is built."
+      );
+    }
+  );
+}
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+if (mobileMenu) {
+  mobileMenu.addEventListener(
+    "click",
+    () => {
+      sidebar.classList.toggle(
+        "open"
+      );
+    }
+  );
+}
+
+
+/* =========================================================
+   GLOBAL SEARCH
+========================================================= */
+
+if (globalSearch) {
+  globalSearch.addEventListener(
+    "keydown",
+    event => {
+      if (
+        event.key !==
+        "Enter"
+      ) {
+        return;
+      }
+
+      const query =
+        globalSearch.value.trim();
+
+      if (!query) {
+        showToast(
+          "Type something to search BigHelpAI."
+        );
 
         return;
+      }
+
+      showToast(
+        `Searching BigHelpAI for "${query}"`
+      );
     }
-
-
-    const mode =
-        creationMode.options[
-            creationMode.selectedIndex
-        ].text;
-
-
-    const style =
-        visualStyle.options[
-            visualStyle.selectedIndex
-        ].text;
-
-
-    const detail =
-        detailLevel.options[
-            detailLevel.selectedIndex
-        ].text;
-
-
-    const safeDescription =
-        escapeHTML(description);
-
-
-    descriptionResult.innerHTML = `
-
-        <div class="project-summary">
-
-            <div class="summary-top">
-
-                <div class="summary-badge">
-                    PROJECT CREATED
-                </div>
-
-                <div class="summary-icon">
-                    ✓
-                </div>
-
-            </div>
-
-
-            <h3 class="summary-heading">
-                BigHelpAI Project
-            </h3>
-
-
-            <div class="summary-grid">
-
-                <div class="summary-item">
-
-                    <span class="summary-label">
-                        CHARACTERS
-                    </span>
-
-                    <strong>
-                        ${description.length.toLocaleString()}
-                    </strong>
-
-                </div>
-
-
-                <div class="summary-item">
-
-                    <span class="summary-label">
-                        CREATION MODE
-                    </span>
-
-                    <strong>
-                        ${escapeHTML(mode)}
-                    </strong>
-
-                </div>
-
-
-                <div class="summary-item">
-
-                    <span class="summary-label">
-                        VISUAL STYLE
-                    </span>
-
-                    <strong>
-                        ${escapeHTML(style)}
-                    </strong>
-
-                </div>
-
-
-                <div class="summary-item">
-
-                    <span class="summary-label">
-                        DETAIL LEVEL
-                    </span>
-
-                    <strong>
-                        ${escapeHTML(detail)}
-                    </strong>
-
-                </div>
-
-            </div>
-
-
-            <div class="summary-description">
-
-                <div class="summary-label">
-                    DESCRIPTION
-                </div>
-
-                <div class="description-box">
-                    ${safeDescription}
-                </div>
-
-            </div>
-
-
-            <div class="summary-footer">
-
-                <span class="summary-footer-icon">
-                    ✦
-                </span>
-
-                <span>
-                    Project created successfully.
-                </span>
-
-            </div>
-
-        </div>
-    `;
-
-
-    document
-        .getElementById("results")
-        .scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-        });
+  );
 }
 
 
-/* =========================
-   EXAMPLE
-========================= */
+/* =========================================================
+   KEYBOARD SHORTCUT
+========================================================= */
 
-exampleButton.addEventListener(
-    "click",
-    function () {
+document.addEventListener(
+  "keydown",
+  event => {
+    const target =
+      event.target;
 
-        ideaInput.value = exampleText;
+    const isTyping =
+      target instanceof
+        HTMLInputElement ||
+      target instanceof
+        HTMLTextAreaElement;
 
-        updateCharacterCount();
+    if (
+      event.key === "/" &&
+      !isTyping
+    ) {
+      event.preventDefault();
 
-        ideaInput.focus();
+      if (globalSearch) {
+        globalSearch.focus();
+      }
     }
-);
 
-
-/* =========================
-   CLEAR
-========================= */
-
-clearButton.addEventListener(
-    "click",
-    function () {
-
-        ideaInput.value = "";
-
-        updateCharacterCount();
-
-
-        descriptionResult.innerHTML = `
-
-            <div class="result-placeholder">
-
-                <div class="placeholder-icon">
-                    ◈
-                </div>
-
-                <p>
-                    Your project information will appear here.
-                </p>
-
-            </div>
-
-        `;
-
-
-        ideaInput.focus();
+    if (
+      event.key === "Escape"
+    ) {
+      closeMobileSidebar();
     }
+  }
 );
 
 
-/* =========================
-   CREATE BUTTON
-========================= */
+/* =========================================================
+   HASH ROUTING
+========================================================= */
 
-createButton.addEventListener(
-    "click",
-    createProject
+window.addEventListener(
+  "hashchange",
+  () => {
+    const route =
+      window.location.hash
+        .slice(1) ||
+      "dashboard";
+
+    renderRoute(route);
+  }
 );
 
 
-/* =========================
-   TEXT INPUT
-========================= */
+/* =========================================================
+   START APP
+========================================================= */
 
-ideaInput.addEventListener(
-    "input",
-    updateCharacterCount
+const initialRoute =
+  window.location.hash
+    .slice(1) ||
+  "dashboard";
+
+renderRoute(
+  initialRoute
 );
-
-
-/* =========================
-   INITIALIZATION
-========================= */
-
-updateCharacterCount();
