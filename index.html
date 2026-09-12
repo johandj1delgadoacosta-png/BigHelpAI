@@ -19,8 +19,8 @@
 
   <style>
     /* =====================================================
-       WELCOME / FEATURE SHOWCASE
-    ====================================================== */
+       WELCOME SCREEN
+    ===================================================== */
 
     .welcome-screen {
       position: fixed;
@@ -89,9 +89,7 @@
     .welcome-title {
       max-width: 930px;
 
-      margin:
-        0
-        auto;
+      margin: 0 auto;
 
       font-size:
         clamp(
@@ -142,8 +140,8 @@
     }
 
     /* =====================================================
-       SHOWCASE
-    ====================================================== */
+       FEATURE SHOWCASE
+    ===================================================== */
 
     .feature-showcase {
       width: min(980px, 100%);
@@ -358,8 +356,6 @@
       color: white;
 
       font-size: 17px;
-
-      backdrop-filter: blur(10px);
     }
 
     .showcase-arrow:hover {
@@ -441,8 +437,8 @@
     }
 
     /* =====================================================
-       ACTION BUTTONS
-    ====================================================== */
+       WELCOME ACTIONS
+    ===================================================== */
 
     .welcome-actions {
       display: flex;
@@ -521,7 +517,7 @@
 
     /* =====================================================
        FEATURE CARDS
-    ====================================================== */
+    ===================================================== */
 
     .welcome-feature-row {
       display: grid;
@@ -592,8 +588,281 @@
     }
 
     /* =====================================================
+       AUTH SCREEN
+    ===================================================== */
+
+    .auth-screen {
+      position: fixed;
+      inset: 0;
+
+      z-index: 2000;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 24px;
+
+      background:
+        radial-gradient(
+          circle at 20% 20%,
+          rgba(139, 92, 246, 0.22),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 80% 20%,
+          rgba(34, 211, 238, 0.13),
+          transparent 28%
+        ),
+        rgba(5, 6, 10, 0.94);
+
+      backdrop-filter: blur(18px);
+    }
+
+    .auth-screen[hidden] {
+      display: none;
+    }
+
+    .auth-card {
+      width: min(460px, 100%);
+
+      max-height: 90vh;
+
+      overflow-y: auto;
+
+      position: relative;
+
+      padding: 32px;
+
+      border:
+        1px
+        solid
+        rgba(255, 255, 255, 0.10);
+
+      border-radius: 24px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(20, 23, 34, 0.98),
+          rgba(11, 13, 20, 0.98)
+        );
+
+      box-shadow:
+        0
+        30px
+        100px
+        rgba(0, 0, 0, 0.55);
+    }
+
+    .auth-close {
+      position: absolute;
+
+      top: 16px;
+      right: 16px;
+
+      width: 38px;
+      height: 38px;
+
+      border-radius: 10px;
+
+      border:
+        1px
+        solid
+        rgba(255, 255, 255, 0.08);
+
+      background:
+        rgba(255, 255, 255, 0.04);
+
+      color: #d9deea;
+
+      font-size: 22px;
+    }
+
+    .auth-close:hover {
+      background:
+        rgba(255, 255, 255, 0.08);
+    }
+
+    .auth-brand {
+      display: flex;
+
+      align-items: center;
+
+      gap: 10px;
+
+      font-size: 18px;
+      font-weight: 900;
+
+      margin-bottom: 26px;
+    }
+
+    .auth-brand-mark {
+      width: 36px;
+      height: 36px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 10px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #8b5cf6,
+          #22d3ee
+        );
+    }
+
+    .auth-panel h2 {
+      margin: 0;
+
+      font-size: 32px;
+
+      letter-spacing: -0.03em;
+    }
+
+    .auth-subtitle {
+      margin:
+        9px
+        0
+        22px;
+
+      color: #9ea8ba;
+
+      font-size: 13px;
+
+      line-height: 1.5;
+    }
+
+    .auth-panel form {
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 9px;
+    }
+
+    .auth-panel label {
+      color: #dfe3ed;
+
+      font-size: 13px;
+
+      font-weight: 700;
+
+      margin-top: 5px;
+    }
+
+    .auth-panel input {
+      width: 100%;
+
+      height: 46px;
+
+      padding:
+        0
+        13px;
+
+      border:
+        1px
+        solid
+        rgba(255, 255, 255, 0.10);
+
+      border-radius: 11px;
+
+      background:
+        rgba(255, 255, 255, 0.035);
+
+      color: white;
+
+      outline: none;
+    }
+
+    .auth-panel input::placeholder {
+      color: #687288;
+    }
+
+    .auth-panel input:focus {
+      border-color: #8b5cf6;
+
+      box-shadow:
+        0
+        0
+        0
+        3px
+        rgba(139, 92, 246, 0.12);
+    }
+
+    .auth-primary {
+      width: 100%;
+
+      min-height: 47px;
+
+      margin-top: 10px;
+
+      border: 0;
+
+      border-radius: 12px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #8b5cf6,
+          #6d4ef3
+        );
+
+      color: white;
+
+      font-weight: 850;
+
+      box-shadow:
+        0
+        12px
+        30px
+        rgba(109, 78, 243, 0.20);
+    }
+
+    .auth-link,
+    .auth-switch button {
+      border: 0;
+
+      background: none;
+
+      color: #a78bfa;
+
+      font-size: 12px;
+
+      cursor: pointer;
+    }
+
+    .auth-link {
+      display: block;
+
+      margin:
+        15px
+        auto
+        0;
+    }
+
+    .auth-switch {
+      margin:
+        22px
+        0
+        0;
+
+      text-align: center;
+
+      color: #8f98aa;
+
+      font-size: 12px;
+    }
+
+    .auth-switch button {
+      font-weight: 800;
+    }
+
+    /* =====================================================
        ANIMATIONS
-    ====================================================== */
+    ===================================================== */
 
     @keyframes showcaseFloat {
       0%,
@@ -622,7 +891,7 @@
 
     /* =====================================================
        MOBILE
-    ====================================================== */
+    ===================================================== */
 
     @media (max-width: 850px) {
       .welcome-feature-row {
@@ -654,8 +923,7 @@
       .showcase-stage {
         min-height: 330px;
 
-        padding:
-          20px;
+        padding: 20px;
       }
 
       .showcase-icon {
@@ -686,15 +954,24 @@
       .welcome-action {
         width: 100%;
       }
+
+      .auth-card {
+        padding: 24px 19px;
+        border-radius: 20px;
+      }
+
+      .auth-panel h2 {
+        font-size: 28px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- =========================================================
+  <!-- =====================================================
        OPENING SCREEN
-  ========================================================== -->
+  ===================================================== -->
 
   <section
     class="welcome-screen"
@@ -705,51 +982,39 @@
     <div class="welcome-shell">
 
       <div class="welcome-brand">
-        <span class="welcome-brand-mark">
-          B
-        </span>
-
-        <span>
-          BigHelpAI
-        </span>
+        <span class="welcome-brand-mark">B</span>
+        <span>BigHelpAI</span>
       </div>
-
 
       <h1 class="welcome-title">
         One place to
-        <span>
-          learn, create,
-        </span>
+        <span>learn, create,</span>
         build and explore.
       </h1>
-
 
       <p class="welcome-subtitle">
         Meet BigHelpAI — an all-in-one AI ecosystem
         designed to help you turn ideas into real projects.
       </p>
 
-
-      <!-- =====================================================
-           FEATURE SHOWCASE
-      ====================================================== -->
+      <!-- FEATURE SHOWCASE -->
 
       <div
         class="feature-showcase"
         aria-label="BigHelpAI feature showcase"
       >
 
-        <div class="showcase-stage" id="showcaseStage">
+        <div
+          class="showcase-stage"
+          id="showcaseStage"
+        >
 
-          <!-- AI -->
           <article
             class="showcase-slide active"
             data-slide="0"
           >
             <div class="showcase-content">
-              <div class="showcase-icon">
-                ✨
-              </div>
+              <div class="showcase-icon">✨</div>
 
               <h2>
                 AI that helps you get things done
@@ -761,26 +1026,18 @@
                 bring your ideas to life.
               </p>
 
-              <span class="showcase-tag">
-                AI
-              </span>
+              <span class="showcase-tag">AI</span>
             </div>
           </article>
 
-
-          <!-- CODING -->
           <article
             class="showcase-slide"
             data-slide="1"
           >
             <div class="showcase-content">
-              <div class="showcase-icon">
-                💻
-              </div>
+              <div class="showcase-icon">💻</div>
 
-              <h2>
-                Build with Coding
-              </h2>
+              <h2>Build with Coding</h2>
 
               <p>
                 Create websites, applications,
@@ -788,53 +1045,37 @@
                 an AI coding assistant.
               </p>
 
-              <span class="showcase-tag">
-                Coding
-              </span>
+              <span class="showcase-tag">Coding</span>
             </div>
           </article>
 
-
-          <!-- LEARNING -->
           <article
             class="showcase-slide"
             data-slide="2"
           >
             <div class="showcase-content">
-              <div class="showcase-icon">
-                🎓
-              </div>
+              <div class="showcase-icon">🎓</div>
 
-              <h2>
-                Learn your way
-              </h2>
+              <h2>Learn your way</h2>
 
               <p>
                 Study subjects, follow curriculums,
-                complete lessons, take quizzes,
+                complete lessons, quizzes,
                 checkpoints, tests, and exams.
               </p>
 
-              <span class="showcase-tag">
-                Learning
-              </span>
+              <span class="showcase-tag">Learning</span>
             </div>
           </article>
 
-
-          <!-- CREATION -->
           <article
             class="showcase-slide"
             data-slide="3"
           >
             <div class="showcase-content">
-              <div class="showcase-icon">
-                🎨
-              </div>
+              <div class="showcase-icon">🎨</div>
 
-              <h2>
-                Turn ideas into creations
-              </h2>
+              <h2>Turn ideas into creations</h2>
 
               <p>
                 Create images, visual projects,
@@ -842,26 +1083,18 @@
                 much more.
               </p>
 
-              <span class="showcase-tag">
-                Creation
-              </span>
+              <span class="showcase-tag">Creation</span>
             </div>
           </article>
 
-
-          <!-- 3D -->
           <article
             class="showcase-slide"
             data-slide="4"
           >
             <div class="showcase-content">
-              <div class="showcase-icon">
-                🧊
-              </div>
+              <div class="showcase-icon">🧊</div>
 
-              <h2>
-                Build in 3D
-              </h2>
+              <h2>Build in 3D</h2>
 
               <p>
                 Create objects and machines,
@@ -869,52 +1102,36 @@
                 and test your designs in Sim Lab.
               </p>
 
-              <span class="showcase-tag">
-                3D Create
-              </span>
+              <span class="showcase-tag">3D Create</span>
             </div>
           </article>
 
-
-          <!-- MUSIC -->
           <article
             class="showcase-slide"
             data-slide="5"
           >
             <div class="showcase-content">
-              <div class="showcase-icon">
-                🎵
-              </div>
+              <div class="showcase-icon">🎵</div>
 
-              <h2>
-                Make music
-              </h2>
+              <h2>Make music</h2>
 
               <p>
                 Build melodies, beats, arrangements,
                 instruments, and complete music projects.
               </p>
 
-              <span class="showcase-tag">
-                Music Creator
-              </span>
+              <span class="showcase-tag">Music Creator</span>
             </div>
           </article>
 
-
-          <!-- COLLEGE -->
           <article
             class="showcase-slide"
             data-slide="6"
           >
             <div class="showcase-content">
-              <div class="showcase-icon">
-                🎓
-              </div>
+              <div class="showcase-icon">🎓</div>
 
-              <h2>
-                Prepare for college
-              </h2>
+              <h2>Prepare for college</h2>
 
               <p>
                 Get help with college work,
@@ -922,26 +1139,18 @@
                 requirements, and deadlines.
               </p>
 
-              <span class="showcase-tag">
-                College Hub
-              </span>
+              <span class="showcase-tag">College Hub</span>
             </div>
           </article>
 
-
-          <!-- SELL -->
           <article
             class="showcase-slide"
             data-slide="7"
           >
             <div class="showcase-content">
-              <div class="showcase-icon">
-                🛍️
-              </div>
+              <div class="showcase-icon">🛍️</div>
 
-              <h2>
-                Create products to sell
-              </h2>
+              <h2>Create products to sell</h2>
 
               <p>
                 Build digital or physical products,
@@ -949,26 +1158,18 @@
                 and prepare listings.
               </p>
 
-              <span class="showcase-tag">
-                Sell
-              </span>
+              <span class="showcase-tag">Sell</span>
             </div>
           </article>
 
-
-          <!-- BOOKS -->
           <article
             class="showcase-slide"
             data-slide="8"
           >
             <div class="showcase-content">
-              <div class="showcase-icon">
-                📖
-              </div>
+              <div class="showcase-icon">📖</div>
 
-              <h2>
-                Publish your books
-              </h2>
+              <h2>Publish your books</h2>
 
               <p>
                 Upload a manuscript or PDF,
@@ -976,40 +1177,28 @@
                 information, and review everything.
               </p>
 
-              <span class="showcase-tag">
-                Publish Books
-              </span>
+              <span class="showcase-tag">Publish Books</span>
             </div>
           </article>
 
-
-          <!-- BOARD GAMES -->
           <article
             class="showcase-slide"
             data-slide="9"
           >
             <div class="showcase-content">
-              <div class="showcase-icon">
-                🎲
-              </div>
+              <div class="showcase-icon">🎲</div>
 
-              <h2>
-                Create and learn board games
-              </h2>
+              <h2>Create and learn board games</h2>
 
               <p>
                 Design your own games or learn
                 how to play real board games.
               </p>
 
-              <span class="showcase-tag">
-                Board Games
-              </span>
+              <span class="showcase-tag">Board Games</span>
             </div>
           </article>
 
-
-          <!-- CONTROLS -->
           <div class="showcase-controls">
 
             <button
@@ -1021,8 +1210,10 @@
               ←
             </button>
 
-
-            <div class="showcase-dots" id="showcaseDots">
+            <div
+              class="showcase-dots"
+              id="showcaseDots"
+            >
 
               <button
                 class="showcase-dot active"
@@ -1096,7 +1287,6 @@
 
             </div>
 
-
             <div
               class="showcase-timer"
               aria-hidden="true"
@@ -1106,7 +1296,6 @@
                 id="showcaseTimer"
               ></div>
             </div>
-
 
             <button
               class="showcase-arrow"
@@ -1123,10 +1312,7 @@
 
       </div>
 
-
-      <!-- =====================================================
-           WELCOME ACTIONS
-      ====================================================== -->
+      <!-- ACTIONS -->
 
       <div class="welcome-actions">
 
@@ -1156,21 +1342,14 @@
 
       </div>
 
-
-      <!-- =====================================================
-           FEATURE CARDS
-      ====================================================== -->
+      <!-- FEATURE CARDS -->
 
       <div class="welcome-feature-row">
 
         <div class="welcome-feature">
-          <div class="welcome-feature-icon">
-            ✨
-          </div>
+          <div class="welcome-feature-icon">✨</div>
 
-          <strong>
-            AI
-          </strong>
+          <strong>AI</strong>
 
           <small>
             Ask questions, research, write,
@@ -1178,15 +1357,10 @@
           </small>
         </div>
 
-
         <div class="welcome-feature">
-          <div class="welcome-feature-icon">
-            💻
-          </div>
+          <div class="welcome-feature-icon">💻</div>
 
-          <strong>
-            Create & Build
-          </strong>
+          <strong>Create &amp; Build</strong>
 
           <small>
             Code, create images, build 3D
@@ -1194,15 +1368,10 @@
           </small>
         </div>
 
-
         <div class="welcome-feature">
-          <div class="welcome-feature-icon">
-            🎓
-          </div>
+          <div class="welcome-feature-icon">🎓</div>
 
-          <strong>
-            Learn
-          </strong>
+          <strong>Learn</strong>
 
           <small>
             Study, follow curriculums,
@@ -1210,15 +1379,10 @@
           </small>
         </div>
 
-
         <div class="welcome-feature">
-          <div class="welcome-feature-icon">
-            🎵
-          </div>
+          <div class="welcome-feature-icon">🎵</div>
 
-          <strong>
-            Create More
-          </strong>
+          <strong>Create More</strong>
 
           <small>
             Make music, board games, books,
@@ -1227,7 +1391,6 @@
         </div>
 
       </div>
-
 
       <div class="welcome-footer">
         BigHelpAI — Learn. Create. Build. Explore.
@@ -1238,9 +1401,211 @@
   </section>
 
 
-  <!-- =========================================================
+  <!-- =====================================================
+       AUTH SCREEN
+  ===================================================== -->
+
+  <section
+    class="auth-screen"
+    id="authScreen"
+    aria-label="BigHelpAI account access"
+    hidden
+  >
+
+    <div class="auth-card">
+
+      <button
+        class="auth-close"
+        id="authClose"
+        type="button"
+        aria-label="Close"
+      >
+        ×
+      </button>
+
+      <div class="auth-brand">
+        <span class="auth-brand-mark">B</span>
+        <span>BigHelpAI</span>
+      </div>
+
+
+      <!-- SIGN IN -->
+
+      <div
+        class="auth-panel"
+        id="signInPanel"
+      >
+
+        <p class="eyebrow">
+          WELCOME BACK
+        </p>
+
+        <h2>
+          Sign In
+        </h2>
+
+        <p class="auth-subtitle">
+          Sign in to continue to your BigHelpAI account.
+        </p>
+
+        <form id="signInForm">
+
+          <label for="signInEmail">
+            Email
+          </label>
+
+          <input
+            id="signInEmail"
+            type="email"
+            placeholder="you@example.com"
+            autocomplete="email"
+            required
+          >
+
+          <label for="signInPassword">
+            Password
+          </label>
+
+          <input
+            id="signInPassword"
+            type="password"
+            placeholder="Enter your password"
+            autocomplete="current-password"
+            required
+          >
+
+          <button
+            class="auth-primary"
+            type="submit"
+          >
+            Sign In
+          </button>
+
+        </form>
+
+        <button
+          class="auth-link"
+          id="forgotPassword"
+          type="button"
+        >
+          Forgot password?
+        </button>
+
+        <p class="auth-switch">
+          Don't have an account?
+
+          <button
+            type="button"
+            id="showRegister"
+          >
+            Register
+          </button>
+        </p>
+
+      </div>
+
+
+      <!-- REGISTER -->
+
+      <div
+        class="auth-panel"
+        id="registerPanel"
+        hidden
+      >
+
+        <p class="eyebrow">
+          GET STARTED
+        </p>
+
+        <h2>
+          Create your account
+        </h2>
+
+        <p class="auth-subtitle">
+          Create a BigHelpAI account to unlock
+          account-based features and projects.
+        </p>
+
+        <form id="registerForm">
+
+          <label for="registerName">
+            Name
+          </label>
+
+          <input
+            id="registerName"
+            type="text"
+            placeholder="Your name"
+            autocomplete="name"
+            required
+          >
+
+          <label for="registerEmail">
+            Email
+          </label>
+
+          <input
+            id="registerEmail"
+            type="email"
+            placeholder="you@example.com"
+            autocomplete="email"
+            required
+          >
+
+          <label for="registerPassword">
+            Password
+          </label>
+
+          <input
+            id="registerPassword"
+            type="password"
+            placeholder="Create a password"
+            autocomplete="new-password"
+            required
+          >
+
+          <label for="registerConfirmPassword">
+            Confirm password
+          </label>
+
+          <input
+            id="registerConfirmPassword"
+            type="password"
+            placeholder="Enter your password again"
+            autocomplete="new-password"
+            required
+          >
+
+          <button
+            class="auth-primary"
+            type="submit"
+          >
+            Create Account
+          </button>
+
+        </form>
+
+        <p class="auth-switch">
+          Already have an account?
+
+          <button
+            type="button"
+            id="showSignIn"
+          >
+            Sign In
+          </button>
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
        MAIN BIGHELPAI APP
-  ========================================================== -->
+  ===================================================== -->
 
   <div
     class="app-shell"
@@ -1257,27 +1622,18 @@
         ☰
       </button>
 
-
       <a
         class="brand"
         href="#dashboard"
         aria-label="BigHelpAI home"
       >
-        <span class="brand-mark">
-          B
-        </span>
-
-        <span>
-          BigHelpAI
-        </span>
+        <span class="brand-mark">B</span>
+        <span>BigHelpAI</span>
       </a>
-
 
       <div class="top-search">
 
-        <span class="search-icon">
-          ⌕
-        </span>
+        <span class="search-icon">⌕</span>
 
         <input
           id="globalSearch"
@@ -1286,12 +1642,9 @@
           autocomplete="off"
         >
 
-        <kbd>
-          /
-        </kbd>
+        <kbd>/</kbd>
 
       </div>
-
 
       <div class="top-actions">
 
@@ -1302,27 +1655,24 @@
           aria-label="Notifications"
         >
           🔔
+
           <span
             class="notification-dot"
           ></span>
-        </button>
 
+        </button>
 
         <button
           class="profile-button"
           id="profileBtn"
         >
-          <span class="avatar">
-            JD
-          </span>
+          <span class="avatar">JD</span>
 
           <span class="profile-text">
             Profile
           </span>
 
-          <span>
-            ⌄
-          </span>
+          <span>⌄</span>
         </button>
 
       </div>
@@ -1345,11 +1695,8 @@
             data-route="dashboard"
           >
             🏠
-            <span>
-              Dashboard
-            </span>
+            <span>Dashboard</span>
           </a>
-
 
           <a
             class="nav-item"
@@ -1357,11 +1704,8 @@
             data-route="ai"
           >
             ✨
-            <span>
-              AI
-            </span>
+            <span>AI</span>
           </a>
-
 
           <a
             class="nav-item"
@@ -1369,11 +1713,8 @@
             data-route="coding"
           >
             💻
-            <span>
-              Coding
-            </span>
+            <span>Coding</span>
           </a>
-
 
           <a
             class="nav-item"
@@ -1381,11 +1722,8 @@
             data-route="study"
           >
             📚
-            <span>
-              Study
-            </span>
+            <span>Study</span>
           </a>
-
 
           <a
             class="nav-item"
@@ -1393,11 +1731,8 @@
             data-route="learning"
           >
             🎓
-            <span>
-              Learning
-            </span>
+            <span>Learning</span>
           </a>
-
 
           <a
             class="nav-item"
@@ -1405,11 +1740,8 @@
             data-route="creation"
           >
             🎨
-            <span>
-              Creation
-            </span>
+            <span>Creation</span>
           </a>
-
 
           <a
             class="nav-item"
@@ -1417,11 +1749,8 @@
             data-route="3d-create"
           >
             🧊
-            <span>
-              3D Create
-            </span>
+            <span>3D Create</span>
           </a>
-
 
           <a
             class="nav-item"
@@ -1429,11 +1758,8 @@
             data-route="sim-lab"
           >
             🧪
-            <span>
-              Sim Lab
-            </span>
+            <span>Sim Lab</span>
           </a>
-
 
           <a
             class="nav-item"
@@ -1441,11 +1767,8 @@
             data-route="build"
           >
             🛠️
-            <span>
-              Build
-            </span>
+            <span>Build</span>
           </a>
-
 
           <a
             class="nav-item"
@@ -1453,11 +1776,8 @@
             data-route="board-games"
           >
             🎲
-            <span>
-              Board Games
-            </span>
+            <span>Board Games</span>
           </a>
-
 
           <a
             class="nav-item"
@@ -1465,11 +1785,8 @@
             data-route="music"
           >
             🎵
-            <span>
-              Music Creator
-            </span>
+            <span>Music Creator</span>
           </a>
-
 
           <a
             class="nav-item"
@@ -1477,11 +1794,8 @@
             data-route="college"
           >
             🎓
-            <span>
-              College Hub
-            </span>
+            <span>College Hub</span>
           </a>
-
 
           <a
             class="nav-item"
@@ -1489,11 +1803,8 @@
             data-route="sell"
           >
             🛍️
-            <span>
-              Sell
-            </span>
+            <span>Sell</span>
           </a>
-
 
           <a
             class="nav-item"
@@ -1501,11 +1812,8 @@
             data-route="books"
           >
             📖
-            <span>
-              Publish Books
-            </span>
+            <span>Publish Books</span>
           </a>
-
 
           <a
             class="nav-item"
@@ -1513,11 +1821,8 @@
             data-route="therapy"
           >
             💙
-            <span>
-              Therapy
-            </span>
+            <span>Therapy</span>
           </a>
-
 
           <a
             class="nav-item"
@@ -1525,11 +1830,8 @@
             data-route="browser"
           >
             🌐
-            <span>
-              Private Browser
-            </span>
+            <span>Private Browser</span>
           </a>
-
 
           <a
             class="nav-item"
@@ -1537,9 +1839,7 @@
             data-route="navigation"
           >
             🗺️
-            <span>
-              Navigation
-            </span>
+            <span>Navigation</span>
           </a>
 
         </nav>
@@ -1551,18 +1851,14 @@
             Workspace
           </div>
 
-
           <a
             class="nav-item"
             href="#projects"
             data-route="projects"
           >
             📁
-            <span>
-              Projects
-            </span>
+            <span>Projects</span>
           </a>
-
 
           <a
             class="nav-item"
@@ -1570,11 +1866,8 @@
             data-route="notifications"
           >
             🔔
-            <span>
-              Notifications
-            </span>
+            <span>Notifications</span>
           </a>
-
 
           <a
             class="nav-item"
@@ -1582,9 +1875,7 @@
             data-route="settings"
           >
             ⚙️
-            <span>
-              Settings
-            </span>
+            <span>Settings</span>
           </a>
 
         </div>
@@ -1592,13 +1883,20 @@
 
         <div class="sidebar-bottom">
 
-          <div class="premium-card">
+          <div
+            class="premium-card"
+            id="premiumCard"
+            role="button"
+            tabindex="0"
+            aria-label="Open BigHelpAI Premium"
+          >
 
             <div class="premium-icon">
               ✦
             </div>
 
             <div>
+
               <strong>
                 Premium
               </strong>
@@ -1606,10 +1904,10 @@
               <span>
                 Unlock more of BigHelpAI
               </span>
+
             </div>
 
           </div>
-
 
           <div class="sidebar-footer">
             © BigHelpAI
@@ -1637,6 +1935,7 @@
 
               <h1>
                 Hi! My name is
+
                 <span class="accent">
                   Hellpy
                 </span>.
@@ -1646,7 +1945,6 @@
                 What do you want to do today?
               </p>
 
-
               <div class="hero-actions">
 
                 <button
@@ -1655,7 +1953,6 @@
                 >
                   Start with AI
                 </button>
-
 
                 <button
                   class="secondary-button"
@@ -1721,10 +2018,9 @@
               <span>✨</span>
               <strong>AI</strong>
               <small>
-                Ask, write, research & more
+                Ask, write, research &amp; more
               </small>
             </button>
-
 
             <button
               class="mode-card"
@@ -1737,7 +2033,6 @@
               </small>
             </button>
 
-
             <button
               class="mode-card"
               data-route-button="study"
@@ -1748,7 +2043,6 @@
                 Homework and practice
               </small>
             </button>
-
 
             <button
               class="mode-card"
@@ -1761,7 +2055,6 @@
               </small>
             </button>
 
-
             <button
               class="mode-card"
               data-route-button="creation"
@@ -1772,7 +2065,6 @@
                 Images and creative projects
               </small>
             </button>
-
 
             <button
               class="mode-card"
@@ -1785,7 +2077,6 @@
               </small>
             </button>
 
-
             <button
               class="mode-card"
               data-route-button="sim-lab"
@@ -1796,7 +2087,6 @@
                 Test physics and electronics
               </small>
             </button>
-
 
             <button
               class="mode-card"
@@ -1809,7 +2099,6 @@
               </small>
             </button>
 
-
             <button
               class="mode-card"
               data-route-button="board-games"
@@ -1820,7 +2109,6 @@
                 Create or learn games
               </small>
             </button>
-
 
             <button
               class="mode-card"
@@ -1833,7 +2121,6 @@
               </small>
             </button>
 
-
             <button
               class="mode-card"
               data-route-button="college"
@@ -1844,7 +2131,6 @@
                 College work and applications
               </small>
             </button>
-
 
             <button
               class="mode-card"
@@ -1857,7 +2143,6 @@
               </small>
             </button>
 
-
             <button
               class="mode-card"
               data-route-button="books"
@@ -1868,7 +2153,6 @@
                 Turn manuscripts into books
               </small>
             </button>
-
 
             <button
               class="mode-card"
@@ -1881,7 +2165,6 @@
               </small>
             </button>
 
-
             <button
               class="mode-card"
               data-route-button="browser"
@@ -1892,7 +2175,6 @@
                 Privacy-focused browsing
               </small>
             </button>
-
 
             <button
               class="mode-card"
@@ -1908,7 +2190,9 @@
           </div>
 
 
-          <div class="section-heading recent-heading">
+          <div
+            class="section-heading recent-heading"
+          >
 
             <div>
 
@@ -1921,7 +2205,6 @@
               </p>
 
             </div>
-
 
             <button
               class="text-button"
@@ -2017,6 +2300,8 @@
         </section>
 
 
+        <!-- PLACEHOLDER WORKSPACE -->
+
         <section
           class="placeholder-view"
           id="placeholderView"
@@ -2030,14 +2315,12 @@
             ← Dashboard
           </button>
 
-
           <div
             class="placeholder-icon"
             id="placeholderIcon"
           >
             ✨
           </div>
-
 
           <p
             class="eyebrow"
@@ -2046,16 +2329,13 @@
             BIGHELPAI
           </p>
 
-
           <h1 id="placeholderTitle">
             AI
           </h1>
 
-
           <p id="placeholderDescription">
             Your workspace is ready for the next step.
           </p>
-
 
           <div class="placeholder-actions">
 
@@ -2066,7 +2346,6 @@
               Open workspace
             </button>
 
-
             <button
               class="secondary-button"
               data-route-button="dashboard"
@@ -2075,7 +2354,6 @@
             </button>
 
           </div>
-
 
           <p class="prototype-note">
             This redesigned front end is the foundation.
@@ -2100,40 +2378,64 @@
   ></div>
 
 
-  <!-- =========================================================
-       WELCOME SCREEN SCRIPT
-  ========================================================== -->
+  <!-- =====================================================
+       OPENING + AUTH + SHOWCASE SCRIPT
+  ===================================================== -->
 
   <script>
+    /* =====================================================
+       ELEMENTS
+    ===================================================== */
+
     const welcomeScreen =
-      document.getElementById(
-        "welcomeScreen"
-      );
+      document.getElementById("welcomeScreen");
 
     const mainApp =
-      document.getElementById(
-        "mainApp"
-      );
+      document.getElementById("mainApp");
+
+    const authScreen =
+      document.getElementById("authScreen");
 
     const continueGuest =
-      document.getElementById(
-        "continueGuest"
-      );
+      document.getElementById("continueGuest");
 
     const welcomeSignIn =
-      document.getElementById(
-        "welcomeSignIn"
-      );
+      document.getElementById("welcomeSignIn");
 
     const welcomeRegister =
-      document.getElementById(
-        "welcomeRegister"
-      );
+      document.getElementById("welcomeRegister");
+
+    const authClose =
+      document.getElementById("authClose");
+
+    const signInPanel =
+      document.getElementById("signInPanel");
+
+    const registerPanel =
+      document.getElementById("registerPanel");
+
+    const showRegister =
+      document.getElementById("showRegister");
+
+    const showSignIn =
+      document.getElementById("showSignIn");
+
+    const signInForm =
+      document.getElementById("signInForm");
+
+    const registerForm =
+      document.getElementById("registerForm");
+
+    const forgotPassword =
+      document.getElementById("forgotPassword");
+
+    const premiumCard =
+      document.getElementById("premiumCard");
 
 
-    /*
-      SHOWCASE
-    */
+    /* =====================================================
+       SHOWCASE
+    ===================================================== */
 
     const slides =
       Array.from(
@@ -2164,55 +2466,14 @@
         "showcaseTimer"
       );
 
+    const showcaseStage =
+      document.getElementById(
+        "showcaseStage"
+      );
 
     let currentSlide = 0;
-
     let showcaseInterval = null;
-
-
-    function updateShowcase(
-      newIndex
-    ) {
-      if (!slides.length) {
-        return;
-      }
-
-      currentSlide =
-        (
-          newIndex +
-          slides.length
-        ) %
-        slides.length;
-
-
-      slides.forEach(
-        (
-          slide,
-          index
-        ) => {
-          slide.classList.toggle(
-            "active",
-            index === currentSlide
-          );
-        }
-      );
-
-
-      dots.forEach(
-        (
-          dot,
-          index
-        ) => {
-          dot.classList.toggle(
-            "active",
-            index === currentSlide
-          );
-        }
-      );
-
-
-      resetShowcaseTimer();
-    }
+    let touchStartX = null;
 
 
     function resetShowcaseTimer() {
@@ -2224,10 +2485,6 @@
         "running"
       );
 
-      /*
-        Force the browser to restart the CSS
-        animation.
-      */
       void showcaseTimer.offsetWidth;
 
       showcaseTimer.classList.add(
@@ -2236,59 +2493,88 @@
     }
 
 
+    function updateShowcase(index) {
+      if (!slides.length) {
+        return;
+      }
+
+      currentSlide =
+        (
+          index +
+          slides.length
+        ) %
+        slides.length;
+
+      slides.forEach(
+        (slide, slideIndex) => {
+          slide.classList.toggle(
+            "active",
+            slideIndex === currentSlide
+          );
+        }
+      );
+
+      dots.forEach(
+        (dot, dotIndex) => {
+          dot.classList.toggle(
+            "active",
+            dotIndex === currentSlide
+          );
+        }
+      );
+
+      resetShowcaseTimer();
+    }
+
+
     function startShowcase() {
-      window.clearInterval(
+      clearInterval(
         showcaseInterval
       );
 
       showcaseInterval =
-        window.setInterval(
-          () => {
-            updateShowcase(
-              currentSlide + 1
-            );
-          },
-          6000
-        );
+        setInterval(() => {
+          updateShowcase(
+            currentSlide + 1
+          );
+        }, 6000);
     }
 
 
-    previousButton.addEventListener(
-      "click",
-      () => {
-        updateShowcase(
-          currentSlide - 1
-        );
+    if (previousButton) {
+      previousButton.addEventListener(
+        "click",
+        () => {
+          updateShowcase(
+            currentSlide - 1
+          );
 
-        startShowcase();
-      }
-    );
+          startShowcase();
+        }
+      );
+    }
 
 
-    nextButton.addEventListener(
-      "click",
-      () => {
-        updateShowcase(
-          currentSlide + 1
-        );
+    if (nextButton) {
+      nextButton.addEventListener(
+        "click",
+        () => {
+          updateShowcase(
+            currentSlide + 1
+          );
 
-        startShowcase();
-      }
-    );
+          startShowcase();
+        }
+      );
+    }
 
 
     dots.forEach(
-      (
-        dot,
-        index
-      ) => {
+      (dot, index) => {
         dot.addEventListener(
           "click",
           () => {
-            updateShowcase(
-              index
-            );
-
+            updateShowcase(index);
             startShowcase();
           }
         );
@@ -2296,77 +2582,91 @@
     );
 
 
-    /*
-      TOUCH / SWIPE SUPPORT
-    */
-
-    let touchStartX = null;
-
-
-    const showcaseStage =
-      document.getElementById(
-        "showcaseStage"
+    if (showcaseStage) {
+      showcaseStage.addEventListener(
+        "touchstart",
+        event => {
+          touchStartX =
+            event.touches[0].clientX;
+        },
+        {
+          passive: true
+        }
       );
 
 
-    showcaseStage.addEventListener(
-      "touchstart",
-      event => {
-        touchStartX =
-          event.touches[0].clientX;
-      },
-      {
-        passive: true
-      }
-    );
-
-
-    showcaseStage.addEventListener(
-      "touchend",
-      event => {
-        if (
-          touchStartX === null
-        ) {
-          return;
-        }
-
-        const touchEndX =
-          event.changedTouches[0]
-            .clientX;
-
-        const distance =
-          touchEndX -
-          touchStartX;
-
-
-        if (
-          Math.abs(distance) >
-          50
-        ) {
-          if (distance > 0) {
-            updateShowcase(
-              currentSlide - 1
-            );
-          } else {
-            updateShowcase(
-              currentSlide + 1
-            );
+      showcaseStage.addEventListener(
+        "touchend",
+        event => {
+          if (
+            touchStartX === null
+          ) {
+            return;
           }
 
-          startShowcase();
+          const touchEndX =
+            event.changedTouches[0]
+              .clientX;
+
+          const distance =
+            touchEndX -
+            touchStartX;
+
+          if (
+            Math.abs(distance) >
+            50
+          ) {
+            if (
+              distance > 0
+            ) {
+              updateShowcase(
+                currentSlide - 1
+              );
+            } else {
+              updateShowcase(
+                currentSlide + 1
+              );
+            }
+
+            startShowcase();
+          }
+
+          touchStartX = null;
+        },
+        {
+          passive: true
         }
+      );
+    }
 
-        touchStartX = null;
-      },
-      {
-        passive: true
+
+    /* =====================================================
+       AUTH
+    ===================================================== */
+
+    function showAuth(type) {
+      authScreen.hidden = false;
+
+      document.body.style.overflow =
+        "hidden";
+
+      if (type === "register") {
+        signInPanel.hidden = true;
+        registerPanel.hidden = false;
+      } else {
+        signInPanel.hidden = false;
+        registerPanel.hidden = true;
       }
-    );
+    }
 
 
-    /*
-      WELCOME NAVIGATION
-    */
+    function closeAuth() {
+      authScreen.hidden = true;
+
+      document.body.style.overflow =
+        "";
+    }
+
 
     function enterBigHelpAI() {
       welcomeScreen.classList.add(
@@ -2379,39 +2679,15 @@
 
       document.body.style.overflow =
         "";
-      
-      window.clearInterval(
-        showcaseInterval
-      );
+
+      startShowcase();
     }
-
-
-    function showWelcomeMessage(
-      message
-    ) {
-      window.alert(message);
-    }
-
-
-    continueGuest.addEventListener(
-      "click",
-      () => {
-        localStorage.setItem(
-          "bighelpai-welcome-seen",
-          "true"
-        );
-
-        enterBigHelpAI();
-      }
-    );
 
 
     welcomeSignIn.addEventListener(
       "click",
       () => {
-        showWelcomeMessage(
-          "Sign In will be connected when the BigHelpAI account system is built."
-        );
+        showAuth("signin");
       }
     );
 
@@ -2419,16 +2695,133 @@
     welcomeRegister.addEventListener(
       "click",
       () => {
-        showWelcomeMessage(
-          "Register will be connected when the BigHelpAI account system is built."
+        showAuth("register");
+      }
+    );
+
+
+    continueGuest.addEventListener(
+      "click",
+      () => {
+        enterBigHelpAI();
+      }
+    );
+
+
+    authClose.addEventListener(
+      "click",
+      () => {
+        closeAuth();
+      }
+    );
+
+
+    showRegister.addEventListener(
+      "click",
+      () => {
+        showAuth("register");
+      }
+    );
+
+
+    showSignIn.addEventListener(
+      "click",
+      () => {
+        showAuth("signin");
+      }
+    );
+
+
+    forgotPassword.addEventListener(
+      "click",
+      () => {
+        alert(
+          "Password recovery will be connected with the real account system."
         );
       }
     );
 
 
-    /*
-      START
-    */
+    signInForm.addEventListener(
+      "submit",
+      event => {
+        event.preventDefault();
+
+        alert(
+          "The Sign In screen is working. The secure account backend will be connected next."
+        );
+      }
+    );
+
+
+    registerForm.addEventListener(
+      "submit",
+      event => {
+        event.preventDefault();
+
+        const password =
+          document.getElementById(
+            "registerPassword"
+          ).value;
+
+        const confirmPassword =
+          document.getElementById(
+            "registerConfirmPassword"
+          ).value;
+
+        if (
+          password !==
+          confirmPassword
+        ) {
+          alert(
+            "The passwords do not match."
+          );
+
+          return;
+        }
+
+        alert(
+          "The Register screen is working. The secure account backend will be connected next."
+        );
+      }
+    );
+
+
+    /* =====================================================
+       PREMIUM
+    ===================================================== */
+
+    function openPremium() {
+      window.location.hash =
+        "premium";
+    }
+
+
+    if (premiumCard) {
+      premiumCard.addEventListener(
+        "click",
+        openPremium
+      );
+
+      premiumCard.addEventListener(
+        "keydown",
+        event => {
+          if (
+            event.key === "Enter" ||
+            event.key === " "
+          ) {
+            event.preventDefault();
+
+            openPremium();
+          }
+        }
+      );
+    }
+
+
+    /* =====================================================
+       START
+    ===================================================== */
 
     document.body.style.overflow =
       "hidden";
@@ -2439,7 +2832,7 @@
   </script>
 
 
-  <!-- Existing BigHelpAI app logic -->
+  <!-- Main BigHelpAI navigation -->
   <script src="app.js"></script>
 
 </body>
