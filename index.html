@@ -2,11 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <meta
     name="description"
@@ -27,24 +23,13 @@
       inset: 0;
       z-index: 1000;
       overflow-y: auto;
-
       display: flex;
       justify-content: center;
       align-items: center;
-
       padding: 35px 20px;
-
       background:
-        radial-gradient(
-          circle at 20% 20%,
-          rgba(139, 92, 246, 0.24),
-          transparent 30%
-        ),
-        radial-gradient(
-          circle at 80% 20%,
-          rgba(34, 211, 238, 0.14),
-          transparent 26%
-        ),
+        radial-gradient(circle at 20% 20%, rgba(139, 92, 246, 0.24), transparent 30%),
+        radial-gradient(circle at 80% 20%, rgba(34, 211, 238, 0.14), transparent 26%),
         #05060a;
     }
 
@@ -57,9 +42,7 @@
       display: inline-flex;
       align-items: center;
       gap: 12px;
-
       margin-bottom: 28px;
-
       font-size: 21px;
       font-weight: 900;
       letter-spacing: -0.02em;
@@ -68,68 +51,34 @@
     .welcome-brand-mark {
       width: 42px;
       height: 42px;
-
       border-radius: 13px;
-
       display: grid;
       place-items: center;
-
-      background:
-        linear-gradient(
-          135deg,
-          #8b5cf6,
-          #22d3ee
-        );
-
-      box-shadow:
-        0 14px 35px rgba(139, 92, 246, 0.30);
+      background: linear-gradient(135deg, #8b5cf6, #22d3ee);
+      box-shadow: 0 14px 35px rgba(139, 92, 246, 0.30);
     }
 
     .welcome-title {
       max-width: 930px;
-
       margin: 0 auto;
-
-      font-size:
-        clamp(
-          42px,
-          7vw,
-          82px
-        );
-
+      font-size: clamp(42px, 7vw, 82px);
       line-height: 0.98;
       letter-spacing: -0.055em;
       font-weight: 900;
     }
 
     .welcome-title span {
-      background:
-        linear-gradient(
-          90deg,
-          #a78bfa,
-          #67e8f9
-        );
-
+      background: linear-gradient(90deg, #a78bfa, #67e8f9);
       background-clip: text;
       -webkit-background-clip: text;
-
       color: transparent;
     }
 
     .welcome-subtitle {
       max-width: 760px;
-
       margin: 22px auto 0;
-
       color: #b7bfd0;
-
-      font-size:
-        clamp(
-          16px,
-          2vw,
-          20px
-        );
-
+      font-size: clamp(16px, 2vw, 20px);
       line-height: 1.55;
     }
 
@@ -139,77 +88,42 @@
 
     .feature-showcase {
       width: min(980px, 100%);
-
       margin: 38px auto 0;
-
-      border:
-        1px solid
-        rgba(255, 255, 255, 0.10);
-
+      border: 1px solid rgba(255, 255, 255, 0.10);
       border-radius: 24px;
-
       overflow: hidden;
-
-      background:
-        rgba(11, 14, 23, 0.92);
-
-      box-shadow:
-        0
-        30px
-        100px
-        rgba(0, 0, 0, 0.45);
+      background: rgba(11, 14, 23, 0.92);
+      box-shadow: 0 30px 100px rgba(0, 0, 0, 0.45);
     }
 
     .showcase-stage {
       min-height: 390px;
-
       position: relative;
-
       display: flex;
       align-items: center;
       justify-content: center;
-
       padding: 30px;
-
       overflow: hidden;
-
       background:
-        radial-gradient(
-          circle at 50% 45%,
-          rgba(139, 92, 246, 0.22),
-          transparent 32%
-        ),
+        radial-gradient(circle at 50% 45%, rgba(139, 92, 246, 0.22), transparent 32%),
         #0b0e17;
     }
 
     .showcase-slide {
       position: absolute;
       inset: 0;
-
       opacity: 0;
-
-      transform:
-        scale(1.03)
-        translateY(10px);
-
-      transition:
-        opacity 0.7s ease,
-        transform 0.7s ease;
-
+      transform: scale(1.03) translateY(10px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
       display: flex;
       align-items: center;
       justify-content: center;
-
       pointer-events: none;
     }
 
     .showcase-slide.active {
       opacity: 1;
-
-      transform:
-        scale(1)
-        translateY(0);
-
+      transform: scale(1) translateY(0);
       pointer-events: auto;
     }
 
@@ -221,113 +135,67 @@
     .showcase-icon {
       width: 105px;
       height: 105px;
-
       margin: 0 auto 20px;
-
       border-radius: 30px;
-
       display: grid;
       place-items: center;
-
       font-size: 47px;
-
-      background:
-        linear-gradient(
-          135deg,
-          rgba(124, 58, 237, 0.95),
-          rgba(34, 211, 238, 0.90)
-        );
-
-      box-shadow:
-        0
-        25px
-        70px
-        rgba(34, 211, 238, 0.15);
+      background: linear-gradient(
+        135deg,
+        rgba(124, 58, 237, 0.95),
+        rgba(34, 211, 238, 0.90)
+      );
+      box-shadow: 0 25px 70px rgba(34, 211, 238, 0.15);
     }
 
     .showcase-content h2 {
       margin: 0;
-
       color: white;
-
-      font-size:
-        clamp(
-          28px,
-          4vw,
-          44px
-        );
-
+      font-size: clamp(28px, 4vw, 44px);
       letter-spacing: -0.03em;
     }
 
     .showcase-content p {
       max-width: 620px;
-
       margin: 12px auto 0;
-
       color: #aeb7ca;
-
       line-height: 1.55;
-
       font-size: 15px;
     }
 
     .showcase-tag {
       display: inline-block;
-
       margin-top: 17px;
-
       padding: 7px 11px;
-
       border-radius: 999px;
-
-      background:
-        rgba(139, 92, 246, 0.12);
-
-      border:
-        1px solid
-        rgba(139, 92, 246, 0.22);
-
+      background: rgba(139, 92, 246, 0.12);
+      border: 1px solid rgba(139, 92, 246, 0.22);
       color: #c4b5fd;
-
       font-size: 11px;
       font-weight: 800;
-
       letter-spacing: 0.08em;
       text-transform: uppercase;
     }
 
     .showcase-controls {
       position: absolute;
-
       left: 18px;
       right: 18px;
       bottom: 18px;
-
       display: flex;
       align-items: center;
       justify-content: space-between;
-
       gap: 15px;
-
       z-index: 5;
     }
 
     .showcase-arrow {
       width: 40px;
       height: 40px;
-
       border-radius: 12px;
-
-      border:
-        1px solid
-        rgba(255, 255, 255, 0.10);
-
-      background:
-        rgba(0, 0, 0, 0.32);
-
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      background: rgba(0, 0, 0, 0.32);
       color: white;
-
       font-size: 17px;
     }
 
@@ -335,72 +203,42 @@
       display: flex;
       align-items: center;
       justify-content: center;
-
       gap: 6px;
     }
 
     .showcase-dot {
       width: 7px;
       height: 7px;
-
       padding: 0;
-
       border: 0;
-
       border-radius: 50%;
-
-      background:
-        rgba(255, 255, 255, 0.24);
-
-      transition:
-        width 0.2s ease,
-        background 0.2s ease;
+      background: rgba(255, 255, 255, 0.24);
+      transition: width 0.2s ease, background 0.2s ease;
     }
 
     .showcase-dot.active {
       width: 24px;
-
       border-radius: 999px;
-
-      background:
-        linear-gradient(
-          90deg,
-          #8b5cf6,
-          #22d3ee
-        );
+      background: linear-gradient(90deg, #8b5cf6, #22d3ee);
     }
 
     .showcase-timer {
       width: 150px;
       height: 4px;
-
       border-radius: 999px;
-
       overflow: hidden;
-
-      background:
-        rgba(255, 255, 255, 0.10);
+      background: rgba(255, 255, 255, 0.10);
     }
 
     .showcase-timer-bar {
       width: 0%;
       height: 100%;
-
       border-radius: inherit;
-
-      background:
-        linear-gradient(
-          90deg,
-          #8b5cf6,
-          #22d3ee
-        );
+      background: linear-gradient(90deg, #8b5cf6, #22d3ee);
     }
 
     .showcase-timer-bar.running {
-      animation:
-        showcaseTimer
-        6s
-        linear;
+      animation: showcaseTimer 6s linear;
     }
 
     /* =====================================================
@@ -411,32 +249,19 @@
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-
       gap: 12px;
-
       margin-top: 30px;
     }
 
     .welcome-action {
       min-width: 155px;
       min-height: 48px;
-
       padding: 12px 20px;
-
       border-radius: 13px;
-
-      border:
-        1px solid
-        rgba(255, 255, 255, 0.11);
-
+      border: 1px solid rgba(255, 255, 255, 0.11);
       color: white;
-
       font-weight: 800;
-
-      transition:
-        transform 0.18s ease,
-        box-shadow 0.18s ease,
-        background 0.18s ease;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
     }
 
     .welcome-action:hover {
@@ -444,23 +269,12 @@
     }
 
     .welcome-signin {
-      background:
-        linear-gradient(
-          135deg,
-          #8b5cf6,
-          #6d4ef3
-        );
-
-      box-shadow:
-        0
-        16px
-        38px
-        rgba(109, 78, 243, 0.22);
+      background: linear-gradient(135deg, #8b5cf6, #6d4ef3);
+      box-shadow: 0 16px 38px rgba(109, 78, 243, 0.22);
     }
 
     .welcome-register {
-      background:
-        rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.05);
     }
 
     .welcome-guest {
@@ -470,38 +284,22 @@
 
     .welcome-guest:hover {
       color: white;
-
-      background:
-        rgba(255, 255, 255, 0.04);
+      background: rgba(255, 255, 255, 0.04);
     }
 
     .welcome-feature-row {
       display: grid;
-
-      grid-template-columns:
-        repeat(
-          4,
-          minmax(0, 1fr)
-        );
-
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 12px;
-
       margin-top: 30px;
     }
 
     .welcome-feature {
       padding: 17px;
-
       text-align: left;
-
-      border:
-        1px solid
-        rgba(255, 255, 255, 0.08);
-
+      border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 16px;
-
-      background:
-        rgba(255, 255, 255, 0.025);
+      background: rgba(255, 255, 255, 0.025);
     }
 
     .welcome-feature-icon {
@@ -511,29 +309,21 @@
 
     .welcome-feature strong {
       display: block;
-
       color: white;
-
       font-size: 13px;
     }
 
     .welcome-feature small {
       display: block;
-
       margin-top: 5px;
-
       color: #8993a8;
-
       font-size: 11px;
-
       line-height: 1.45;
     }
 
     .welcome-footer {
       margin-top: 28px;
-
       color: #606a80;
-
       font-size: 11px;
     }
 
@@ -548,28 +338,15 @@
     .auth-screen {
       position: fixed;
       inset: 0;
-
       z-index: 2000;
-
       display: flex;
       align-items: center;
       justify-content: center;
-
       padding: 24px;
-
       background:
-        radial-gradient(
-          circle at 18% 18%,
-          rgba(139, 92, 246, 0.22),
-          transparent 28%
-        ),
-        radial-gradient(
-          circle at 82% 22%,
-          rgba(34, 211, 238, 0.13),
-          transparent 25%
-        ),
+        radial-gradient(circle at 18% 18%, rgba(139, 92, 246, 0.22), transparent 28%),
+        radial-gradient(circle at 82% 22%, rgba(34, 211, 238, 0.13), transparent 25%),
         rgba(5, 6, 10, 0.95);
-
       backdrop-filter: blur(20px);
     }
 
@@ -579,90 +356,54 @@
 
     .auth-card {
       width: min(1020px, 100%);
-
       min-height: 600px;
-
       display: grid;
-
-      grid-template-columns:
-        minmax(0, 0.95fr)
-        minmax(0, 1.05fr);
-
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
       position: relative;
-
       overflow: hidden;
-
-      border:
-        1px solid
-        rgba(255, 255, 255, 0.10);
-
+      border: 1px solid rgba(255, 255, 255, 0.10);
       border-radius: 28px;
-
-      background:
-        linear-gradient(
-          145deg,
-          rgba(20, 23, 34, 0.99),
-          rgba(10, 12, 19, 0.99)
-        );
-
-      box-shadow:
-        0
-        40px
-        120px
-        rgba(0, 0, 0, 0.60);
+      background: linear-gradient(145deg, rgba(20, 23, 34, 0.99), rgba(10, 12, 19, 0.99));
+      box-shadow: 0 40px 120px rgba(0, 0, 0, 0.60);
     }
 
     .auth-showcase {
       position: relative;
-
       padding: 42px;
-
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-
       background:
-        radial-gradient(
-          circle at 70% 25%,
-          rgba(34, 211, 238, 0.16),
-          transparent 28%
-        ),
-        radial-gradient(
-          circle at 25% 70%,
-          rgba(139, 92, 246, 0.20),
-          transparent 36%
-        ),
+        radial-gradient(circle at 70% 25%, rgba(34, 211, 238, 0.16), transparent 28%),
+        radial-gradient(circle at 25% 70%, rgba(139, 92, 246, 0.20), transparent 36%),
         #0d1019;
-
-      border-right:
-        1px solid
-        rgba(255, 255, 255, 0.08);
+      border-right: 1px solid rgba(255, 255, 255, 0.08);
     }
 
-    .auth-showcase-brand {
+    .auth-showcase-brand,
+    .auth-form-brand {
       display: flex;
       align-items: center;
       gap: 11px;
-
       font-size: 18px;
       font-weight: 900;
+    }
+
+    .auth-showcase-mark,
+    .auth-form-brand-mark {
+      display: grid;
+      place-items: center;
+      border-radius: 11px;
+      background: linear-gradient(135deg, #8b5cf6, #22d3ee);
     }
 
     .auth-showcase-mark {
       width: 38px;
       height: 38px;
+    }
 
-      display: grid;
-      place-items: center;
-
-      border-radius: 11px;
-
-      background:
-        linear-gradient(
-          135deg,
-          #8b5cf6,
-          #22d3ee
-        );
+    .auth-form-brand {
+      display: none;
     }
 
     .auth-showcase-content {
@@ -671,50 +412,29 @@
 
     .auth-showcase-content h2 {
       margin: 0;
-
-      font-size:
-        clamp(
-          31px,
-          4vw,
-          49px
-        );
-
+      font-size: clamp(31px, 4vw, 49px);
       line-height: 1.02;
-
       letter-spacing: -0.045em;
     }
 
     .auth-showcase-content h2 span {
-      background:
-        linear-gradient(
-          90deg,
-          #a78bfa,
-          #67e8f9
-        );
-
+      background: linear-gradient(90deg, #a78bfa, #67e8f9);
       background-clip: text;
       -webkit-background-clip: text;
-
       color: transparent;
     }
 
     .auth-showcase-content p {
       max-width: 410px;
-
       margin-top: 16px;
-
       color: #a8b1c3;
-
       line-height: 1.6;
-
       font-size: 14px;
     }
 
     .auth-benefits {
       display: grid;
-
       gap: 9px;
-
       margin-top: 24px;
     }
 
@@ -722,140 +442,86 @@
       display: flex;
       align-items: center;
       gap: 10px;
-
       color: #d7dceb;
-
       font-size: 12px;
     }
 
     .auth-benefit-icon {
       width: 25px;
       height: 25px;
-
       display: grid;
       place-items: center;
-
       border-radius: 8px;
-
-      background:
-        rgba(139, 92, 246, 0.14);
-
-      border:
-        1px solid
-        rgba(139, 92, 246, 0.20);
+      background: rgba(139, 92, 246, 0.14);
+      border: 1px solid rgba(139, 92, 246, 0.20);
     }
 
     .auth-showcase-footer {
       color: #616b80;
-
       font-size: 10px;
-
       line-height: 1.45;
     }
 
     .auth-form-area {
       padding: 42px;
-
       display: flex;
       flex-direction: column;
-
       justify-content: center;
-
-      background:
-        rgba(8, 10, 16, 0.68);
+      background: rgba(8, 10, 16, 0.68);
     }
 
     .auth-close {
       position: absolute;
-
       top: 15px;
       right: 15px;
-
       z-index: 5;
-
       width: 38px;
       height: 38px;
-
       border-radius: 11px;
-
-      border:
-        1px solid
-        rgba(255, 255, 255, 0.09);
-
-      background:
-        rgba(255, 255, 255, 0.04);
-
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      background: rgba(255, 255, 255, 0.04);
       color: #dce1ed;
-
       font-size: 23px;
     }
 
     .auth-close:hover {
-      background:
-        rgba(255, 255, 255, 0.08);
-    }
-
-    .auth-form-brand {
-      display: none;
+      background: rgba(255, 255, 255, 0.08);
     }
 
     .auth-panel h2 {
       margin: 0;
-
       font-size: 33px;
-
       letter-spacing: -0.035em;
     }
 
     .auth-subtitle {
       margin: 9px 0 22px;
-
       color: #9ea8ba;
-
       font-size: 13px;
-
       line-height: 1.55;
     }
 
     .auth-panel form {
       display: flex;
-
       flex-direction: column;
-
       gap: 8px;
     }
 
     .auth-panel label {
       color: #dfe3ed;
-
       font-size: 12px;
-
       font-weight: 750;
-
       margin-top: 6px;
     }
 
     .auth-panel input {
       width: 100%;
-
       height: 47px;
-
-      padding:
-        0
-        13px;
-
-      border:
-        1px
-        solid
-        rgba(255, 255, 255, 0.10);
-
+      padding: 0 13px;
+      border: 1px solid rgba(255, 255, 255, 0.10);
       border-radius: 11px;
-
-      background:
-        rgba(255, 255, 255, 0.035);
-
+      background: rgba(255, 255, 255, 0.035);
       color: white;
-
       outline: none;
     }
 
@@ -865,50 +531,25 @@
 
     .auth-panel input:focus {
       border-color: #8b5cf6;
-
-      box-shadow:
-        0
-        0
-        0
-        3px
-        rgba(139, 92, 246, 0.12);
+      box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.12);
     }
 
     .auth-field-note {
       color: #6f7a90;
-
       font-size: 10px;
-
       margin-top: -2px;
     }
 
     .auth-primary {
       width: 100%;
-
       min-height: 48px;
-
       margin-top: 13px;
-
       border: 0;
-
       border-radius: 12px;
-
-      background:
-        linear-gradient(
-          135deg,
-          #8b5cf6,
-          #6d4ef3
-        );
-
+      background: linear-gradient(135deg, #8b5cf6, #6d4ef3);
       color: white;
-
       font-weight: 850;
-
-      box-shadow:
-        0
-        12px
-        30px
-        rgba(109, 78, 243, 0.20);
+      box-shadow: 0 12px 30px rgba(109, 78, 243, 0.20);
     }
 
     .auth-primary:hover {
@@ -918,29 +559,21 @@
     .auth-link,
     .auth-switch button {
       border: 0;
-
       background: none;
-
       color: #a78bfa;
-
       font-size: 12px;
-
       cursor: pointer;
     }
 
     .auth-link {
       display: block;
-
       margin: 14px auto 0;
     }
 
     .auth-switch {
       margin: 21px 0 0;
-
       text-align: center;
-
       color: #8f98aa;
-
       font-size: 12px;
     }
 
@@ -950,13 +583,9 @@
 
     .auth-status {
       min-height: 18px;
-
       margin-top: 12px;
-
       color: #95a0b4;
-
       font-size: 11px;
-
       text-align: center;
     }
 
@@ -972,24 +601,17 @@
       display: flex;
       align-items: center;
       gap: 10px;
-
       margin: 22px 0 0;
-
       color: #616b80;
-
       font-size: 10px;
     }
 
     .auth-divider::before,
     .auth-divider::after {
       content: "";
-
       flex: 1;
-
       height: 1px;
-
-      background:
-        rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.08);
     }
 
     /* =====================================================
@@ -1000,7 +622,6 @@
       display: flex;
       justify-content: flex-end;
       align-items: center;
-
       margin-bottom: 12px;
     }
 
@@ -1008,37 +629,24 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-
       padding: 9px 12px;
-
-      border:
-        1px solid
-        rgba(139, 92, 246, 0.22);
-
+      border: 1px solid rgba(139, 92, 246, 0.22);
       border-radius: 12px;
-
-      background:
-        linear-gradient(
-          135deg,
-          rgba(139, 92, 246, 0.10),
-          rgba(34, 211, 238, 0.04)
-        );
+      background: linear-gradient(
+        135deg,
+        rgba(139, 92, 246, 0.10),
+        rgba(34, 211, 238, 0.04)
+      );
     }
 
     .account-status-icon {
       width: 27px;
       height: 27px;
-
       display: grid;
       place-items: center;
-
       border-radius: 8px;
-
-      background:
-        rgba(139, 92, 246, 0.18);
-
+      background: rgba(139, 92, 246, 0.18);
       color: #c4b5fd;
-
       font-size: 13px;
       font-weight: 900;
     }
@@ -1051,17 +659,13 @@
 
     .account-status-label {
       color: #eeeafe;
-
       font-size: 10px;
-
       font-weight: 900;
-
       letter-spacing: 0.08em;
     }
 
     .account-status-plan {
       color: #8e9ab2;
-
       font-size: 9px;
     }
 
@@ -1085,11 +689,7 @@
 
     @media (max-width: 850px) {
       .welcome-feature-row {
-        grid-template-columns:
-          repeat(
-            2,
-            minmax(0, 1fr)
-          );
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
       .showcase-stage {
@@ -1102,9 +702,7 @@
 
       .auth-card {
         grid-template-columns: 1fr;
-
         width: min(560px, 100%);
-
         min-height: auto;
       }
 
@@ -1118,30 +716,13 @@
 
       .auth-form-brand {
         display: flex;
-
-        align-items: center;
-        gap: 10px;
-
         margin-bottom: 23px;
-
-        font-weight: 900;
       }
 
       .auth-form-brand-mark {
         width: 36px;
         height: 36px;
-
-        display: grid;
-        place-items: center;
-
         border-radius: 10px;
-
-        background:
-          linear-gradient(
-            135deg,
-            #8b5cf6,
-            #22d3ee
-          );
       }
     }
 
@@ -1162,9 +743,7 @@
       .showcase-icon {
         width: 86px;
         height: 86px;
-
         border-radius: 26px;
-
         font-size: 38px;
       }
 
@@ -1233,9 +812,6 @@
         designed to help you turn ideas into real projects.
       </p>
 
-
-      <!-- FEATURE SHOWCASE -->
-
       <div
         class="feature-showcase"
         aria-label="BigHelpAI feature showcase"
@@ -1246,243 +822,133 @@
           id="showcaseStage"
         >
 
-          <article
-            class="showcase-slide active"
-            data-slide="0"
-          >
+          <article class="showcase-slide active" data-slide="0">
             <div class="showcase-content">
               <div class="showcase-icon">✨</div>
-
-              <h2>
-                AI that helps you get things done
-              </h2>
-
+              <h2>AI that helps you get things done</h2>
               <p>
                 Ask questions, research, write,
                 summarize, work with files, and
                 bring your ideas to life.
               </p>
-
-              <span class="showcase-tag">
-                AI
-              </span>
+              <span class="showcase-tag">AI</span>
             </div>
           </article>
 
-
-          <article
-            class="showcase-slide"
-            data-slide="1"
-          >
+          <article class="showcase-slide" data-slide="1">
             <div class="showcase-content">
               <div class="showcase-icon">💻</div>
-
-              <h2>
-                Build with Coding
-              </h2>
-
+              <h2>Build with Coding</h2>
               <p>
                 Create websites, applications,
                 games, tools, and projects with
                 an AI coding assistant.
               </p>
-
-              <span class="showcase-tag">
-                Coding
-              </span>
+              <span class="showcase-tag">Coding</span>
             </div>
           </article>
 
-
-          <article
-            class="showcase-slide"
-            data-slide="2"
-          >
+          <article class="showcase-slide" data-slide="2">
             <div class="showcase-content">
               <div class="showcase-icon">🎓</div>
-
-              <h2>
-                Learn your way
-              </h2>
-
+              <h2>Learn your way</h2>
               <p>
                 Study subjects, follow curriculums,
                 complete lessons, quizzes,
                 checkpoints, tests, and exams.
               </p>
-
-              <span class="showcase-tag">
-                Learning
-              </span>
+              <span class="showcase-tag">Learning</span>
             </div>
           </article>
 
-
-          <article
-            class="showcase-slide"
-            data-slide="3"
-          >
+          <article class="showcase-slide" data-slide="3">
             <div class="showcase-content">
               <div class="showcase-icon">🎨</div>
-
-              <h2>
-                Turn ideas into creations
-              </h2>
-
+              <h2>Turn ideas into creations</h2>
               <p>
                 Create images, visual projects,
                 creative concepts, and eventually
                 much more.
               </p>
-
-              <span class="showcase-tag">
-                Creation
-              </span>
+              <span class="showcase-tag">Creation</span>
             </div>
           </article>
 
-
-          <article
-            class="showcase-slide"
-            data-slide="4"
-          >
+          <article class="showcase-slide" data-slide="4">
             <div class="showcase-content">
               <div class="showcase-icon">🧊</div>
-
-              <h2>
-                Build in 3D
-              </h2>
-
+              <h2>Build in 3D</h2>
               <p>
                 Create objects and machines,
                 add motors and electronics,
                 and test your designs in Sim Lab.
               </p>
-
-              <span class="showcase-tag">
-                3D Create
-              </span>
+              <span class="showcase-tag">3D Create</span>
             </div>
           </article>
 
-
-          <article
-            class="showcase-slide"
-            data-slide="5"
-          >
+          <article class="showcase-slide" data-slide="5">
             <div class="showcase-content">
               <div class="showcase-icon">🎵</div>
-
-              <h2>
-                Make music
-              </h2>
-
+              <h2>Make music</h2>
               <p>
                 Build melodies, beats, arrangements,
                 instruments, and complete music projects.
               </p>
-
-              <span class="showcase-tag">
-                Music Creator
-              </span>
+              <span class="showcase-tag">Music Creator</span>
             </div>
           </article>
 
-
-          <article
-            class="showcase-slide"
-            data-slide="6"
-          >
+          <article class="showcase-slide" data-slide="6">
             <div class="showcase-content">
               <div class="showcase-icon">🎓</div>
-
-              <h2>
-                Prepare for college
-              </h2>
-
+              <h2>Prepare for college</h2>
               <p>
                 Get help with college work,
                 applications, programs, scholarships,
                 requirements, and deadlines.
               </p>
-
-              <span class="showcase-tag">
-                College Hub
-              </span>
+              <span class="showcase-tag">College Hub</span>
             </div>
           </article>
 
-
-          <article
-            class="showcase-slide"
-            data-slide="7"
-          >
+          <article class="showcase-slide" data-slide="7">
             <div class="showcase-content">
               <div class="showcase-icon">🛍️</div>
-
-              <h2>
-                Create products to sell
-              </h2>
-
+              <h2>Create products to sell</h2>
               <p>
                 Build digital or physical products,
                 organize your inventory, create ads,
                 and prepare listings.
               </p>
-
-              <span class="showcase-tag">
-                Sell
-              </span>
+              <span class="showcase-tag">Sell</span>
             </div>
           </article>
 
-
-          <article
-            class="showcase-slide"
-            data-slide="8"
-          >
+          <article class="showcase-slide" data-slide="8">
             <div class="showcase-content">
               <div class="showcase-icon">📖</div>
-
-              <h2>
-                Publish your books
-              </h2>
-
+              <h2>Publish your books</h2>
               <p>
                 Upload a manuscript or PDF,
                 organize the book, prepare publishing
                 information, and review everything.
               </p>
-
-              <span class="showcase-tag">
-                Publish Books
-              </span>
+              <span class="showcase-tag">Publish Books</span>
             </div>
           </article>
 
-
-          <article
-            class="showcase-slide"
-            data-slide="9"
-          >
+          <article class="showcase-slide" data-slide="9">
             <div class="showcase-content">
               <div class="showcase-icon">🎲</div>
-
-              <h2>
-                Create and learn board games
-              </h2>
-
+              <h2>Create and learn board games</h2>
               <p>
                 Design your own games or learn
                 how to play real board games.
               </p>
-
-              <span class="showcase-tag">
-                Board Games
-              </span>
+              <span class="showcase-tag">Board Games</span>
             </div>
           </article>
-
 
           <div class="showcase-controls">
 
@@ -1495,85 +961,27 @@
               ←
             </button>
 
+            <div class="showcase-dots" id="showcaseDots">
 
-            <div
-              class="showcase-dots"
-              id="showcaseDots"
-            >
-
-              <button
-                class="showcase-dot active"
-                type="button"
-                data-go-slide="0"
-              ></button>
-
-              <button
-                class="showcase-dot"
-                type="button"
-                data-go-slide="1"
-              ></button>
-
-              <button
-                class="showcase-dot"
-                type="button"
-                data-go-slide="2"
-              ></button>
-
-              <button
-                class="showcase-dot"
-                type="button"
-                data-go-slide="3"
-              ></button>
-
-              <button
-                class="showcase-dot"
-                type="button"
-                data-go-slide="4"
-              ></button>
-
-              <button
-                class="showcase-dot"
-                type="button"
-                data-go-slide="5"
-              ></button>
-
-              <button
-                class="showcase-dot"
-                type="button"
-                data-go-slide="6"
-              ></button>
-
-              <button
-                class="showcase-dot"
-                type="button"
-                data-go-slide="7"
-              ></button>
-
-              <button
-                class="showcase-dot"
-                type="button"
-                data-go-slide="8"
-              ></button>
-
-              <button
-                class="showcase-dot"
-                type="button"
-                data-go-slide="9"
-              ></button>
+              <button class="showcase-dot active" type="button" data-go-slide="0"></button>
+              <button class="showcase-dot" type="button" data-go-slide="1"></button>
+              <button class="showcase-dot" type="button" data-go-slide="2"></button>
+              <button class="showcase-dot" type="button" data-go-slide="3"></button>
+              <button class="showcase-dot" type="button" data-go-slide="4"></button>
+              <button class="showcase-dot" type="button" data-go-slide="5"></button>
+              <button class="showcase-dot" type="button" data-go-slide="6"></button>
+              <button class="showcase-dot" type="button" data-go-slide="7"></button>
+              <button class="showcase-dot" type="button" data-go-slide="8"></button>
+              <button class="showcase-dot" type="button" data-go-slide="9"></button>
 
             </div>
 
-
-            <div
-              class="showcase-timer"
-              aria-hidden="true"
-            >
+            <div class="showcase-timer" aria-hidden="true">
               <div
                 class="showcase-timer-bar"
                 id="showcaseTimer"
               ></div>
             </div>
-
 
             <button
               class="showcase-arrow"
@@ -1585,13 +993,8 @@
             </button>
 
           </div>
-
         </div>
-
       </div>
-
-
-      <!-- WELCOME ACTIONS -->
 
       <div class="welcome-actions">
 
@@ -1621,68 +1024,38 @@
 
       </div>
 
-
-      <!-- WELCOME FEATURE CARDS -->
-
       <div class="welcome-feature-row">
 
         <div class="welcome-feature">
-          <div class="welcome-feature-icon">
-            ✨
-          </div>
-
-          <strong>
-            AI
-          </strong>
-
+          <div class="welcome-feature-icon">✨</div>
+          <strong>AI</strong>
           <small>
             Ask questions, research, write,
             and work with files.
           </small>
         </div>
 
-
         <div class="welcome-feature">
-          <div class="welcome-feature-icon">
-            💻
-          </div>
-
-          <strong>
-            Create &amp; Build
-          </strong>
-
+          <div class="welcome-feature-icon">💻</div>
+          <strong>Create &amp; Build</strong>
           <small>
             Code, create images, build 3D
             projects, and simulate ideas.
           </small>
         </div>
 
-
         <div class="welcome-feature">
-          <div class="welcome-feature-icon">
-            🎓
-          </div>
-
-          <strong>
-            Learn
-          </strong>
-
+          <div class="welcome-feature-icon">🎓</div>
+          <strong>Learn</strong>
           <small>
             Study, follow curriculums,
             and prepare for college.
           </small>
         </div>
 
-
         <div class="welcome-feature">
-          <div class="welcome-feature-icon">
-            🎵
-          </div>
-
-          <strong>
-            Create More
-          </strong>
-
+          <div class="welcome-feature-icon">🎵</div>
+          <strong>Create More</strong>
           <small>
             Make music, board games, books,
             products, and much more.
@@ -1691,13 +1064,11 @@
 
       </div>
 
-
       <div class="welcome-footer">
         BigHelpAI — Learn. Create. Build. Explore.
       </div>
 
     </div>
-
   </section>
 
 
@@ -1723,23 +1094,12 @@
         ×
       </button>
 
-
-      <!-- LEFT SIDE -->
-
       <div class="auth-showcase">
 
         <div class="auth-showcase-brand">
-
-          <span class="auth-showcase-mark">
-            B
-          </span>
-
-          <span>
-            BigHelpAI
-          </span>
-
+          <span class="auth-showcase-mark">B</span>
+          <span>BigHelpAI</span>
         </div>
-
 
         <div class="auth-showcase-content">
 
@@ -1749,9 +1109,7 @@
 
           <h2>
             One account.
-            <span>
-              Your whole workspace.
-            </span>
+            <span>Your whole workspace.</span>
           </h2>
 
           <p>
@@ -1761,45 +1119,31 @@
             your BigHelpAI experience.
           </p>
 
-
           <div class="auth-benefits">
 
             <div class="auth-benefit">
-              <span class="auth-benefit-icon">
-                ✓
-              </span>
-
+              <span class="auth-benefit-icon">✓</span>
               Save your projects
             </div>
 
             <div class="auth-benefit">
-              <span class="auth-benefit-icon">
-                ✓
-              </span>
-
+              <span class="auth-benefit-icon">✓</span>
               Keep your work across devices
             </div>
 
             <div class="auth-benefit">
-              <span class="auth-benefit-icon">
-                ✓
-              </span>
-
+              <span class="auth-benefit-icon">✓</span>
               Use account-required features
             </div>
 
             <div class="auth-benefit">
-              <span class="auth-benefit-icon">
-                ✓
-              </span>
-
+              <span class="auth-benefit-icon">✓</span>
               Manage privacy and security settings
             </div>
 
           </div>
 
         </div>
-
 
         <div class="auth-showcase-footer">
           BigHelpAI uses secure account infrastructure
@@ -1808,21 +1152,11 @@
 
       </div>
 
-
-      <!-- RIGHT SIDE -->
-
       <div class="auth-form-area">
 
         <div class="auth-form-brand">
-
-          <span class="auth-form-brand-mark">
-            B
-          </span>
-
-          <span>
-            BigHelpAI
-          </span>
-
+          <span class="auth-form-brand-mark">B</span>
+          <span>BigHelpAI</span>
         </div>
 
 
@@ -1837,9 +1171,7 @@
             WELCOME BACK
           </p>
 
-          <h2>
-            Sign In
-          </h2>
+          <h2>Sign In</h2>
 
           <p class="auth-subtitle">
             Sign in to continue to your
@@ -1860,7 +1192,6 @@
               required
             >
 
-
             <label for="signInPassword">
               Password
             </label>
@@ -1873,7 +1204,6 @@
               required
             >
 
-
             <button
               class="auth-primary"
               type="submit"
@@ -1883,7 +1213,6 @@
 
           </form>
 
-
           <button
             class="auth-link"
             id="forgotPassword"
@@ -1892,20 +1221,15 @@
             Forgot password?
           </button>
 
-
           <div
             class="auth-status"
             id="signInStatus"
             aria-live="polite"
           ></div>
 
-
           <div class="auth-divider">
-            <span>
-              BigHelpAI account access
-            </span>
+            <span>BigHelpAI account access</span>
           </div>
-
 
           <p class="auth-switch">
             Don't have an account?
@@ -1933,9 +1257,7 @@
             GET STARTED
           </p>
 
-          <h2>
-            Create your account
-          </h2>
+          <h2>Create your account</h2>
 
           <p class="auth-subtitle">
             Create a BigHelpAI account to save
@@ -1957,7 +1279,6 @@
               required
             >
 
-
             <label for="registerEmail">
               Email
             </label>
@@ -1969,7 +1290,6 @@
               autocomplete="email"
               required
             >
-
 
             <label for="registerPassword">
               Password
@@ -1988,7 +1308,6 @@
               the secure account backend.
             </div>
 
-
             <label for="registerConfirmPassword">
               Confirm password
             </label>
@@ -2001,7 +1320,6 @@
               required
             >
 
-
             <button
               class="auth-primary"
               type="submit"
@@ -2011,13 +1329,11 @@
 
           </form>
 
-
           <div
             class="auth-status"
             id="registerStatus"
             aria-live="polite"
           ></div>
-
 
           <p class="auth-switch">
             Already have an account?
@@ -2035,7 +1351,6 @@
       </div>
 
     </div>
-
   </section>
 
 
@@ -2058,27 +1373,18 @@
         ☰
       </button>
 
-
       <a
         class="brand"
         href="#dashboard"
         aria-label="BigHelpAI home"
       >
-        <span class="brand-mark">
-          B
-        </span>
-
-        <span>
-          BigHelpAI
-        </span>
+        <span class="brand-mark">B</span>
+        <span>BigHelpAI</span>
       </a>
-
 
       <div class="top-search">
 
-        <span class="search-icon">
-          ⌕
-        </span>
+        <span class="search-icon">⌕</span>
 
         <input
           id="globalSearch"
@@ -2087,12 +1393,9 @@
           autocomplete="off"
         >
 
-        <kbd>
-          /
-        </kbd>
+        <kbd>/</kbd>
 
       </div>
-
 
       <div class="top-actions">
 
@@ -2103,34 +1406,23 @@
           aria-label="Notifications"
         >
           🔔
-
-          <span
-            class="notification-dot"
-          ></span>
-
+          <span class="notification-dot"></span>
         </button>
-
 
         <button
           class="profile-button"
           id="profileBtn"
         >
-          <span class="avatar">
-            JD
-          </span>
+          <span class="avatar">JD</span>
 
           <span class="profile-text">
             Profile
           </span>
 
-          <span>
-            ⌄
-          </span>
-
+          <span>⌄</span>
         </button>
 
       </div>
-
     </header>
 
 
@@ -2143,207 +1435,72 @@
 
         <nav>
 
-          <a
-            class="nav-item active"
-            href="#dashboard"
-            data-route="dashboard"
-          >
-            🏠
-            <span>
-              Dashboard
-            </span>
+          <a class="nav-item active" href="#dashboard" data-route="dashboard">
+            🏠 <span>Dashboard</span>
           </a>
 
-
-          <a
-            class="nav-item"
-            href="#ai"
-            data-route="ai"
-          >
-            ✨
-            <span>
-              AI
-            </span>
+          <a class="nav-item" href="#ai" data-route="ai">
+            ✨ <span>AI</span>
           </a>
 
-
-          <a
-            class="nav-item"
-            href="#coding"
-            data-route="coding"
-          >
-            💻
-            <span>
-              Coding
-            </span>
+          <a class="nav-item" href="#coding" data-route="coding">
+            💻 <span>Coding</span>
           </a>
 
-
-          <a
-            class="nav-item"
-            href="#study"
-            data-route="study"
-          >
-            📚
-            <span>
-              Study
-            </span>
+          <a class="nav-item" href="#study" data-route="study">
+            📚 <span>Study</span>
           </a>
 
-
-          <a
-            class="nav-item"
-            href="#learning"
-            data-route="learning"
-          >
-            🎓
-            <span>
-              Learning
-            </span>
+          <a class="nav-item" href="#learning" data-route="learning">
+            🎓 <span>Learning</span>
           </a>
 
-
-          <a
-            class="nav-item"
-            href="#creation"
-            data-route="creation"
-          >
-            🎨
-            <span>
-              Creation
-            </span>
+          <a class="nav-item" href="#creation" data-route="creation">
+            🎨 <span>Creation</span>
           </a>
 
-
-          <a
-            class="nav-item"
-            href="#3d-create"
-            data-route="3d-create"
-          >
-            🧊
-            <span>
-              3D Create
-            </span>
+          <a class="nav-item" href="#3d-create" data-route="3d-create">
+            🧊 <span>3D Create</span>
           </a>
 
-
-          <a
-            class="nav-item"
-            href="#sim-lab"
-            data-route="sim-lab"
-          >
-            🧪
-            <span>
-              Sim Lab
-            </span>
+          <a class="nav-item" href="#sim-lab" data-route="sim-lab">
+            🧪 <span>Sim Lab</span>
           </a>
 
-
-          <a
-            class="nav-item"
-            href="#build"
-            data-route="build"
-          >
-            🛠️
-            <span>
-              Build
-            </span>
+          <a class="nav-item" href="#build" data-route="build">
+            🛠️ <span>Build</span>
           </a>
 
-
-          <a
-            class="nav-item"
-            href="#board-games"
-            data-route="board-games"
-          >
-            🎲
-            <span>
-              Board Games
-            </span>
+          <a class="nav-item" href="#board-games" data-route="board-games">
+            🎲 <span>Board Games</span>
           </a>
 
-
-          <a
-            class="nav-item"
-            href="#music"
-            data-route="music"
-          >
-            🎵
-            <span>
-              Music Creator
-            </span>
+          <a class="nav-item" href="#music" data-route="music">
+            🎵 <span>Music Creator</span>
           </a>
 
-
-          <a
-            class="nav-item"
-            href="#college"
-            data-route="college"
-          >
-            🎓
-            <span>
-              College Hub
-            </span>
+          <a class="nav-item" href="#college" data-route="college">
+            🎓 <span>College Hub</span>
           </a>
 
-
-          <a
-            class="nav-item"
-            href="#sell"
-            data-route="sell"
-          >
-            🛍️
-            <span>
-              Sell
-            </span>
+          <a class="nav-item" href="#sell" data-route="sell">
+            🛍️ <span>Sell</span>
           </a>
 
-
-          <a
-            class="nav-item"
-            href="#books"
-            data-route="books"
-          >
-            📖
-            <span>
-              Publish Books
-            </span>
+          <a class="nav-item" href="#books" data-route="books">
+            📖 <span>Publish Books</span>
           </a>
 
-
-          <a
-            class="nav-item"
-            href="#therapy"
-            data-route="therapy"
-          >
-            💙
-            <span>
-              Therapy
-            </span>
+          <a class="nav-item" href="#therapy" data-route="therapy">
+            💙 <span>Therapy</span>
           </a>
 
-
-          <a
-            class="nav-item"
-            href="#browser"
-            data-route="browser"
-          >
-            🌐
-            <span>
-              Private Browser
-            </span>
+          <a class="nav-item" href="#browser" data-route="browser">
+            🌐 <span>Private Browser</span>
           </a>
 
-
-          <a
-            class="nav-item"
-            href="#navigation"
-            data-route="navigation"
-          >
-            🗺️
-            <span>
-              Navigation
-            </span>
+          <a class="nav-item" href="#navigation" data-route="navigation">
+            🗺️ <span>Navigation</span>
           </a>
 
         </nav>
@@ -2355,40 +1512,16 @@
             Workspace
           </div>
 
-
-          <a
-            class="nav-item"
-            href="#projects"
-            data-route="projects"
-          >
-            📁
-            <span>
-              Projects
-            </span>
+          <a class="nav-item" href="#projects" data-route="projects">
+            📁 <span>Projects</span>
           </a>
 
-
-          <a
-            class="nav-item"
-            href="#notifications"
-            data-route="notifications"
-          >
-            🔔
-            <span>
-              Notifications
-            </span>
+          <a class="nav-item" href="#notifications" data-route="notifications">
+            🔔 <span>Notifications</span>
           </a>
 
-
-          <a
-            class="nav-item"
-            href="#settings"
-            data-route="settings"
-          >
-            ⚙️
-            <span>
-              Settings
-            </span>
+          <a class="nav-item" href="#settings" data-route="settings">
+            ⚙️ <span>Settings</span>
           </a>
 
         </div>
@@ -2404,24 +1537,14 @@
             aria-label="Open BigHelpAI Premium"
           >
 
-            <div class="premium-icon">
-              ✦
-            </div>
+            <div class="premium-icon">✦</div>
 
             <div>
-
-              <strong>
-                Premium
-              </strong>
-
-              <span>
-                Unlock more of BigHelpAI
-              </span>
-
+              <strong>Premium</strong>
+              <span>Unlock more of BigHelpAI</span>
             </div>
 
           </div>
-
 
           <div class="sidebar-footer">
             © BigHelpAI
@@ -2438,8 +1561,6 @@
           class="dashboard"
           id="dashboardView"
         >
-
-          <!-- ACCOUNT STATUS -->
 
           <div class="dashboard-account-row">
 
@@ -2472,13 +1593,9 @@
                 </span>
 
               </div>
-
             </div>
-
           </div>
 
-
-          <!-- HERO -->
 
           <div class="hero-row">
 
@@ -2490,16 +1607,12 @@
 
               <h1>
                 Hi! My name is
-
-                <span class="accent">
-                  Hellpy
-                </span>.
+                <span class="accent">Hellpy</span>.
               </h1>
 
               <p class="hero-subtitle">
                 What do you want to do today?
               </p>
-
 
               <div class="hero-actions">
 
@@ -2510,7 +1623,6 @@
                   Start with AI
                 </button>
 
-
                 <button
                   class="secondary-button"
                   data-route-button="projects"
@@ -2519,7 +1631,6 @@
                 </button>
 
               </div>
-
             </div>
 
 
@@ -2530,23 +1641,14 @@
               </div>
 
               <div>
-
-                <strong>
-                  Hellpy
-                </strong>
-
-                <span>
-                  Your general BigHelpAI assistant
-                </span>
-
+                <strong>Hellpy</strong>
+                <span>Your general BigHelpAI assistant</span>
               </div>
 
             </div>
 
           </div>
 
-
-          <!-- MODE SECTION -->
 
           <div class="section-heading">
 
@@ -2570,269 +1672,106 @@
             id="modeGrid"
           >
 
-            <button
-              class="mode-card featured"
-              data-route-button="ai"
-            >
+            <button class="mode-card featured" data-route-button="ai">
               <span>✨</span>
-
-              <strong>
-                AI
-              </strong>
-
-              <small>
-                Ask, write, research &amp; more
-              </small>
+              <strong>AI</strong>
+              <small>Ask, write, research &amp; more</small>
             </button>
 
-
-            <button
-              class="mode-card"
-              data-route-button="coding"
-            >
+            <button class="mode-card" data-route-button="coding">
               <span>💻</span>
-
-              <strong>
-                Coding
-              </strong>
-
-              <small>
-                Build and debug projects
-              </small>
+              <strong>Coding</strong>
+              <small>Build and debug projects</small>
             </button>
 
-
-            <button
-              class="mode-card"
-              data-route-button="study"
-            >
+            <button class="mode-card" data-route-button="study">
               <span>📚</span>
-
-              <strong>
-                Study
-              </strong>
-
-              <small>
-                Homework and practice
-              </small>
+              <strong>Study</strong>
+              <small>Homework and practice</small>
             </button>
 
-
-            <button
-              class="mode-card"
-              data-route-button="learning"
-            >
+            <button class="mode-card" data-route-button="learning">
               <span>🎓</span>
-
-              <strong>
-                Learning
-              </strong>
-
-              <small>
-                Lessons, quizzes and exams
-              </small>
+              <strong>Learning</strong>
+              <small>Lessons, quizzes and exams</small>
             </button>
 
-
-            <button
-              class="mode-card"
-              data-route-button="creation"
-            >
+            <button class="mode-card" data-route-button="creation">
               <span>🎨</span>
-
-              <strong>
-                Creation
-              </strong>
-
-              <small>
-                Images and creative projects
-              </small>
+              <strong>Creation</strong>
+              <small>Images and creative projects</small>
             </button>
 
-
-            <button
-              class="mode-card"
-              data-route-button="3d-create"
-            >
+            <button class="mode-card" data-route-button="3d-create">
               <span>🧊</span>
-
-              <strong>
-                3D Create
-              </strong>
-
-              <small>
-                Build objects and machines
-              </small>
+              <strong>3D Create</strong>
+              <small>Build objects and machines</small>
             </button>
 
-
-            <button
-              class="mode-card"
-              data-route-button="sim-lab"
-            >
+            <button class="mode-card" data-route-button="sim-lab">
               <span>🧪</span>
-
-              <strong>
-                Sim Lab
-              </strong>
-
-              <small>
-                Test physics and electronics
-              </small>
+              <strong>Sim Lab</strong>
+              <small>Test physics and electronics</small>
             </button>
 
-
-            <button
-              class="mode-card"
-              data-route-button="build"
-            >
+            <button class="mode-card" data-route-button="build">
               <span>🛠️</span>
-
-              <strong>
-                Build
-              </strong>
-
-              <small>
-                Connect code, 3D and AI
-              </small>
+              <strong>Build</strong>
+              <small>Connect code, 3D and AI</small>
             </button>
 
-
-            <button
-              class="mode-card"
-              data-route-button="board-games"
-            >
+            <button class="mode-card" data-route-button="board-games">
               <span>🎲</span>
-
-              <strong>
-                Board Games
-              </strong>
-
-              <small>
-                Create or learn games
-              </small>
+              <strong>Board Games</strong>
+              <small>Create or learn games</small>
             </button>
 
-
-            <button
-              class="mode-card"
-              data-route-button="music"
-            >
+            <button class="mode-card" data-route-button="music">
               <span>🎵</span>
-
-              <strong>
-                Music Creator
-              </strong>
-
-              <small>
-                Compose and arrange music
-              </small>
+              <strong>Music Creator</strong>
+              <small>Compose and arrange music</small>
             </button>
 
-
-            <button
-              class="mode-card"
-              data-route-button="college"
-            >
+            <button class="mode-card" data-route-button="college">
               <span>🎓</span>
-
-              <strong>
-                College Hub
-              </strong>
-
-              <small>
-                College work and applications
-              </small>
+              <strong>College Hub</strong>
+              <small>College work and applications</small>
             </button>
 
-
-            <button
-              class="mode-card"
-              data-route-button="sell"
-            >
+            <button class="mode-card" data-route-button="sell">
               <span>🛍️</span>
-
-              <strong>
-                Sell
-              </strong>
-
-              <small>
-                Build and list products
-              </small>
+              <strong>Sell</strong>
+              <small>Build and list products</small>
             </button>
 
-
-            <button
-              class="mode-card"
-              data-route-button="books"
-            >
+            <button class="mode-card" data-route-button="books">
               <span>📖</span>
-
-              <strong>
-                Publish Books
-              </strong>
-
-              <small>
-                Turn manuscripts into books
-              </small>
+              <strong>Publish Books</strong>
+              <small>Turn manuscripts into books</small>
             </button>
 
-
-            <button
-              class="mode-card"
-              data-route-button="therapy"
-            >
+            <button class="mode-card" data-route-button="therapy">
               <span>💙</span>
-
-              <strong>
-                Therapy
-              </strong>
-
-              <small>
-                Support and next steps
-              </small>
+              <strong>Therapy</strong>
+              <small>Support and next steps</small>
             </button>
 
-
-            <button
-              class="mode-card"
-              data-route-button="browser"
-            >
+            <button class="mode-card" data-route-button="browser">
               <span>🌐</span>
-
-              <strong>
-                Private Browser
-              </strong>
-
-              <small>
-                Privacy-focused browsing
-              </small>
+              <strong>Private Browser</strong>
+              <small>Privacy-focused browsing</small>
             </button>
 
-
-            <button
-              class="mode-card"
-              data-route-button="navigation"
-            >
+            <button class="mode-card" data-route-button="navigation">
               <span>🗺️</span>
-
-              <strong>
-                Navigation
-              </strong>
-
-              <small>
-                Plan trips and compare travel
-              </small>
+              <strong>Navigation</strong>
+              <small>Plan trips and compare travel</small>
             </button>
 
           </div>
 
 
-          <!-- RECENT PROJECTS -->
-
-          <div
-            class="section-heading recent-heading"
-          >
+          <div class="section-heading recent-heading">
 
             <div>
 
@@ -2845,7 +1784,6 @@
               </p>
 
             </div>
-
 
             <button
               class="text-button"
@@ -2864,20 +1802,11 @@
               data-project="Space Project"
             >
 
-              <span class="project-icon">
-                🚀
-              </span>
+              <span class="project-icon">🚀</span>
 
               <span class="project-main">
-
-                <strong>
-                  Space Project
-                </strong>
-
-                <small>
-                  Creation · 3D
-                </small>
-
+                <strong>Space Project</strong>
+                <small>Creation · 3D</small>
               </span>
 
               <span class="project-time">
@@ -2892,20 +1821,11 @@
               data-project="Robot"
             >
 
-              <span class="project-icon">
-                🤖
-              </span>
+              <span class="project-icon">🤖</span>
 
               <span class="project-main">
-
-                <strong>
-                  Robot
-                </strong>
-
-                <small>
-                  3D Create · Sim Lab
-                </small>
-
+                <strong>Robot</strong>
+                <small>3D Create · Sim Lab</small>
               </span>
 
               <span class="project-time">
@@ -2920,20 +1840,11 @@
               data-project="Music Project"
             >
 
-              <span class="project-icon">
-                🎵
-              </span>
+              <span class="project-icon">🎵</span>
 
               <span class="project-main">
-
-                <strong>
-                  Music Project
-                </strong>
-
-                <small>
-                  Music Creator
-                </small>
-
+                <strong>Music Project</strong>
+                <small>Music Creator</small>
               </span>
 
               <span class="project-time">
@@ -2946,8 +1857,6 @@
 
         </section>
 
-
-        <!-- PLACEHOLDER WORKSPACE -->
 
         <section
           class="placeholder-view"
@@ -2962,14 +1871,12 @@
             ← Dashboard
           </button>
 
-
           <div
             class="placeholder-icon"
             id="placeholderIcon"
           >
             ✨
           </div>
-
 
           <p
             class="eyebrow"
@@ -2978,16 +1885,13 @@
             BIGHELPAI
           </p>
 
-
           <h1 id="placeholderTitle">
             AI
           </h1>
 
-
           <p id="placeholderDescription">
             Your workspace is ready for the next step.
           </p>
-
 
           <div class="placeholder-actions">
 
@@ -2998,7 +1902,6 @@
               Open workspace
             </button>
 
-
             <button
               class="secondary-button"
               data-route-button="dashboard"
@@ -3007,7 +1910,6 @@
             </button>
 
           </div>
-
 
           <p class="prototype-note">
             This redesigned front end is the foundation.
@@ -3033,93 +1935,83 @@
 
 
   <!-- =====================================================
+       SUPABASE
+  ===================================================== -->
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <script>
+    const SUPABASE_URL =
+      "https://ymhmqhxxafjhvygdxxnx.supabase.co";
+
+    const SUPABASE_PUBLISHABLE_KEY =
+      "sb_publishable_uRLDoa0jDEY3gTc7sTL1wg_xrHma5TS";
+
+    const supabaseClient =
+      window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_PUBLISHABLE_KEY
+      );
+
+    console.log(
+      "BigHelpAI Supabase client initialized:",
+      !!supabaseClient
+    );
+  </script>
+
+
+  <!-- =====================================================
        WELCOME + AUTH SCRIPT
   ===================================================== -->
 
   <script>
-    /* =====================================================
-       ELEMENTS
-    ===================================================== */
-
     const welcomeScreen =
-      document.getElementById(
-        "welcomeScreen"
-      );
+      document.getElementById("welcomeScreen");
 
     const mainApp =
-      document.getElementById(
-        "mainApp"
-      );
+      document.getElementById("mainApp");
 
     const authScreen =
-      document.getElementById(
-        "authScreen"
-      );
+      document.getElementById("authScreen");
 
     const continueGuest =
-      document.getElementById(
-        "continueGuest"
-      );
+      document.getElementById("continueGuest");
 
     const welcomeSignIn =
-      document.getElementById(
-        "welcomeSignIn"
-      );
+      document.getElementById("welcomeSignIn");
 
     const welcomeRegister =
-      document.getElementById(
-        "welcomeRegister"
-      );
+      document.getElementById("welcomeRegister");
 
     const authClose =
-      document.getElementById(
-        "authClose"
-      );
+      document.getElementById("authClose");
 
     const signInPanel =
-      document.getElementById(
-        "signInPanel"
-      );
+      document.getElementById("signInPanel");
 
     const registerPanel =
-      document.getElementById(
-        "registerPanel"
-      );
+      document.getElementById("registerPanel");
 
     const showRegister =
-      document.getElementById(
-        "showRegister"
-      );
+      document.getElementById("showRegister");
 
     const showSignIn =
-      document.getElementById(
-        "showSignIn"
-      );
+      document.getElementById("showSignIn");
 
     const signInForm =
-      document.getElementById(
-        "signInForm"
-      );
+      document.getElementById("signInForm");
 
     const registerForm =
-      document.getElementById(
-        "registerForm"
-      );
+      document.getElementById("registerForm");
 
     const forgotPassword =
-      document.getElementById(
-        "forgotPassword"
-      );
+      document.getElementById("forgotPassword");
 
     const signInStatus =
-      document.getElementById(
-        "signInStatus"
-      );
+      document.getElementById("signInStatus");
 
     const registerStatus =
-      document.getElementById(
-        "registerStatus"
-      );
+      document.getElementById("registerStatus");
 
 
     /* =====================================================
@@ -3128,37 +2020,25 @@
 
     const slides =
       Array.from(
-        document.querySelectorAll(
-          ".showcase-slide"
-        )
+        document.querySelectorAll(".showcase-slide")
       );
 
     const dots =
       Array.from(
-        document.querySelectorAll(
-          ".showcase-dot"
-        )
+        document.querySelectorAll(".showcase-dot")
       );
 
     const previousButton =
-      document.getElementById(
-        "showcasePrevious"
-      );
+      document.getElementById("showcasePrevious");
 
     const nextButton =
-      document.getElementById(
-        "showcaseNext"
-      );
+      document.getElementById("showcaseNext");
 
     const showcaseTimer =
-      document.getElementById(
-        "showcaseTimer"
-      );
+      document.getElementById("showcaseTimer");
 
     const showcaseStage =
-      document.getElementById(
-        "showcaseStage"
-      );
+      document.getElementById("showcaseStage");
 
     let currentSlide = 0;
     let showcaseInterval = null;
@@ -3170,15 +2050,11 @@
         return;
       }
 
-      showcaseTimer.classList.remove(
-        "running"
-      );
+      showcaseTimer.classList.remove("running");
 
       void showcaseTimer.offsetWidth;
 
-      showcaseTimer.classList.add(
-        "running"
-      );
+      showcaseTimer.classList.add("running");
     }
 
 
@@ -3188,90 +2064,58 @@
       }
 
       currentSlide =
-        (
-          index +
-          slides.length
-        ) %
-        slides.length;
+        (index + slides.length) % slides.length;
 
-      slides.forEach(
-        (slide, slideIndex) => {
-          slide.classList.toggle(
-            "active",
-            slideIndex === currentSlide
-          );
-        }
-      );
+      slides.forEach((slide, slideIndex) => {
+        slide.classList.toggle(
+          "active",
+          slideIndex === currentSlide
+        );
+      });
 
-      dots.forEach(
-        (dot, dotIndex) => {
-          dot.classList.toggle(
-            "active",
-            dotIndex === currentSlide
-          );
-        }
-      );
+      dots.forEach((dot, dotIndex) => {
+        dot.classList.toggle(
+          "active",
+          dotIndex === currentSlide
+        );
+      });
 
       resetShowcaseTimer();
     }
 
 
     function startShowcase() {
-      clearInterval(
-        showcaseInterval
-      );
+      clearInterval(showcaseInterval);
 
       showcaseInterval =
-        setInterval(
-          () => {
-            updateShowcase(
-              currentSlide + 1
-            );
-          },
-          6000
-        );
+        setInterval(() => {
+          updateShowcase(currentSlide + 1);
+        }, 6000);
     }
 
 
     if (previousButton) {
-      previousButton.addEventListener(
-        "click",
-        () => {
-          updateShowcase(
-            currentSlide - 1
-          );
-
-          startShowcase();
-        }
-      );
+      previousButton.addEventListener("click", () => {
+        updateShowcase(currentSlide - 1);
+        startShowcase();
+      });
     }
 
 
     if (nextButton) {
-      nextButton.addEventListener(
-        "click",
-        () => {
-          updateShowcase(
-            currentSlide + 1
-          );
-
-          startShowcase();
-        }
-      );
+      nextButton.addEventListener("click", () => {
+        updateShowcase(currentSlide + 1);
+        startShowcase();
+      });
     }
 
 
-    dots.forEach(
-      (dot, index) => {
-        dot.addEventListener(
-          "click",
-          () => {
-            updateShowcase(index);
-            startShowcase();
-          }
-        );
-      }
-    );
+    dots.forEach((dot, index) => {
+      dot.addEventListener("click", () => {
+        updateShowcase(index);
+        startShowcase();
+      });
+    });
 
 
     if (showcaseStage) {
@@ -3281,18 +2125,13 @@
           touchStartX =
             event.touches[0].clientX;
         },
-        {
-          passive: true
-        }
+        { passive: true }
       );
-
 
       showcaseStage.addEventListener(
         "touchend",
         event => {
-          if (
-            touchStartX === null
-          ) {
+          if (touchStartX === null) {
             return;
           }
 
@@ -3300,21 +2139,13 @@
             event.changedTouches[0].clientX;
 
           const distance =
-            touchEndX -
-            touchStartX;
+            touchEndX - touchStartX;
 
-          if (
-            Math.abs(distance) >
-            50
-          ) {
+          if (Math.abs(distance) > 50) {
             if (distance > 0) {
-              updateShowcase(
-                currentSlide - 1
-              );
+              updateShowcase(currentSlide - 1);
             } else {
-              updateShowcase(
-                currentSlide + 1
-              );
+              updateShowcase(currentSlide + 1);
             }
 
             startShowcase();
@@ -3322,9 +2153,7 @@
 
           touchStartX = null;
         },
-        {
-          passive: true
-        }
+        { passive: true }
       );
     }
 
@@ -3342,29 +2171,18 @@
         return;
       }
 
-      element.textContent =
-        message;
-
-      element.className =
-        `auth-status ${type}`;
+      element.textContent = message;
+      element.className = `auth-status ${type}`;
     }
 
 
     function showAuth(type) {
       authScreen.hidden = false;
 
-      document.body.style.overflow =
-        "hidden";
+      document.body.style.overflow = "hidden";
 
-      setAuthStatus(
-        signInStatus,
-        ""
-      );
-
-      setAuthStatus(
-        registerStatus,
-        ""
-      );
+      setAuthStatus(signInStatus, "");
+      setAuthStatus(registerStatus, "");
 
       if (type === "register") {
         signInPanel.hidden = true;
@@ -3378,83 +2196,53 @@
 
     function closeAuth() {
       authScreen.hidden = true;
-
-      document.body.style.overflow =
-        "";
+      document.body.style.overflow = "";
     }
 
 
     function enterBigHelpAI() {
-      welcomeScreen.classList.add(
-        "welcome-hidden"
-      );
+      welcomeScreen.classList.add("welcome-hidden");
+      mainApp.classList.remove("welcome-hidden");
 
-      mainApp.classList.remove(
-        "welcome-hidden"
-      );
+      document.body.style.overflow = "";
 
-      document.body.style.overflow =
-        "";
-
-      clearInterval(
-        showcaseInterval
-      );
+      clearInterval(showcaseInterval);
     }
 
 
     welcomeSignIn.addEventListener(
       "click",
-      () => {
-        showAuth(
-          "signin"
-        );
-      }
+      () => showAuth("signin")
     );
 
 
     welcomeRegister.addEventListener(
       "click",
-      () => {
-        showAuth(
-          "register"
-        );
-      }
+      () => showAuth("register")
     );
 
 
     continueGuest.addEventListener(
       "click",
-      () => {
-        enterBigHelpAI();
-      }
+      () => enterBigHelpAI()
     );
 
 
     authClose.addEventListener(
       "click",
-      () => {
-        closeAuth();
-      }
+      () => closeAuth()
     );
 
 
     showRegister.addEventListener(
       "click",
-      () => {
-        showAuth(
-          "register"
-        );
-      }
+      () => showAuth("register")
     );
 
 
     showSignIn.addEventListener(
       "click",
-      () => {
-        showAuth(
-          "signin"
-        );
-      }
+      () => showAuth("signin")
     );
 
 
@@ -3490,20 +2278,12 @@
         event.preventDefault();
 
         const password =
-          document.getElementById(
-            "registerPassword"
-          ).value;
+          document.getElementById("registerPassword").value;
 
         const confirmPassword =
-          document.getElementById(
-            "registerConfirmPassword"
-          ).value;
+          document.getElementById("registerConfirmPassword").value;
 
-
-        if (
-          password !==
-          confirmPassword
-        ) {
+        if (password !== confirmPassword) {
           setAuthStatus(
             registerStatus,
             "The passwords do not match.",
@@ -3512,7 +2292,6 @@
 
           return;
         }
-
 
         setAuthStatus(
           registerStatus,
@@ -3523,15 +2302,9 @@
     );
 
 
-    /* =====================================================
-       START WELCOME SHOWCASE
-    ===================================================== */
-
-    document.body.style.overflow =
-      "hidden";
+    document.body.style.overflow = "hidden";
 
     updateShowcase(0);
-
     startShowcase();
   </script>
 
