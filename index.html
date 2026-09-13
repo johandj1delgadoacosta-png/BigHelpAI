@@ -1,2161 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-
+  <meta charset="UTF-8" />
   <meta
     name="viewport"
     content="width=device-width, initial-scale=1.0"
-  >
-
+  />
   <meta
     name="description"
-    content="BigHelpAI — Learn. Create. Build. Explore."
-  >
-
+    content="BigHelpAI - AI, Coding, Study, Learning, Creation, 3D, Music, College, Publishing, Navigation and more."
+  />
   <title>BigHelpAI</title>
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 
-  <style>
-    /* =====================================================
-       WELCOME SCREEN
-    ===================================================== */
-
-    .welcome-screen {
-      position: fixed;
-      inset: 0;
-      z-index: 1000;
-      overflow-y: auto;
-
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      padding: 35px 20px;
-
-      background:
-        radial-gradient(
-          circle at 20% 20%,
-          rgba(139, 92, 246, 0.24),
-          transparent 30%
-        ),
-        radial-gradient(
-          circle at 80% 20%,
-          rgba(34, 211, 238, 0.14),
-          transparent 26%
-        ),
-        #05060a;
-    }
-
-    .welcome-shell {
-      width: min(1180px, 100%);
-      text-align: center;
-    }
-
-    .welcome-brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-
-      margin-bottom: 28px;
-
-      font-size: 21px;
-      font-weight: 900;
-      letter-spacing: -0.02em;
-    }
-
-    .welcome-brand-mark {
-      width: 42px;
-      height: 42px;
-
-      border-radius: 13px;
-
-      display: grid;
-      place-items: center;
-
-      background:
-        linear-gradient(
-          135deg,
-          #8b5cf6,
-          #22d3ee
-        );
-
-      box-shadow:
-        0 14px 35px
-        rgba(139, 92, 246, 0.30);
-    }
-
-    .welcome-title {
-      max-width: 930px;
-
-      margin: 0 auto;
-
-      font-size:
-        clamp(
-          42px,
-          7vw,
-          82px
-        );
-
-      line-height: 0.98;
-      letter-spacing: -0.055em;
-      font-weight: 900;
-    }
-
-    .welcome-title span {
-      background:
-        linear-gradient(
-          90deg,
-          #a78bfa,
-          #67e8f9
-        );
-
-      background-clip: text;
-      -webkit-background-clip: text;
-
-      color: transparent;
-    }
-
-    .welcome-subtitle {
-      max-width: 760px;
-
-      margin: 22px auto 0;
-
-      color: #b7bfd0;
-
-      font-size:
-        clamp(
-          16px,
-          2vw,
-          20px
-        );
-
-      line-height: 1.55;
-    }
-
-    /* =====================================================
-       FEATURE SHOWCASE
-    ===================================================== */
-
-    .feature-showcase {
-      width: min(980px, 100%);
-
-      margin: 38px auto 0;
-
-      border:
-        1px solid
-        rgba(255, 255, 255, 0.10);
-
-      border-radius: 24px;
-
-      overflow: hidden;
-
-      background:
-        rgba(11, 14, 23, 0.92);
-
-      box-shadow:
-        0
-        30px
-        100px
-        rgba(0, 0, 0, 0.45);
-    }
-
-    .showcase-stage {
-      min-height: 390px;
-
-      position: relative;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      padding: 30px;
-
-      overflow: hidden;
-
-      background:
-        radial-gradient(
-          circle at 50% 45%,
-          rgba(139, 92, 246, 0.22),
-          transparent 32%
-        ),
-        #0b0e17;
-    }
-
-    .showcase-slide {
-      position: absolute;
-      inset: 0;
-
-      opacity: 0;
-
-      transform:
-        scale(1.03)
-        translateY(10px);
-
-      transition:
-        opacity 0.7s ease,
-        transform 0.7s ease;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      pointer-events: none;
-    }
-
-    .showcase-slide.active {
-      opacity: 1;
-
-      transform:
-        scale(1)
-        translateY(0);
-
-      pointer-events: auto;
-    }
-
-    .showcase-content {
-      width: min(720px, 100%);
-      text-align: center;
-    }
-
-    .showcase-icon {
-      width: 105px;
-      height: 105px;
-
-      margin: 0 auto 20px;
-
-      border-radius: 30px;
-
-      display: grid;
-      place-items: center;
-
-      font-size: 47px;
-
-      background:
-        linear-gradient(
-          135deg,
-          rgba(124, 58, 237, 0.95),
-          rgba(34, 211, 238, 0.90)
-        );
-
-      box-shadow:
-        0
-        25px
-        70px
-        rgba(34, 211, 238, 0.15);
-    }
-
-    .showcase-content h2 {
-      margin: 0;
-
-      color: white;
-
-      font-size:
-        clamp(
-          28px,
-          4vw,
-          44px
-        );
-
-      letter-spacing: -0.03em;
-    }
-
-    .showcase-content p {
-      max-width: 620px;
-
-      margin: 12px auto 0;
-
-      color: #aeb7ca;
-
-      line-height: 1.55;
-
-      font-size: 15px;
-    }
-
-    .showcase-tag {
-      display: inline-block;
-
-      margin-top: 17px;
-
-      padding: 7px 11px;
-
-      border-radius: 999px;
-
-      background:
-        rgba(139, 92, 246, 0.12);
-
-      border:
-        1px solid
-        rgba(139, 92, 246, 0.22);
-
-      color: #c4b5fd;
-
-      font-size: 11px;
-      font-weight: 800;
-
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .showcase-controls {
-      position: absolute;
-
-      left: 18px;
-      right: 18px;
-      bottom: 18px;
-
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      gap: 15px;
-
-      z-index: 5;
-    }
-
-    .showcase-arrow {
-      width: 40px;
-      height: 40px;
-
-      border-radius: 12px;
-
-      border:
-        1px solid
-        rgba(255, 255, 255, 0.10);
-
-      background:
-        rgba(0, 0, 0, 0.32);
-
-      color: white;
-
-      font-size: 17px;
-    }
-
-    .showcase-dots {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      gap: 6px;
-    }
-
-    .showcase-dot {
-      width: 7px;
-      height: 7px;
-
-      padding: 0;
-
-      border: 0;
-
-      border-radius: 50%;
-
-      background:
-        rgba(255, 255, 255, 0.24);
-
-      transition:
-        width 0.2s ease,
-        background 0.2s ease;
-    }
-
-    .showcase-dot.active {
-      width: 24px;
-
-      border-radius: 999px;
-
-      background:
-        linear-gradient(
-          90deg,
-          #8b5cf6,
-          #22d3ee
-        );
-    }
-
-    .showcase-timer {
-      width: 150px;
-      height: 4px;
-
-      border-radius: 999px;
-
-      overflow: hidden;
-
-      background:
-        rgba(255, 255, 255, 0.10);
-    }
-
-    .showcase-timer-bar {
-      width: 0%;
-      height: 100%;
-
-      border-radius: inherit;
-
-      background:
-        linear-gradient(
-          90deg,
-          #8b5cf6,
-          #22d3ee
-        );
-    }
-
-    .showcase-timer-bar.running {
-      animation:
-        showcaseTimer
-        6s
-        linear;
-    }
-
-    /* =====================================================
-       WELCOME ACTIONS
-    ===================================================== */
-
-    .welcome-actions {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-
-      gap: 12px;
-
-      margin-top: 30px;
-    }
-
-    .welcome-action {
-      min-width: 155px;
-      min-height: 48px;
-
-      padding: 12px 20px;
-
-      border-radius: 13px;
-
-      border:
-        1px solid
-        rgba(255, 255, 255, 0.11);
-
-      color: white;
-
-      font-weight: 800;
-
-      transition:
-        transform 0.18s ease,
-        box-shadow 0.18s ease,
-        background 0.18s ease;
-    }
-
-    .welcome-action:hover {
-      transform: translateY(-2px);
-    }
-
-    .welcome-signin {
-      background:
-        linear-gradient(
-          135deg,
-          #8b5cf6,
-          #6d4ef3
-        );
-
-      box-shadow:
-        0
-        16px
-        38px
-        rgba(109, 78, 243, 0.22);
-    }
-
-    .welcome-register {
-      background:
-        rgba(255, 255, 255, 0.05);
-    }
-
-    .welcome-guest {
-      background: transparent;
-      color: #aeb7ca;
-    }
-
-    .welcome-guest:hover {
-      color: white;
-
-      background:
-        rgba(255, 255, 255, 0.04);
-    }
-
-    .welcome-feature-row {
-      display: grid;
-
-      grid-template-columns:
-        repeat(
-          4,
-          minmax(0, 1fr)
-        );
-
-      gap: 12px;
-
-      margin-top: 30px;
-    }
-
-    .welcome-feature {
-      padding: 17px;
-
-      text-align: left;
-
-      border:
-        1px solid
-        rgba(255, 255, 255, 0.08);
-
-      border-radius: 16px;
-
-      background:
-        rgba(255, 255, 255, 0.025);
-    }
-
-    .welcome-feature-icon {
-      font-size: 22px;
-      margin-bottom: 10px;
-    }
-
-    .welcome-feature strong {
-      display: block;
-
-      color: white;
-
-      font-size: 13px;
-    }
-
-    .welcome-feature small {
-      display: block;
-
-      margin-top: 5px;
-
-      color: #8993a8;
-
-      font-size: 11px;
-
-      line-height: 1.45;
-    }
-
-    .welcome-footer {
-      margin-top: 28px;
-
-      color: #606a80;
-
-      font-size: 11px;
-    }
-
-    .welcome-hidden {
-      display: none !important;
-    }
-
-    /* =====================================================
-       AUTHENTICATION
-    ===================================================== */
-
-    .auth-screen {
-      position: fixed;
-      inset: 0;
-
-      z-index: 2000;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      padding: 24px;
-
-      background:
-        radial-gradient(
-          circle at 18% 18%,
-          rgba(139, 92, 246, 0.22),
-          transparent 28%
-        ),
-        radial-gradient(
-          circle at 82% 22%,
-          rgba(34, 211, 238, 0.13),
-          transparent 25%
-        ),
-        rgba(5, 6, 10, 0.95);
-
-      backdrop-filter: blur(20px);
-    }
-
-    .auth-screen[hidden] {
-      display: none;
-    }
-
-    .auth-card {
-      width: min(1020px, 100%);
-
-      min-height: 600px;
-
-      display: grid;
-
-      grid-template-columns:
-        minmax(0, 0.95fr)
-        minmax(0, 1.05fr);
-
-      position: relative;
-
-      overflow: hidden;
-
-      border:
-        1px solid
-        rgba(255, 255, 255, 0.10);
-
-      border-radius: 28px;
-
-      background:
-        linear-gradient(
-          145deg,
-          rgba(20, 23, 34, 0.99),
-          rgba(10, 12, 19, 0.99)
-        );
-
-      box-shadow:
-        0
-        40px
-        120px
-        rgba(0, 0, 0, 0.60);
-    }
-
-    .auth-showcase {
-      position: relative;
-
-      padding: 42px;
-
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-
-      background:
-        radial-gradient(
-          circle at 70% 25%,
-          rgba(34, 211, 238, 0.16),
-          transparent 28%
-        ),
-        radial-gradient(
-          circle at 25% 70%,
-          rgba(139, 92, 246, 0.20),
-          transparent 36%
-        ),
-        #0d1019;
-
-      border-right:
-        1px solid
-        rgba(255, 255, 255, 0.08);
-    }
-
-    .auth-showcase-brand {
-      display: flex;
-      align-items: center;
-      gap: 11px;
-
-      font-size: 18px;
-      font-weight: 900;
-    }
-
-    .auth-showcase-mark {
-      width: 38px;
-      height: 38px;
-
-      display: grid;
-      place-items: center;
-
-      border-radius: 11px;
-
-      background:
-        linear-gradient(
-          135deg,
-          #8b5cf6,
-          #22d3ee
-        );
-    }
-
-    .auth-showcase-content {
-      margin: auto 0;
-    }
-
-    .auth-showcase-content h2 {
-      margin: 0;
-
-      font-size:
-        clamp(
-          31px,
-          4vw,
-          49px
-        );
-
-      line-height: 1.02;
-
-      letter-spacing: -0.045em;
-    }
-
-    .auth-showcase-content h2 span {
-      background:
-        linear-gradient(
-          90deg,
-          #a78bfa,
-          #67e8f9
-        );
-
-      background-clip: text;
-      -webkit-background-clip: text;
-
-      color: transparent;
-    }
-
-    .auth-showcase-content p {
-      max-width: 410px;
-
-      margin-top: 16px;
-
-      color: #a8b1c3;
-
-      line-height: 1.6;
-
-      font-size: 14px;
-    }
-
-    .auth-benefits {
-      display: grid;
-
-      gap: 9px;
-
-      margin-top: 24px;
-    }
-
-    .auth-benefit {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-
-      color: #d7dceb;
-
-      font-size: 12px;
-    }
-
-    .auth-benefit-icon {
-      width: 25px;
-      height: 25px;
-
-      display: grid;
-      place-items: center;
-
-      border-radius: 8px;
-
-      background:
-        rgba(139, 92, 246, 0.14);
-
-      border:
-        1px solid
-        rgba(139, 92, 246, 0.20);
-    }
-
-    .auth-showcase-footer {
-      color: #616b80;
-
-      font-size: 10px;
-
-      line-height: 1.45;
-    }
-
-    .auth-form-area {
-      padding: 42px;
-
-      display: flex;
-      flex-direction: column;
-
-      justify-content: center;
-
-      background:
-        rgba(8, 10, 16, 0.68);
-    }
-
-    .auth-close {
-      position: absolute;
-
-      top: 15px;
-      right: 15px;
-
-      z-index: 5;
-
-      width: 38px;
-      height: 38px;
-
-      border-radius: 11px;
-
-      border:
-        1px solid
-        rgba(255, 255, 255, 0.09);
-
-      background:
-        rgba(255, 255, 255, 0.04);
-
-      color: #dce1ed;
-
-      font-size: 23px;
-    }
-
-    .auth-close:hover {
-      background:
-        rgba(255, 255, 255, 0.08);
-    }
-
-    .auth-form-brand {
-      display: none;
-    }
-
-    .auth-panel h2 {
-      margin: 0;
-
-      font-size: 33px;
-
-      letter-spacing: -0.035em;
-    }
-
-    .auth-subtitle {
-      margin: 9px 0 22px;
-
-      color: #9ea8ba;
-
-      font-size: 13px;
-
-      line-height: 1.55;
-    }
-
-    .auth-panel form {
-      display: flex;
-
-      flex-direction: column;
-
-      gap: 8px;
-    }
-
-    .auth-panel label {
-      color: #dfe3ed;
-
-      font-size: 12px;
-
-      font-weight: 750;
-
-      margin-top: 6px;
-    }
-
-    .auth-panel input {
-      width: 100%;
-
-      height: 47px;
-
-      padding:
-        0
-        13px;
-
-      box-sizing: border-box;
-
-      border:
-        1px
-        solid
-        rgba(255, 255, 255, 0.10);
-
-      border-radius: 11px;
-
-      background:
-        rgba(255, 255, 255, 0.035);
-
-      color: white;
-
-      outline: none;
-    }
-
-    .auth-panel input::placeholder {
-      color: #687288;
-    }
-
-    .auth-panel input:focus {
-      border-color: #8b5cf6;
-
-      box-shadow:
-        0
-        0
-        0
-        3px
-        rgba(139, 92, 246, 0.12);
-    }
-
-    .auth-field-note {
-      color: #6f7a90;
-
-      font-size: 10px;
-
-      margin-top: -2px;
-    }
-
-    .auth-primary {
-      width: 100%;
-
-      min-height: 48px;
-
-      margin-top: 13px;
-
-      border: 0;
-
-      border-radius: 12px;
-
-      background:
-        linear-gradient(
-          135deg,
-          #8b5cf6,
-          #6d4ef3
-        );
-
-      color: white;
-
-      font-weight: 850;
-
-      box-shadow:
-        0
-        12px
-        30px
-        rgba(109, 78, 243, 0.20);
-    }
-
-    .auth-primary:hover {
-      transform: translateY(-1px);
-    }
-
-    .auth-primary:disabled {
-      opacity: 0.65;
-
-      cursor: wait;
-
-      transform: none;
-    }
-
-    .auth-link,
-    .auth-switch button {
-      border: 0;
-
-      background: none;
-
-      color: #a78bfa;
-
-      font-size: 12px;
-
-      cursor: pointer;
-    }
-
-    .auth-link {
-      display: block;
-
-      margin: 14px auto 0;
-    }
-
-    .auth-switch {
-      margin: 21px 0 0;
-
-      text-align: center;
-
-      color: #8f98aa;
-
-      font-size: 12px;
-    }
-
-    .auth-switch button {
-      font-weight: 800;
-    }
-
-    .auth-status {
-      min-height: 18px;
-
-      margin-top: 12px;
-
-      color: #95a0b4;
-
-      font-size: 11px;
-
-      text-align: center;
-    }
-
-    .auth-status.error {
-      color: #fca5a5;
-    }
-
-    .auth-status.success {
-      color: #86efac;
-    }
-
-    .auth-divider {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-
-      margin: 22px 0 0;
-
-      color: #616b80;
-
-      font-size: 10px;
-    }
-
-    .auth-divider::before,
-    .auth-divider::after {
-      content: "";
-
-      flex: 1;
-
-      height: 1px;
-
-      background:
-        rgba(255, 255, 255, 0.08);
-    }
-
-    /* =====================================================
-       ACCOUNT STATUS
-    ===================================================== */
-
-    .dashboard-account-row {
-      display: flex;
-
-      justify-content: flex-end;
-
-      align-items: center;
-
-      margin-bottom: 12px;
-    }
-
-    .account-status-card {
-      display: inline-flex;
-
-      align-items: center;
-
-      gap: 10px;
-
-      padding: 9px 12px;
-
-      border:
-        1px solid
-        rgba(139, 92, 246, 0.22);
-
-      border-radius: 12px;
-
-      background:
-        linear-gradient(
-          135deg,
-          rgba(139, 92, 246, 0.10),
-          rgba(34, 211, 238, 0.04)
-        );
-    }
-
-    .account-status-icon {
-      width: 27px;
-      height: 27px;
-
-      display: grid;
-
-      place-items: center;
-
-      border-radius: 8px;
-
-      background:
-        rgba(139, 92, 246, 0.18);
-
-      color: #c4b5fd;
-
-      font-size: 13px;
-
-      font-weight: 900;
-    }
-
-    .account-status-text {
-      display: flex;
-
-      flex-direction: column;
-
-      gap: 2px;
-    }
-
-    .account-status-label {
-      color: #eeeafe;
-
-      font-size: 10px;
-
-      font-weight: 900;
-
-      letter-spacing: 0.08em;
-    }
-
-    .account-status-plan {
-      color: #8e9ab2;
-
-      font-size: 9px;
-    }
-
-    /* =====================================================
-       ANIMATIONS
-    ===================================================== */
-
-    @keyframes showcaseTimer {
-
-      from {
-        width: 0%;
-      }
-
-      to {
-        width: 100%;
-      }
-
-    }
-
-    /* =====================================================
-       RESPONSIVE
-    ===================================================== */
-
-    @media (max-width: 850px) {
-
-      .welcome-feature-row {
-        grid-template-columns:
-          repeat(
-            2,
-            minmax(0, 1fr)
-          );
-      }
-
-      .showcase-stage {
-        min-height: 350px;
-      }
-
-      .showcase-timer {
-        display: none;
-      }
-
-      .auth-card {
-        grid-template-columns: 1fr;
-
-        width: min(560px, 100%);
-
-        min-height: auto;
-      }
-
-      .auth-showcase {
-        display: none;
-      }
-
-      .auth-form-area {
-        padding: 36px 30px;
-      }
-
-      .auth-form-brand {
-        display: flex;
-
-        align-items: center;
-
-        gap: 10px;
-
-        margin-bottom: 23px;
-
-        font-weight: 900;
-      }
-
-      .auth-form-brand-mark {
-        width: 36px;
-        height: 36px;
-
-        display: grid;
-
-        place-items: center;
-
-        border-radius: 10px;
-
-        background:
-          linear-gradient(
-            135deg,
-            #8b5cf6,
-            #22d3ee
-          );
-      }
-
-    }
-
-    @media (max-width: 560px) {
-
-      .welcome-screen {
-        align-items: flex-start;
-      }
-
-      .welcome-title {
-        font-size: 44px;
-      }
-
-      .showcase-stage {
-        min-height: 330px;
-        padding: 20px;
-      }
-
-      .showcase-icon {
-        width: 86px;
-        height: 86px;
-
-        border-radius: 26px;
-
-        font-size: 38px;
-      }
-
-      .showcase-content h2 {
-        font-size: 29px;
-      }
-
-      .showcase-content p {
-        font-size: 13px;
-      }
-
-      .showcase-controls {
-        bottom: 12px;
-      }
-
-      .welcome-feature-row {
-        grid-template-columns: 1fr;
-      }
-
-      .welcome-action {
-        width: 100%;
-      }
-
-      .auth-form-area {
-        padding: 30px 20px;
-      }
-
-      .dashboard-account-row {
-        justify-content: flex-start;
-      }
-
-      .account-status-card {
-        width: 100%;
-      }
-
-    }
-  </style>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 
 <body>
 
-  <!-- =====================================================
+  <!-- =========================================================
        WELCOME SCREEN
-  ===================================================== -->
-
-  <section
-    class="welcome-screen"
-    id="welcomeScreen"
-    aria-label="Welcome to BigHelpAI"
-  >
+       ========================================================= -->
+  <section id="welcomeScreen" class="screen active-screen">
 
     <div class="welcome-shell">
 
       <div class="welcome-brand">
+        <div class="brand-mark">BH</div>
 
-        <span class="welcome-brand-mark">
-          B
-        </span>
-
-        <span>
-          BigHelpAI
-        </span>
-
+        <div>
+          <div class="brand-name">BigHelpAI</div>
+          <div class="brand-tagline">
+            One place for ideas, learning, building and creating.
+          </div>
+        </div>
       </div>
 
-
-      <h1 class="welcome-title">
-
-        One place to
-        <span>
-          learn, create,
-        </span>
-        build and explore.
-
-      </h1>
-
-
-      <p class="welcome-subtitle">
-
-        Meet BigHelpAI — an all-in-one AI ecosystem
-        designed to help you turn ideas into real projects.
-
-      </p>
-
-
-      <div
-        class="feature-showcase"
-        aria-label="BigHelpAI feature showcase"
-      >
-
-        <div
-          class="showcase-stage"
-          id="showcaseStage"
-        >
-
-          <article
-            class="showcase-slide active"
-            data-slide="0"
-          >
-
-            <div class="showcase-content">
-
-              <div class="showcase-icon">
-                ✨
-              </div>
-
-              <h2>
-                AI that helps you get things done
-              </h2>
-
-              <p>
-                Ask questions, research, write,
-                summarize, work with files, and
-                bring your ideas to life.
-              </p>
-
-              <span class="showcase-tag">
-                AI
-              </span>
-
-            </div>
-
-          </article>
-
-
-          <article
-            class="showcase-slide"
-            data-slide="1"
-          >
-
-            <div class="showcase-content">
-
-              <div class="showcase-icon">
-                💻
-              </div>
-
-              <h2>
-                Build with Coding
-              </h2>
-
-              <p>
-                Create websites, applications,
-                games, tools, and projects with
-                an AI coding assistant.
-              </p>
-
-              <span class="showcase-tag">
-                Coding
-              </span>
-
-            </div>
-
-          </article>
-
-
-          <article
-            class="showcase-slide"
-            data-slide="2"
-          >
-
-            <div class="showcase-content">
-
-              <div class="showcase-icon">
-                🎓
-              </div>
-
-              <h2>
-                Learn your way
-              </h2>
-
-              <p>
-                Study subjects, follow curriculums,
-                complete lessons, quizzes,
-                checkpoints, tests, and exams.
-              </p>
-
-              <span class="showcase-tag">
-                Learning
-              </span>
-
-            </div>
-
-          </article>
-
-
-          <article
-            class="showcase-slide"
-            data-slide="3"
-          >
-
-            <div class="showcase-content">
-
-              <div class="showcase-icon">
-                🎨
-              </div>
-
-              <h2>
-                Turn ideas into creations
-              </h2>
-
-              <p>
-                Create images, visual projects,
-                creative concepts, and eventually
-                much more.
-              </p>
-
-              <span class="showcase-tag">
-                Creation
-              </span>
-
-            </div>
-
-          </article>
-
-
-          <article
-            class="showcase-slide"
-            data-slide="4"
-          >
-
-            <div class="showcase-content">
-
-              <div class="showcase-icon">
-                🧊
-              </div>
-
-              <h2>
-                Build in 3D
-              </h2>
-
-              <p>
-                Create objects and machines,
-                add motors and electronics,
-                and test your designs in Sim Lab.
-              </p>
-
-              <span class="showcase-tag">
-                3D Create
-              </span>
-
-            </div>
-
-          </article>
-
-
-          <article
-            class="showcase-slide"
-            data-slide="5"
-          >
-
-            <div class="showcase-content">
-
-              <div class="showcase-icon">
-                🎵
-              </div>
-
-              <h2>
-                Make music
-              </h2>
-
-              <p>
-                Build melodies, beats, arrangements,
-                instruments, and complete music projects.
-              </p>
-
-              <span class="showcase-tag">
-                Music Creator
-              </span>
-
-            </div>
-
-          </article>
-
-
-          <article
-            class="showcase-slide"
-            data-slide="6"
-          >
-
-            <div class="showcase-content">
-
-              <div class="showcase-icon">
-                🎓
-              </div>
-
-              <h2>
-                Prepare for college
-              </h2>
-
-              <p>
-                Get help with college work,
-                applications, programs, scholarships,
-                requirements, and deadlines.
-              </p>
-
-              <span class="showcase-tag">
-                College Hub
-              </span>
-
-            </div>
-
-          </article>
-
-
-          <article
-            class="showcase-slide"
-            data-slide="7"
-          >
-
-            <div class="showcase-content">
-
-              <div class="showcase-icon">
-                🛍️
-              </div>
-
-              <h2>
-                Create products to sell
-              </h2>
-
-              <p>
-                Build digital or physical products,
-                organize your inventory, create ads,
-                and prepare listings.
-              </p>
-
-              <span class="showcase-tag">
-                Sell
-              </span>
-
-            </div>
-
-          </article>
-
-
-          <article
-            class="showcase-slide"
-            data-slide="8"
-          >
-
-            <div class="showcase-content">
-
-              <div class="showcase-icon">
-                📖
-              </div>
-
-              <h2>
-                Publish your books
-              </h2>
-
-              <p>
-                Upload a manuscript or PDF,
-                organize the book, prepare publishing
-                information, and review everything.
-              </p>
-
-              <span class="showcase-tag">
-                Publish Books
-              </span>
-
-            </div>
-
-          </article>
-
-
-          <article
-            class="showcase-slide"
-            data-slide="9"
-          >
-
-            <div class="showcase-content">
-
-              <div class="showcase-icon">
-                🎲
-              </div>
-
-              <h2>
-                Create and learn board games
-              </h2>
-
-              <p>
-                Design your own games or learn
-                how to play real board games.
-              </p>
-
-              <span class="showcase-tag">
-                Board Games
-              </span>
-
-            </div>
-
-          </article>
-
-
-          <div class="showcase-controls">
-
-            <button
-              class="showcase-arrow"
-              id="showcasePrevious"
-              type="button"
-              aria-label="Previous feature"
-            >
-              ←
-            </button>
-
-
-            <div
-              class="showcase-dots"
-              id="showcaseDots"
-            >
-
-              <button
-                class="showcase-dot active"
-                type="button"
-                data-go-slide="0"
-              ></button>
-
-              <button
-                class="showcase-dot"
-                type="button"
-                data-go-slide="1"
-              ></button>
-
-              <button
-                class="showcase-dot"
-                type="button"
-                data-go-slide="2"
-              ></button>
-
-              <button
-                class="showcase-dot"
-                type="button"
-                data-go-slide="3"
-              ></button>
-
-              <button
-                class="showcase-dot"
-                type="button"
-                data-go-slide="4"
-              ></button>
-
-              <button
-                class="showcase-dot"
-                type="button"
-                data-go-slide="5"
-              ></button>
-
-              <button
-                class="showcase-dot"
-                type="button"
-                data-go-slide="6"
-              ></button>
-
-              <button
-                class="showcase-dot"
-                type="button"
-                data-go-slide="7"
-              ></button>
-
-              <button
-                class="showcase-dot"
-                type="button"
-                data-go-slide="8"
-              ></button>
-
-              <button
-                class="showcase-dot"
-                type="button"
-                data-go-slide="9"
-              ></button>
-
-            </div>
-
-
-            <div
-              class="showcase-timer"
-              aria-hidden="true"
-            >
-
-              <div
-                class="showcase-timer-bar"
-                id="showcaseTimer"
-              ></div>
-
-            </div>
-
-
-            <button
-              class="showcase-arrow"
-              id="showcaseNext"
-              type="button"
-              aria-label="Next feature"
-            >
-              →
-            </button>
-
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <div class="welcome-actions">
-
-        <button
-          class="welcome-action welcome-signin"
-          id="welcomeSignIn"
-          type="button"
-        >
-          Sign In
-        </button>
-
-
-        <button
-          class="welcome-action welcome-register"
-          id="welcomeRegister"
-          type="button"
-        >
-          Register
-        </button>
-
-
-        <button
-          class="welcome-action welcome-guest"
-          id="continueGuest"
-          type="button"
-        >
-          Continue without an account
-        </button>
-
-      </div>
-
-
-      <div class="welcome-feature-row">
-
-        <div class="welcome-feature">
-
-          <div class="welcome-feature-icon">
-            ✨
-          </div>
-
-          <strong>
-            AI
-          </strong>
-
-          <small>
-            Ask questions, research, write,
-            and work with files.
-          </small>
-
-        </div>
-
-
-        <div class="welcome-feature">
-
-          <div class="welcome-feature-icon">
-            💻
-          </div>
-
-          <strong>
-            Create &amp; Build
-          </strong>
-
-          <small>
-            Code, create images, build 3D
-            projects, and simulate ideas.
-          </small>
-
-        </div>
-
-
-        <div class="welcome-feature">
-
-          <div class="welcome-feature-icon">
-            🎓
-          </div>
-
-          <strong>
-            Learn
-          </strong>
-
-          <small>
-            Study, follow curriculums,
-            and prepare for college.
-          </small>
-
-        </div>
-
-
-        <div class="welcome-feature">
-
-          <div class="welcome-feature-icon">
-            🎵
-          </div>
-
-          <strong>
-            Create More
-          </strong>
-
-          <small>
-            Make music, board games, books,
-            products, and much more.
-          </small>
-
-        </div>
-
-      </div>
-
-
-      <div class="welcome-footer">
-        BigHelpAI — Learn. Create. Build. Explore.
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =====================================================
-       AUTHENTICATION
-  ===================================================== -->
-
-  <section
-    class="auth-screen"
-    id="authScreen"
-    aria-label="BigHelpAI account access"
-    hidden
-  >
-
-    <div class="auth-card">
-
-      <button
-        class="auth-close"
-        id="authClose"
-        type="button"
-        aria-label="Close account screen"
-      >
-        ×
-      </button>
-
-
-      <div class="auth-showcase">
-
-        <div class="auth-showcase-brand">
-
-          <span class="auth-showcase-mark">
-            B
-          </span>
-
-          <span>
-            BigHelpAI
-          </span>
-
-        </div>
-
-
-        <div class="auth-showcase-content">
-
-          <p class="eyebrow">
-            YOUR BIGHELPAI ACCOUNT
-          </p>
-
-          <h2>
-            One account.
-            <span>
-              Your whole workspace.
-            </span>
-          </h2>
+      <div class="welcome-content">
+
+        <div class="welcome-copy">
+          <span class="eyebrow">WELCOME TO BIGHELPAI</span>
+
+          <h1>
+            One AI workspace.
+            <span>Countless possibilities.</span>
+          </h1>
 
           <p>
-            Sign in or create an account to save
-            projects, access account-based features,
-            keep your progress, and personalize
-            your BigHelpAI experience.
+            Learn, code, create, build projects, make music, explore college
+            options, publish books, work with 3D worlds, play and learn board
+            games, plan trips and much more.
           </p>
 
-
-          <div class="auth-benefits">
-
-            <div class="auth-benefit">
-
-              <span class="auth-benefit-icon">
-                ✓
-              </span>
-
-              Save your projects
-
-            </div>
-
-
-            <div class="auth-benefit">
-
-              <span class="auth-benefit-icon">
-                ✓
-              </span>
-
-              Keep your work across devices
-
-            </div>
-
-
-            <div class="auth-benefit">
-
-              <span class="auth-benefit-icon">
-                ✓
-              </span>
-
-              Use account-required features
-
-            </div>
-
-
-            <div class="auth-benefit">
-
-              <span class="auth-benefit-icon">
-                ✓
-              </span>
-
-              Manage privacy and security settings
-
-            </div>
-
-          </div>
-
-        </div>
-
-
-        <div class="auth-showcase-footer">
-          BigHelpAI uses secure account infrastructure
-          for authentication and account data.
-        </div>
-
-      </div>
-
-
-      <div class="auth-form-area">
-
-        <div class="auth-form-brand">
-
-          <span class="auth-form-brand-mark">
-            B
-          </span>
-
-          <span>
-            BigHelpAI
-          </span>
-
-        </div>
-
-
-        <!-- SIGN IN -->
-
-        <div
-          class="auth-panel"
-          id="signInPanel"
-        >
-
-          <p class="eyebrow">
-            WELCOME BACK
-          </p>
-
-          <h2>
-            Sign In
-          </h2>
-
-          <p class="auth-subtitle">
-            Sign in to continue to your
-            BigHelpAI account.
-          </p>
-
-
-          <form id="signInForm">
-
-            <label for="signInEmail">
-              Email
-            </label>
-
-            <input
-              id="signInEmail"
-              type="email"
-              placeholder="you@example.com"
-              autocomplete="email"
-              required
-            >
-
-
-            <label for="signInPassword">
-              Password
-            </label>
-
-            <input
-              id="signInPassword"
-              type="password"
-              placeholder="Enter your password"
-              autocomplete="current-password"
-              required
-            >
-
+          <div class="welcome-actions">
 
             <button
-              class="auth-primary"
-              id="signInSubmit"
-              type="submit"
+              type="button"
+              id="welcomeSignInButton"
+              class="primary-button"
             >
               Sign In
             </button>
 
-          </form>
-
-
-          <button
-            class="auth-link"
-            id="forgotPassword"
-            type="button"
-          >
-            Forgot password?
-          </button>
-
-
-          <div
-            class="auth-status"
-            id="signInStatus"
-            aria-live="polite"
-          ></div>
-
-
-          <div class="auth-divider">
-            <span>
-              BigHelpAI account access
-            </span>
-          </div>
-
-
-          <p class="auth-switch">
-            Don't have an account?
-
             <button
               type="button"
-              id="showRegister"
+              id="welcomeRegisterButton"
+              class="secondary-button"
             >
               Register
             </button>
 
-          </p>
-
-        </div>
-
-
-        <!-- REGISTER -->
-
-        <div
-          class="auth-panel"
-          id="registerPanel"
-          hidden
-        >
-
-          <p class="eyebrow">
-            GET STARTED
-          </p>
-
-          <h2>
-            Create your account
-          </h2>
-
-          <p class="auth-subtitle">
-            Create a BigHelpAI account to save
-            your work and unlock account-based
-            features.
-          </p>
-
-
-          <form id="registerForm">
-
-            <label for="registerName">
-              Name
-            </label>
-
-            <input
-              id="registerName"
-              type="text"
-              placeholder="Your name"
-              autocomplete="name"
-              required
-            >
-
-
-            <label for="registerEmail">
-              Email
-            </label>
-
-            <input
-              id="registerEmail"
-              type="email"
-              placeholder="you@example.com"
-              autocomplete="email"
-              required
-            >
-
-
-            <label for="registerPassword">
-              Password
-            </label>
-
-            <input
-              id="registerPassword"
-              type="password"
-              placeholder="Create a password"
-              autocomplete="new-password"
-              minlength="8"
-              required
-            >
-
-
-            <div class="auth-field-note">
-              Use at least 8 characters.
-            </div>
-
-
-            <label for="registerConfirmPassword">
-              Confirm password
-            </label>
-
-            <input
-              id="registerConfirmPassword"
-              type="password"
-              placeholder="Enter your password again"
-              autocomplete="new-password"
-              minlength="8"
-              required
-            >
-
-
             <button
-              class="auth-primary"
-              id="registerSubmit"
-              type="submit"
+              type="button"
+              id="continueSessionButton"
+              class="secondary-button hidden"
             >
-              Create Account
+              Continue to dashboard
             </button>
-
-          </form>
-
-
-          <div
-            class="auth-status"
-            id="registerStatus"
-            aria-live="polite"
-          ></div>
-
-
-          <p class="auth-switch">
-
-            Already have an account?
 
             <button
               type="button"
-              id="showSignIn"
+              id="guestButton"
+              class="text-button"
             >
-              Sign In
+              Continue without account
             </button>
 
-          </p>
+          </div>
+
+          <div
+            id="sessionNotice"
+            class="session-notice hidden"
+          ></div>
+        </div>
+
+        <!-- FEATURE SHOWCASE -->
+        <div class="feature-showcase">
+
+          <div class="showcase-card active-feature">
+            <div class="showcase-icon">✦</div>
+            <h3>AI</h3>
+            <p>
+              Ask questions, brainstorm ideas, write, research and organize
+              information.
+            </p>
+          </div>
+
+          <div class="showcase-card">
+            <div class="showcase-icon">⌘</div>
+            <h3>Coding</h3>
+            <p>
+              Build websites, applications, tools and projects with AI-assisted
+              coding.
+            </p>
+          </div>
+
+          <div class="showcase-card">
+            <div class="showcase-icon">◈</div>
+            <h3>Learning</h3>
+            <p>
+              Follow lessons, topics, checkpoints, quizzes, tests and exams.
+            </p>
+          </div>
+
+          <div class="showcase-card">
+            <div class="showcase-icon">◉</div>
+            <h3>Creation</h3>
+            <p>
+              Turn ideas into images, creative concepts and project assets.
+            </p>
+          </div>
+
+          <div class="showcase-card">
+            <div class="showcase-icon">⬢</div>
+            <h3>3D Create</h3>
+            <p>
+              Build 3D objects, machines, components and interactive worlds.
+            </p>
+          </div>
+
+          <div class="showcase-card">
+            <div class="showcase-icon">♫</div>
+            <h3>Music Creator</h3>
+            <p>
+              Work with melodies, beats, instruments, arrangements, keys and
+              moods.
+            </p>
+          </div>
+
+          <div class="showcase-card">
+            <div class="showcase-icon">🎓</div>
+            <h3>College Hub</h3>
+            <p>
+              Research schools, majors, admissions, scholarships and coursework.
+            </p>
+          </div>
+
+          <div class="showcase-card">
+            <div class="showcase-icon">◫</div>
+            <h3>Sell</h3>
+            <p>
+              Organize products, inventory, pricing, images, 3D models and
+              publishing projects.
+            </p>
+          </div>
+
+          <div class="showcase-card">
+            <div class="showcase-icon">▤</div>
+            <h3>Publish Books</h3>
+            <p>
+              Prepare manuscripts and book information for publishing workflows.
+            </p>
+          </div>
+
+          <div class="showcase-card">
+            <div class="showcase-icon">♟</div>
+            <h3>Board Games</h3>
+            <p>
+              Create games and learn real board games step by step.
+            </p>
+          </div>
+
+          <div class="showcase-controls">
+            <button
+              type="button"
+              id="featurePrevButton"
+              aria-label="Previous feature"
+            >
+              ‹
+            </button>
+
+            <div id="featureDots" class="feature-dots"></div>
+
+            <button
+              type="button"
+              id="featureNextButton"
+              aria-label="Next feature"
+            >
+              ›
+            </button>
+          </div>
 
         </div>
 
+      </div>
+
+      <div class="welcome-footer">
+        <span>BigHelpAI</span>
+        <span>•</span>
+        <span>Private by design</span>
+        <span>•</span>
+        <span>Built for learning and creating</span>
       </div>
 
     </div>
@@ -2163,880 +219,888 @@
   </section>
 
 
-  <!-- =====================================================
-       MAIN APP
-  ===================================================== -->
+  <!-- =========================================================
+       AUTH MODAL
+       ========================================================= -->
+  <div id="authOverlay" class="modal-overlay hidden">
 
-  <div
-    class="app-shell"
-    id="mainApp"
-  >
-
-    <header class="topbar">
+    <div class="auth-modal">
 
       <button
-        class="mobile-menu"
-        id="mobileMenu"
-        aria-label="Open menu"
+        type="button"
+        id="closeAuthButton"
+        class="modal-close"
+        aria-label="Close"
       >
-        ☰
+        ×
       </button>
 
+      <div class="auth-header">
+        <div class="brand-mark small">BH</div>
+        <div>
+          <h2 id="authTitle">Sign In</h2>
+          <p id="authSubtitle">
+            Sign in to your BigHelpAI account.
+          </p>
+        </div>
+      </div>
 
-      <a
-        class="brand"
-        href="#dashboard"
-        aria-label="BigHelpAI home"
-      >
+      <!-- SIGN IN -->
+      <form id="signInForm" class="auth-form">
 
-        <span class="brand-mark">
-          B
-        </span>
+        <label for="signInEmail">Email</label>
+        <input
+          id="signInEmail"
+          type="email"
+          autocomplete="email"
+          placeholder="you@example.com"
+          required
+        />
 
-        <span>
-          BigHelpAI
-        </span>
+        <label for="signInPassword">Password</label>
+        <input
+          id="signInPassword"
+          type="password"
+          autocomplete="current-password"
+          placeholder="Your password"
+          required
+        />
 
-      </a>
+        <button
+          type="submit"
+          class="primary-button full-width"
+        >
+          Sign In
+        </button>
+
+        <button
+          type="button"
+          id="forgotPasswordButton"
+          class="text-button"
+        >
+          Forgot password?
+        </button>
+
+        <div
+          id="signInMessage"
+          class="auth-message"
+        ></div>
+
+      </form>
 
 
-      <div class="top-search">
+      <!-- REGISTER -->
+      <form id="registerForm" class="auth-form hidden">
 
-        <span class="search-icon">
-          ⌕
-        </span>
+        <label for="registerName">Full name</label>
+        <input
+          id="registerName"
+          type="text"
+          autocomplete="name"
+          placeholder="Your name"
+          required
+        />
+
+        <label for="registerEmail">Email</label>
+        <input
+          id="registerEmail"
+          type="email"
+          autocomplete="email"
+          placeholder="you@example.com"
+          required
+        />
+
+        <label for="registerPassword">Password</label>
+        <input
+          id="registerPassword"
+          type="password"
+          autocomplete="new-password"
+          placeholder="Create a password"
+          minlength="6"
+          required
+        />
+
+        <label for="registerPasswordConfirm">
+          Confirm password
+        </label>
 
         <input
-          id="globalSearch"
-          type="search"
-          placeholder="Search BigHelpAI..."
-          autocomplete="off"
-        >
-
-        <kbd>
-          /
-        </kbd>
-
-      </div>
-
-
-      <div class="top-actions">
+          id="registerPasswordConfirm"
+          type="password"
+          autocomplete="new-password"
+          placeholder="Enter the password again"
+          minlength="6"
+          required
+        />
 
         <button
-          class="icon-button"
-          id="notificationsBtn"
-          title="Notifications"
-          aria-label="Notifications"
+          type="submit"
+          class="primary-button full-width"
         >
-          🔔
-
-          <span
-            class="notification-dot"
-          ></span>
-
+          Create Account
         </button>
 
+        <div
+          id="registerMessage"
+          class="auth-message"
+        ></div>
+
+      </form>
+
+
+      <!-- FORGOT PASSWORD -->
+      <form id="forgotPasswordForm" class="auth-form hidden">
+
+        <label for="forgotPasswordEmail">Email</label>
+
+        <input
+          id="forgotPasswordEmail"
+          type="email"
+          autocomplete="email"
+          placeholder="you@example.com"
+          required
+        />
 
         <button
-          class="profile-button"
-          id="profileBtn"
+          type="submit"
+          class="primary-button full-width"
         >
-
-          <span
-            class="avatar"
-            id="profileAvatar"
-          >
-            ?
-          </span>
-
-          <span
-            class="profile-text"
-            id="profileName"
-          >
-            Profile
-          </span>
-
-          <span>
-            ⌄
-          </span>
-
+          Send Reset Email
         </button>
 
-      </div>
-
-    </header>
-
-
-    <div class="workspace">
-
-      <aside
-        class="sidebar"
-        id="sidebar"
-      >
-
-        <nav>
-
-          <a
-            class="nav-item active"
-            href="#dashboard"
-            data-route="dashboard"
-          >
-            🏠
-            <span>Dashboard</span>
-          </a>
-
-
-          <a
-            class="nav-item"
-            href="#ai"
-            data-route="ai"
-          >
-            ✨
-            <span>AI</span>
-          </a>
-
-
-          <a
-            class="nav-item"
-            href="#coding"
-            data-route="coding"
-          >
-            💻
-            <span>Coding</span>
-          </a>
-
-
-          <a
-            class="nav-item"
-            href="#study"
-            data-route="study"
-          >
-            📚
-            <span>Study</span>
-          </a>
-
-
-          <a
-            class="nav-item"
-            href="#learning"
-            data-route="learning"
-          >
-            🎓
-            <span>Learning</span>
-          </a>
-
-
-          <a
-            class="nav-item"
-            href="#creation"
-            data-route="creation"
-          >
-            🎨
-            <span>Creation</span>
-          </a>
-
-
-          <a
-            class="nav-item"
-            href="#3d-create"
-            data-route="3d-create"
-          >
-            🧊
-            <span>3D Create</span>
-          </a>
-
-
-          <a
-            class="nav-item"
-            href="#sim-lab"
-            data-route="sim-lab"
-          >
-            🧪
-            <span>Sim Lab</span>
-          </a>
-
-
-          <a
-            class="nav-item"
-            href="#build"
-            data-route="build"
-          >
-            🛠️
-            <span>Build</span>
-          </a>
-
-
-          <a
-            class="nav-item"
-            href="#board-games"
-            data-route="board-games"
-          >
-            🎲
-            <span>Board Games</span>
-          </a>
-
-
-          <a
-            class="nav-item"
-            href="#music"
-            data-route="music"
-          >
-            🎵
-            <span>Music Creator</span>
-          </a>
-
-
-          <a
-            class="nav-item"
-            href="#college"
-            data-route="college"
-          >
-            🎓
-            <span>College Hub</span>
-          </a>
-
-
-          <a
-            class="nav-item"
-            href="#sell"
-            data-route="sell"
-          >
-            🛍️
-            <span>Sell</span>
-          </a>
-
-
-          <a
-            class="nav-item"
-            href="#books"
-            data-route="books"
-          >
-            📖
-            <span>Publish Books</span>
-          </a>
-
-
-          <a
-            class="nav-item"
-            href="#therapy"
-            data-route="therapy"
-          >
-            💙
-            <span>Therapy</span>
-          </a>
-
-
-          <a
-            class="nav-item"
-            href="#browser"
-            data-route="browser"
-          >
-            🌐
-            <span>Private Browser</span>
-          </a>
-
-
-          <a
-            class="nav-item"
-            href="#navigation"
-            data-route="navigation"
-          >
-            🗺️
-            <span>Navigation</span>
-          </a>
-
-        </nav>
-
-
-        <div class="sidebar-section">
-
-          <div class="section-label">
-            Workspace
-          </div>
-
-
-          <a
-            class="nav-item"
-            href="#projects"
-            data-route="projects"
-          >
-            📁
-            <span>Projects</span>
-          </a>
-
-
-          <a
-            class="nav-item"
-            href="#notifications"
-            data-route="notifications"
-          >
-            🔔
-            <span>Notifications</span>
-          </a>
-
-
-          <a
-            class="nav-item"
-            href="#settings"
-            data-route="settings"
-          >
-            ⚙️
-            <span>Settings</span>
-          </a>
-
-        </div>
-
-
-        <div class="sidebar-bottom">
-
-          <div
-            class="premium-card"
-            id="premiumCard"
-            role="button"
-            tabindex="0"
-            aria-label="Open BigHelpAI Premium"
-          >
-
-            <div class="premium-icon">
-              ✦
-            </div>
-
-            <div>
-
-              <strong>
-                Premium
-              </strong>
-
-              <span>
-                Unlock more of BigHelpAI
-              </span>
-
-            </div>
-
-          </div>
-
-
-          <div class="sidebar-footer">
-            © BigHelpAI
-          </div>
-
-        </div>
-
-      </aside>
-
-
-      <main class="main-content">
-
-        <section
-          class="dashboard"
-          id="dashboardView"
+        <button
+          type="button"
+          id="backToSignInButton"
+          class="text-button"
         >
-
-          <div class="dashboard-account-row">
-
-            <div
-              class="account-status-card"
-              id="accountStatusCard"
-            >
-
-              <div
-                class="account-status-icon"
-                id="accountStatusIcon"
-              >
-                ◇
-              </div>
-
-
-              <div class="account-status-text">
-
-                <span
-                  class="account-status-label"
-                  id="accountStatusLabel"
-                >
-                  FREE ACCOUNT
-                </span>
-
-
-                <span
-                  class="account-status-plan"
-                  id="accountStatusPlan"
-                >
-                  Standard access
-                </span>
-
-              </div>
-
-            </div>
-
-          </div>
-
-
-          <div class="hero-row">
-
-            <div>
-
-              <p class="eyebrow">
-                YOUR AI WORKSPACE
-              </p>
-
-              <h1>
-                Hi! My name is
-
-                <span class="accent">
-                  Hellpy
-                </span>.
-              </h1>
-
-              <p class="hero-subtitle">
-                What do you want to do today?
-              </p>
-
-
-              <div class="hero-actions">
-
-                <button
-                  class="primary-button"
-                  data-route-button="ai"
-                >
-                  Start with AI
-                </button>
-
-
-                <button
-                  class="secondary-button"
-                  data-route-button="projects"
-                >
-                  Open Projects
-                </button>
-
-              </div>
-
-            </div>
-
-
-            <div class="hellpy-card">
-
-              <div class="hellpy-orb">
-                H
-              </div>
-
-
-              <div>
-
-                <strong>
-                  Hellpy
-                </strong>
-
-                <span>
-                  Your general BigHelpAI assistant
-                </span>
-
-              </div>
-
-            </div>
-
-          </div>
-
-
-          <div class="section-heading">
-
-            <div>
-
-              <h2>
-                What do you want to do?
-              </h2>
-
-              <p>
-                Jump into a BigHelpAI workspace.
-              </p>
-
-            </div>
-
-          </div>
-
-
-          <div
-            class="mode-grid"
-            id="modeGrid"
-          >
-
-            <button
-              class="mode-card featured"
-              data-route-button="ai"
-            >
-              <span>✨</span>
-              <strong>AI</strong>
-              <small>Ask, write, research &amp; more</small>
-            </button>
-
-
-            <button
-              class="mode-card"
-              data-route-button="coding"
-            >
-              <span>💻</span>
-              <strong>Coding</strong>
-              <small>Build and debug projects</small>
-            </button>
-
-
-            <button
-              class="mode-card"
-              data-route-button="study"
-            >
-              <span>📚</span>
-              <strong>Study</strong>
-              <small>Homework and practice</small>
-            </button>
-
-
-            <button
-              class="mode-card"
-              data-route-button="learning"
-            >
-              <span>🎓</span>
-              <strong>Learning</strong>
-              <small>Lessons, quizzes and exams</small>
-            </button>
-
-
-            <button
-              class="mode-card"
-              data-route-button="creation"
-            >
-              <span>🎨</span>
-              <strong>Creation</strong>
-              <small>Images and creative projects</small>
-            </button>
-
-
-            <button
-              class="mode-card"
-              data-route-button="3d-create"
-            >
-              <span>🧊</span>
-              <strong>3D Create</strong>
-              <small>Build objects and machines</small>
-            </button>
-
-
-            <button
-              class="mode-card"
-              data-route-button="sim-lab"
-            >
-              <span>🧪</span>
-              <strong>Sim Lab</strong>
-              <small>Test physics and electronics</small>
-            </button>
-
-
-            <button
-              class="mode-card"
-              data-route-button="build"
-            >
-              <span>🛠️</span>
-              <strong>Build</strong>
-              <small>Connect code, 3D and AI</small>
-            </button>
-
-
-            <button
-              class="mode-card"
-              data-route-button="board-games"
-            >
-              <span>🎲</span>
-              <strong>Board Games</strong>
-              <small>Create or learn games</small>
-            </button>
-
-
-            <button
-              class="mode-card"
-              data-route-button="music"
-            >
-              <span>🎵</span>
-              <strong>Music Creator</strong>
-              <small>Compose and arrange music</small>
-            </button>
-
-
-            <button
-              class="mode-card"
-              data-route-button="college"
-            >
-              <span>🎓</span>
-              <strong>College Hub</strong>
-              <small>College work and applications</small>
-            </button>
-
-
-            <button
-              class="mode-card"
-              data-route-button="sell"
-            >
-              <span>🛍️</span>
-              <strong>Sell</strong>
-              <small>Build and list products</small>
-            </button>
-
-
-            <button
-              class="mode-card"
-              data-route-button="books"
-            >
-              <span>📖</span>
-              <strong>Publish Books</strong>
-              <small>Turn manuscripts into books</small>
-            </button>
-
-
-            <button
-              class="mode-card"
-              data-route-button="therapy"
-            >
-              <span>💙</span>
-              <strong>Therapy</strong>
-              <small>Support and next steps</small>
-            </button>
-
-
-            <button
-              class="mode-card"
-              data-route-button="browser"
-            >
-              <span>🌐</span>
-              <strong>Private Browser</strong>
-              <small>Privacy-focused browsing</small>
-            </button>
-
-
-            <button
-              class="mode-card"
-              data-route-button="navigation"
-            >
-              <span>🗺️</span>
-              <strong>Navigation</strong>
-              <small>Plan trips and compare travel</small>
-            </button>
-
-          </div>
-
-
-          <div
-            class="section-heading recent-heading"
-          >
-
-            <div>
-
-              <h2>
-                Recent Projects
-              </h2>
-
-              <p>
-                Your latest work in one place.
-              </p>
-
-            </div>
-
-
-            <button
-              class="text-button"
-              data-route-button="projects"
-            >
-              View all →
-            </button>
-
-          </div>
-
-
-          <div class="project-list">
-
-            <button
-              class="project-row"
-              data-project="Space Project"
-            >
-
-              <span class="project-icon">
-                🚀
-              </span>
-
-              <span class="project-main">
-
-                <strong>
-                  Space Project
-                </strong>
-
-                <small>
-                  Creation · 3D
-                </small>
-
-              </span>
-
-              <span class="project-time">
-                Updated today
-              </span>
-
-            </button>
-
-
-            <button
-              class="project-row"
-              data-project="Robot"
-            >
-
-              <span class="project-icon">
-                🤖
-              </span>
-
-              <span class="project-main">
-
-                <strong>
-                  Robot
-                </strong>
-
-                <small>
-                  3D Create · Sim Lab
-                </small>
-
-              </span>
-
-              <span class="project-time">
-                Updated yesterday
-              </span>
-
-            </button>
-
-
-            <button
-              class="project-row"
-              data-project="Music Project"
-            >
-
-              <span class="project-icon">
-                🎵
-              </span>
-
-              <span class="project-main">
-
-                <strong>
-                  Music Project
-                </strong>
-
-                <small>
-                  Music Creator
-                </small>
-
-              </span>
-
-              <span class="project-time">
-                Updated yesterday
-              </span>
-
-            </button>
-
-          </div>
-
-        </section>
-
-
-        <section
-          class="placeholder-view"
-          id="placeholderView"
-          hidden
-        >
-
-          <button
-            class="back-button"
-            data-route-button="dashboard"
-          >
-            ← Dashboard
-          </button>
-
-
-          <div
-            class="placeholder-icon"
-            id="placeholderIcon"
-          >
-            ✨
-          </div>
-
-
-          <p
-            class="eyebrow"
-            id="placeholderLabel"
-          >
-            BIGHELPAI
-          </p>
-
-
-          <h1 id="placeholderTitle">
-            AI
-          </h1>
-
-
-          <p id="placeholderDescription">
-            Your workspace is ready for the next step.
-          </p>
-
-
-          <div class="placeholder-actions">
-
-            <button
-              class="primary-button"
-              id="placeholderPrimary"
-            >
-              Open workspace
-            </button>
-
-
-            <button
-              class="secondary-button"
-              data-route-button="dashboard"
-            >
-              Back to dashboard
-            </button>
-
-          </div>
-
-
-          <p class="prototype-note">
-            This redesigned front end is the foundation.
-            Advanced backend services will be connected
-            in later stages.
-          </p>
-
-        </section>
-
-      </main>
+          Back to sign in
+        </button>
+
+        <div
+          id="forgotPasswordMessage"
+          class="auth-message"
+        ></div>
+
+      </form>
 
     </div>
 
   </div>
 
 
-  <div
-    class="toast"
-    id="toast"
-    role="status"
-    aria-live="polite"
-  ></div>
+  <!-- =========================================================
+       MAIN BIGHELPAI APP
+       ========================================================= -->
+  <section id="bigHelpAIScreen" class="screen hidden">
+
+    <div class="app-shell">
+
+      <!-- SIDEBAR -->
+      <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-brand">
+
+          <div class="brand-mark small">BH</div>
+
+          <div>
+            <div class="sidebar-brand-name">
+              BigHelpAI
+            </div>
+            <div class="sidebar-brand-subtitle">
+              AI workspace
+            </div>
+          </div>
+
+        </div>
 
 
-  <!-- =====================================================
-       SUPABASE
-  ===================================================== -->
+        <nav class="sidebar-nav">
 
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+          <button
+            type="button"
+            class="nav-item active"
+            data-view="AI"
+          >
+            <span>✦</span>
+            <span>AI</span>
+          </button>
 
+          <button
+            type="button"
+            class="nav-item"
+            data-view="Coding"
+          >
+            <span>⌘</span>
+            <span>Coding</span>
+          </button>
+
+          <button
+            type="button"
+            class="nav-item"
+            data-view="Study"
+          >
+            <span>📚</span>
+            <span>Study</span>
+          </button>
+
+          <button
+            type="button"
+            class="nav-item"
+            data-view="Learning"
+          >
+            <span>◈</span>
+            <span>Learning</span>
+          </button>
+
+          <button
+            type="button"
+            class="nav-item"
+            data-view="Creation"
+          >
+            <span>◉</span>
+            <span>Creation</span>
+          </button>
+
+          <button
+            type="button"
+            class="nav-item"
+            data-view="3D Create"
+          >
+            <span>⬢</span>
+            <span>3D Create</span>
+          </button>
+
+          <button
+            type="button"
+            class="nav-item"
+            data-view="Sim Lab"
+          >
+            <span>⚙</span>
+            <span>Sim Lab</span>
+          </button>
+
+          <button
+            type="button"
+            class="nav-item"
+            data-view="Build"
+          >
+            <span>🛠</span>
+            <span>Build</span>
+          </button>
+
+          <button
+            type="button"
+            class="nav-item"
+            data-view="Board Games"
+          >
+            <span>♟</span>
+            <span>Board Games</span>
+          </button>
+
+          <button
+            type="button"
+            class="nav-item"
+            data-view="Music Creator"
+          >
+            <span>♫</span>
+            <span>Music Creator</span>
+          </button>
+
+          <button
+            type="button"
+            class="nav-item"
+            data-view="College Hub"
+          >
+            <span>🎓</span>
+            <span>College Hub</span>
+          </button>
+
+          <button
+            type="button"
+            class="nav-item"
+            data-view="Sell"
+          >
+            <span>◫</span>
+            <span>Sell</span>
+          </button>
+
+          <button
+            type="button"
+            class="nav-item"
+            data-view="Publish Books"
+          >
+            <span>▤</span>
+            <span>Publish Books</span>
+          </button>
+
+          <button
+            type="button"
+            class="nav-item"
+            data-view="Therapy"
+          >
+            <span>♥</span>
+            <span>Therapy</span>
+          </button>
+
+          <button
+            type="button"
+            class="nav-item"
+            data-view="Private Browser"
+          >
+            <span>◌</span>
+            <span>Private Browser</span>
+          </button>
+
+          <button
+            type="button"
+            class="nav-item"
+            data-view="Navigation"
+          >
+            <span>⌁</span>
+            <span>Navigation</span>
+          </button>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+          <button
+            type="button"
+            class="nav-item"
+            data-view="Projects"
+          >
+            <span>◈</span>
+            <span>Projects</span>
+          </button>
+
+          <button
+            type="button"
+            class="nav-item"
+            data-view="Dashboard"
+          >
+            <span>▦</span>
+            <span>Dashboard</span>
+          </button>
+
+          <button
+            type="button"
+            class="nav-item"
+            data-view="Notifications"
+          >
+            <span>🔔</span>
+            <span>Notifications</span>
+          </button>
+
+          <button
+            type="button"
+            class="nav-item"
+            data-view="Settings"
+          >
+            <span>⚙</span>
+            <span>Settings</span>
+          </button>
+
+        </div>
+
+      </aside>
+
+
+      <!-- MAIN AREA -->
+      <main class="main-content">
+
+        <!-- TOP BAR -->
+        <header class="topbar">
+
+          <div class="topbar-left">
+
+            <button
+              type="button"
+              id="mobileMenuButton"
+              class="mobile-menu-button"
+              aria-label="Open menu"
+            >
+              ☰
+            </button>
+
+            <div>
+              <div class="topbar-title">
+                BigHelpAI
+              </div>
+
+              <div
+                id="currentViewName"
+                class="topbar-subtitle"
+              >
+                AI
+              </div>
+            </div>
+
+          </div>
+
+
+          <div class="topbar-right">
+
+            <div class="topbar-profile">
+
+              <div
+                id="profileAvatar"
+                class="profile-avatar"
+              >
+                ?
+              </div>
+
+              <div class="profile-text">
+
+                <div
+                  id="profileName"
+                  class="profile-name"
+                >
+                  Guest
+                </div>
+
+                <div
+                  id="profileEmail"
+                  class="profile-email"
+                >
+                  Not signed in
+                </div>
+
+              </div>
+
+            </div>
+
+            <button
+              type="button"
+              id="signOutButton"
+              class="sign-out-button"
+            >
+              Sign Out
+            </button>
+
+          </div>
+
+        </header>
+
+
+        <!-- DASHBOARD CONTENT -->
+        <div class="content-container">
+
+          <div class="hero-section">
+
+            <div>
+              <span class="eyebrow">
+                BIGHELPAI WORKSPACE
+              </span>
+
+              <h1 id="dashboardGreeting">
+                Hi! My name is Hellpy.
+              </h1>
+
+              <p id="dashboardGreetingText">
+                What do you want to do today?
+              </p>
+            </div>
+
+          </div>
+
+
+          <!-- ACCOUNT STATUS -->
+          <section class="dashboard-section">
+
+            <div class="section-heading">
+
+              <div>
+                <h2>Account</h2>
+                <p>
+                  Your current BigHelpAI account status.
+                </p>
+              </div>
+
+            </div>
+
+
+            <div class="account-status-card">
+
+              <div
+                id="accountStatusIcon"
+                class="account-status-icon"
+              >
+                ◇
+              </div>
+
+              <div class="account-status-text">
+
+                <div
+                  id="accountStatusLabel"
+                  class="account-status-label"
+                >
+                  FREE ACCOUNT
+                </div>
+
+                <div
+                  id="accountStatusPlan"
+                  class="account-status-plan"
+                >
+                  Standard access
+                </div>
+
+              </div>
+
+            </div>
+
+          </section>
+
+
+          <!-- MODES -->
+          <section class="dashboard-section">
+
+            <div class="section-heading">
+
+              <div>
+                <h2>Explore BigHelpAI</h2>
+                <p>
+                  Choose something to work on.
+                </p>
+              </div>
+
+            </div>
+
+
+            <div class="mode-grid">
+
+              <button
+                type="button"
+                class="mode-card"
+                data-view="AI"
+              >
+                <div class="mode-icon">✦</div>
+                <h3>AI</h3>
+                <p>
+                  Chat, ask questions, brainstorm and research.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="mode-card"
+                data-view="Coding"
+              >
+                <div class="mode-icon">⌘</div>
+                <h3>Coding</h3>
+                <p>
+                  Build websites, apps and software.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="mode-card"
+                data-view="Study"
+              >
+                <div class="mode-icon">📚</div>
+                <h3>Study</h3>
+                <p>
+                  Get help understanding schoolwork.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="mode-card"
+                data-view="Learning"
+              >
+                <div class="mode-icon">◈</div>
+                <h3>Learning</h3>
+                <p>
+                  Follow structured courses and lessons.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="mode-card"
+                data-view="Creation"
+              >
+                <div class="mode-icon">◉</div>
+                <h3>Creation</h3>
+                <p>
+                  Create visual ideas and creative projects.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="mode-card"
+                data-view="3D Create"
+              >
+                <div class="mode-icon">⬢</div>
+                <h3>3D Create</h3>
+                <p>
+                  Build 3D objects and components.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="mode-card"
+                data-view="Sim Lab"
+              >
+                <div class="mode-icon">⚙</div>
+                <h3>Sim Lab</h3>
+                <p>
+                  Experiment with simulations.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="mode-card"
+                data-view="Build"
+              >
+                <div class="mode-icon">🛠</div>
+                <h3>Build</h3>
+                <p>
+                  Combine tools into larger projects.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="mode-card"
+                data-view="Board Games"
+              >
+                <div class="mode-icon">♟</div>
+                <h3>Board Games</h3>
+                <p>
+                  Create and learn board games.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="mode-card"
+                data-view="Music Creator"
+              >
+                <div class="mode-icon">♫</div>
+                <h3>Music Creator</h3>
+                <p>
+                  Create melodies, beats and arrangements.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="mode-card"
+                data-view="College Hub"
+              >
+                <div class="mode-icon">🎓</div>
+                <h3>College Hub</h3>
+                <p>
+                  Research college planning and coursework.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="mode-card"
+                data-view="Sell"
+              >
+                <div class="mode-icon">◫</div>
+                <h3>Sell</h3>
+                <p>
+                  Organize and publish products.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="mode-card"
+                data-view="Publish Books"
+              >
+                <div class="mode-icon">▤</div>
+                <h3>Publish Books</h3>
+                <p>
+                  Prepare books for publishing.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="mode-card"
+                data-view="Therapy"
+              >
+                <div class="mode-icon">♥</div>
+                <h3>Therapy</h3>
+                <p>
+                  Supportive conversations and guidance.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="mode-card"
+                data-view="Private Browser"
+              >
+                <div class="mode-icon">◌</div>
+                <h3>Private Browser</h3>
+                <p>
+                  Browse with privacy-focused controls.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="mode-card"
+                data-view="Navigation"
+              >
+                <div class="mode-icon">⌁</div>
+                <h3>Navigation</h3>
+                <p>
+                  Plan trips, routes and travel details.
+                </p>
+              </button>
+
+            </div>
+
+          </section>
+
+
+          <!-- RECENT PROJECTS -->
+          <section class="dashboard-section">
+
+            <div class="section-heading">
+
+              <div>
+                <h2>Recent Projects</h2>
+                <p>
+                  Your latest BigHelpAI work will appear here.
+                </p>
+              </div>
+
+              <button
+                type="button"
+                class="secondary-button"
+                data-view="Projects"
+              >
+                View Projects
+              </button>
+
+            </div>
+
+            <div id="recentProjects" class="projects-empty">
+
+              <div class="projects-empty-icon">
+                ◫
+              </div>
+
+              <h3>No projects yet</h3>
+
+              <p>
+                Create your first project and it will appear here.
+              </p>
+
+            </div>
+
+          </section>
+
+
+          <!-- PREMIUM -->
+          <section class="dashboard-section">
+
+            <div class="premium-card" id="premiumCard">
+
+              <div class="premium-card-icon">
+                ✦
+              </div>
+
+              <div class="premium-card-content">
+
+                <span class="eyebrow">
+                  BIGHELPAI PREMIUM
+                </span>
+
+                <h2>
+                  More tools. More freedom. More possibilities.
+                </h2>
+
+                <p>
+                  Premium will unlock expanded tools, higher limits and
+                  additional BigHelpAI features.
+                </p>
+
+                <button
+                  type="button"
+                  class="primary-button"
+                  data-view="Premium"
+                >
+                  Explore Premium
+                </button>
+
+              </div>
+
+            </div>
+
+          </section>
+
+
+          <!-- MAIN PLACEHOLDER VIEW -->
+          <section
+            id="appView"
+            class="dashboard-section hidden"
+          >
+
+            <div class="view-placeholder">
+
+              <div
+                id="viewPlaceholderIcon"
+                class="view-placeholder-icon"
+              >
+                ✦
+              </div>
+
+              <span
+                id="viewPlaceholderEyebrow"
+                class="eyebrow"
+              >
+                BIGHELPAI
+              </span>
+
+              <h2 id="viewPlaceholderTitle">
+                AI
+              </h2>
+
+              <p id="viewPlaceholderText">
+                This workspace is being built next.
+              </p>
+
+            </div>
+
+          </section>
+
+        </div>
+
+      </main>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================================
+       JAVASCRIPT
+       ========================================================= -->
   <script>
+
+    /* ---------------------------------------------------------
+       SUPABASE
+       --------------------------------------------------------- */
 
     const SUPABASE_URL =
       "https://ymhmqhhxafjhyvgdxxnx.supabase.co";
 
-
     const SUPABASE_PUBLISHABLE_KEY =
       "sb_publishable_uRLDoa0jDEY3gTc7sTL1wg_xrHma5TS";
-
 
     const supabaseClient =
       window.supabase.createClient(
@@ -3044,1364 +1108,1353 @@
         SUPABASE_PUBLISHABLE_KEY
       );
 
-
     console.log(
       "BigHelpAI Supabase client initialized:",
       !!supabaseClient
     );
 
-  </script>
 
-
-  <!-- =====================================================
-       BIGHELPAI AUTH + PROFILE
-  ===================================================== -->
-
-  <script>
-
-    /* =====================================================
+    /* ---------------------------------------------------------
        ELEMENTS
-    ===================================================== */
+       --------------------------------------------------------- */
 
     const welcomeScreen =
-      document.getElementById(
-        "welcomeScreen"
-      );
+      document.getElementById("welcomeScreen");
 
+    const bigHelpAIScreen =
+      document.getElementById("bigHelpAIScreen");
 
-    const mainApp =
-      document.getElementById(
-        "mainApp"
-      );
+    const authOverlay =
+      document.getElementById("authOverlay");
 
+    const welcomeSignInButton =
+      document.getElementById("welcomeSignInButton");
 
-    const authScreen =
-      document.getElementById(
-        "authScreen"
-      );
+    const welcomeRegisterButton =
+      document.getElementById("welcomeRegisterButton");
 
+    const continueSessionButton =
+      document.getElementById("continueSessionButton");
 
-    const continueGuest =
-      document.getElementById(
-        "continueGuest"
-      );
+    const guestButton =
+      document.getElementById("guestButton");
 
+    const closeAuthButton =
+      document.getElementById("closeAuthButton");
 
-    const welcomeSignIn =
-      document.getElementById(
-        "welcomeSignIn"
-      );
+    const authTitle =
+      document.getElementById("authTitle");
 
-
-    const welcomeRegister =
-      document.getElementById(
-        "welcomeRegister"
-      );
-
-
-    const authClose =
-      document.getElementById(
-        "authClose"
-      );
-
-
-    const signInPanel =
-      document.getElementById(
-        "signInPanel"
-      );
-
-
-    const registerPanel =
-      document.getElementById(
-        "registerPanel"
-      );
-
-
-    const showRegister =
-      document.getElementById(
-        "showRegister"
-      );
-
-
-    const showSignIn =
-      document.getElementById(
-        "showSignIn"
-      );
-
+    const authSubtitle =
+      document.getElementById("authSubtitle");
 
     const signInForm =
-      document.getElementById(
-        "signInForm"
-      );
-
+      document.getElementById("signInForm");
 
     const registerForm =
-      document.getElementById(
-        "registerForm"
-      );
+      document.getElementById("registerForm");
 
+    const forgotPasswordForm =
+      document.getElementById("forgotPasswordForm");
 
-    const registerSubmit =
-      document.getElementById(
-        "registerSubmit"
-      );
+    const forgotPasswordButton =
+      document.getElementById("forgotPasswordButton");
 
+    const backToSignInButton =
+      document.getElementById("backToSignInButton");
 
-    const signInSubmit =
-      document.getElementById(
-        "signInSubmit"
-      );
+    const signInMessage =
+      document.getElementById("signInMessage");
 
+    const registerMessage =
+      document.getElementById("registerMessage");
 
-    const forgotPassword =
-      document.getElementById(
-        "forgotPassword"
-      );
+    const forgotPasswordMessage =
+      document.getElementById("forgotPasswordMessage");
 
-
-    const signInStatus =
-      document.getElementById(
-        "signInStatus"
-      );
-
-
-    const registerStatus =
-      document.getElementById(
-        "registerStatus"
-      );
-
+    const signOutButton =
+      document.getElementById("signOutButton");
 
     const profileAvatar =
-      document.getElementById(
-        "profileAvatar"
-      );
-
+      document.getElementById("profileAvatar");
 
     const profileName =
-      document.getElementById(
-        "profileName"
-      );
+      document.getElementById("profileName");
 
+    const profileEmail =
+      document.getElementById("profileEmail");
 
     const accountStatusIcon =
-      document.getElementById(
-        "accountStatusIcon"
-      );
-
+      document.getElementById("accountStatusIcon");
 
     const accountStatusLabel =
-      document.getElementById(
-        "accountStatusLabel"
-      );
-
+      document.getElementById("accountStatusLabel");
 
     const accountStatusPlan =
-      document.getElementById(
-        "accountStatusPlan"
-      );
+      document.getElementById("accountStatusPlan");
+
+    const dashboardGreeting =
+      document.getElementById("dashboardGreeting");
+
+    const dashboardGreetingText =
+      document.getElementById("dashboardGreetingText");
+
+    const currentViewName =
+      document.getElementById("currentViewName");
+
+    const appView =
+      document.getElementById("appView");
+
+    const viewPlaceholderIcon =
+      document.getElementById("viewPlaceholderIcon");
+
+    const viewPlaceholderEyebrow =
+      document.getElementById("viewPlaceholderEyebrow");
+
+    const viewPlaceholderTitle =
+      document.getElementById("viewPlaceholderTitle");
+
+    const viewPlaceholderText =
+      document.getElementById("viewPlaceholderText");
 
 
-    /* =====================================================
-       SHOWCASE
-    ===================================================== */
+    /* ---------------------------------------------------------
+       APP STATE
+       --------------------------------------------------------- */
 
-    const slides =
-      Array.from(
-        document.querySelectorAll(
-          ".showcase-slide"
-        )
-      );
+    let currentUser = null;
+    let currentProfile = null;
 
-
-    const dots =
-      Array.from(
-        document.querySelectorAll(
-          ".showcase-dot"
-        )
-      );
-
-
-    const previousButton =
-      document.getElementById(
-        "showcasePrevious"
-      );
-
-
-    const nextButton =
-      document.getElementById(
-        "showcaseNext"
-      );
-
-
-    const showcaseTimer =
-      document.getElementById(
-        "showcaseTimer"
-      );
+    const modeIcons = {
+      "AI": "✦",
+      "Coding": "⌘",
+      "Study": "📚",
+      "Learning": "◈",
+      "Creation": "◉",
+      "3D Create": "⬢",
+      "Sim Lab": "⚙",
+      "Build": "🛠",
+      "Board Games": "♟",
+      "Music Creator": "♫",
+      "College Hub": "🎓",
+      "Sell": "◫",
+      "Publish Books": "▤",
+      "Therapy": "♥",
+      "Private Browser": "◌",
+      "Navigation": "⌁",
+      "Projects": "◈",
+      "Dashboard": "▦",
+      "Notifications": "🔔",
+      "Settings": "⚙",
+      "Premium": "✦"
+    };
 
 
-    const showcaseStage =
-      document.getElementById(
-        "showcaseStage"
-      );
+    /* ---------------------------------------------------------
+       HELPERS
+       --------------------------------------------------------- */
+
+    function showElement(element) {
+      element.classList.remove("hidden");
+    }
+
+    function hideElement(element) {
+      element.classList.add("hidden");
+    }
 
 
-    let currentSlide =
-      0;
+    function setMessage(element, message, type = "") {
+      element.textContent = message;
+      element.className = "auth-message";
 
-
-    let showcaseInterval =
-      null;
-
-
-    let touchStartX =
-      null;
-
-
-    function resetShowcaseTimer() {
-
-      if (!showcaseTimer) {
-        return;
+      if (type) {
+        element.classList.add(type);
       }
-
-
-      showcaseTimer.classList.remove(
-        "running"
-      );
-
-
-      void showcaseTimer.offsetWidth;
-
-
-      showcaseTimer.classList.add(
-        "running"
-      );
-
     }
 
 
-    function updateShowcase(
-      index
-    ) {
-
-      if (!slides.length) {
-        return;
-      }
-
-
-      currentSlide =
-        (
-          index +
-          slides.length
-        ) %
-        slides.length;
-
-
-      slides.forEach(
-        (
-          slide,
-          slideIndex
-        ) => {
-
-          slide.classList.toggle(
-            "active",
-            slideIndex === currentSlide
-          );
-
-        }
-      );
-
-
-      dots.forEach(
-        (
-          dot,
-          dotIndex
-        ) => {
-
-          dot.classList.toggle(
-            "active",
-            dotIndex === currentSlide
-          );
-
-        }
-      );
-
-
-      resetShowcaseTimer();
-
+    function clearAuthMessages() {
+      setMessage(signInMessage, "");
+      setMessage(registerMessage, "");
+      setMessage(forgotPasswordMessage, "");
     }
 
 
-    function startShowcase() {
+    function openAuth(mode = "signin") {
 
-      clearInterval(
-        showcaseInterval
-      );
+      showElement(authOverlay);
 
+      clearAuthMessages();
 
-      showcaseInterval =
-        setInterval(
-          () => {
-
-            updateShowcase(
-              currentSlide + 1
-            );
-
-          },
-          6000
-        );
-
-    }
-
-
-    if (previousButton) {
-
-      previousButton.addEventListener(
-        "click",
-        () => {
-
-          updateShowcase(
-            currentSlide - 1
-          );
-
-          startShowcase();
-
-        }
-      );
-
-    }
-
-
-    if (nextButton) {
-
-      nextButton.addEventListener(
-        "click",
-        () => {
-
-          updateShowcase(
-            currentSlide + 1
-          );
-
-          startShowcase();
-
-        }
-      );
-
-    }
-
-
-    dots.forEach(
-      (
-        dot,
-        index
-      ) => {
-
-        dot.addEventListener(
-          "click",
-          () => {
-
-            updateShowcase(
-              index
-            );
-
-            startShowcase();
-
-          }
-        );
-
-      }
-    );
-
-
-    if (showcaseStage) {
-
-      showcaseStage.addEventListener(
-        "touchstart",
-        event => {
-
-          touchStartX =
-            event.touches[0].clientX;
-
-        },
-        {
-          passive: true
-        }
-      );
-
-
-      showcaseStage.addEventListener(
-        "touchend",
-        event => {
-
-          if (
-            touchStartX ===
-            null
-          ) {
-            return;
-          }
-
-
-          const touchEndX =
-            event.changedTouches[0].clientX;
-
-
-          const distance =
-            touchEndX -
-            touchStartX;
-
-
-          if (
-            Math.abs(distance) >
-            50
-          ) {
-
-            if (
-              distance >
-              0
-            ) {
-
-              updateShowcase(
-                currentSlide - 1
-              );
-
-            } else {
-
-              updateShowcase(
-                currentSlide + 1
-              );
-
-            }
-
-
-            startShowcase();
-
-          }
-
-
-          touchStartX =
-            null;
-
-        },
-        {
-          passive: true
-        }
-      );
-
-    }
-
-
-    /* =====================================================
-       AUTH HELPERS
-    ===================================================== */
-
-    function setAuthStatus(
-      element,
-      message,
-      type = ""
-    ) {
-
-      if (!element) {
-        return;
-      }
-
-
-      element.textContent =
-        message;
-
-
-      element.className =
-        `auth-status ${type}`;
-
-    }
-
-
-    function showAuth(
-      type
-    ) {
-
-      authScreen.hidden =
-        false;
-
-
-      document.body.style.overflow =
-        "hidden";
-
-
-      setAuthStatus(
-        signInStatus,
-        ""
-      );
-
-
-      setAuthStatus(
-        registerStatus,
-        ""
-      );
-
-
-      if (
-        type ===
-        "register"
-      ) {
-
-        signInPanel.hidden =
-          true;
-
-
-        registerPanel.hidden =
-          false;
-
+      if (mode === "register") {
+        showRegisterForm();
+      } else if (mode === "forgot") {
+        showForgotPasswordForm();
       } else {
-
-        signInPanel.hidden =
-          false;
-
-
-        registerPanel.hidden =
-          true;
-
+        showSignInForm();
       }
-
     }
 
 
     function closeAuth() {
+      hideElement(authOverlay);
+      clearAuthMessages();
+    }
 
-      authScreen.hidden =
-        true;
+
+    function showSignInForm() {
+
+      hideElement(registerForm);
+      hideElement(forgotPasswordForm);
+      showElement(signInForm);
+
+      authTitle.textContent = "Sign In";
+
+      authSubtitle.textContent =
+        "Sign in to your BigHelpAI account.";
+
+    }
 
 
-      document.body.style.overflow =
-        "";
+    function showRegisterForm() {
 
+      hideElement(signInForm);
+      hideElement(forgotPasswordForm);
+      showElement(registerForm);
+
+      authTitle.textContent = "Create Account";
+
+      authSubtitle.textContent =
+        "Create your BigHelpAI account.";
+    }
+
+
+    function showForgotPasswordForm() {
+
+      hideElement(signInForm);
+      hideElement(registerForm);
+      showElement(forgotPasswordForm);
+
+      authTitle.textContent = "Reset Password";
+
+      authSubtitle.textContent =
+        "Enter your email to receive a password reset link.";
+    }
+
+
+    function initialsFromName(name) {
+
+      if (!name) {
+        return "?";
+      }
+
+      const parts =
+        name.trim().split(/\s+/);
+
+      if (parts.length === 1) {
+        return parts[0].slice(0, 2).toUpperCase();
+      }
+
+      return (
+        parts[0].charAt(0) +
+        parts[parts.length - 1].charAt(0)
+      ).toUpperCase();
+    }
+
+
+    /* ---------------------------------------------------------
+       PROFILE
+       --------------------------------------------------------- */
+
+    function updateAccountDisplay(profile, user = currentUser) {
+
+      const role =
+        profile?.role || "free";
+
+      const fullName =
+        profile?.full_name ||
+        user?.user_metadata?.full_name ||
+        "BigHelpAI User";
+
+      profileName.textContent = fullName;
+
+      profileEmail.textContent =
+        user?.email || "Signed in";
+
+      profileAvatar.textContent =
+        initialsFromName(fullName);
+
+
+      if (role === "owner") {
+
+        accountStatusIcon.textContent = "★";
+
+        accountStatusLabel.textContent =
+          "OWNER ACCOUNT";
+
+        accountStatusPlan.textContent =
+          "Premium access included";
+
+      } else if (role === "admin") {
+
+        accountStatusIcon.textContent = "◆";
+
+        accountStatusLabel.textContent =
+          "ADMIN ACCOUNT";
+
+        accountStatusPlan.textContent =
+          "Premium access included";
+
+      } else if (role === "premium") {
+
+        accountStatusIcon.textContent = "✦";
+
+        accountStatusLabel.textContent =
+          "PREMIUM ACCOUNT";
+
+        accountStatusPlan.textContent =
+          "Premium access";
+
+      } else {
+
+        accountStatusIcon.textContent = "◇";
+
+        accountStatusLabel.textContent =
+          "FREE ACCOUNT";
+
+        accountStatusPlan.textContent =
+          "Standard access";
+      }
+
+
+      if (fullName && fullName !== "BigHelpAI User") {
+
+        dashboardGreeting.textContent =
+          `Hi, ${fullName}!`;
+
+        dashboardGreetingText.textContent =
+          "What do you want to do today?";
+
+      } else {
+
+        dashboardGreeting.textContent =
+          "Hi! My name is Hellpy.";
+
+        dashboardGreetingText.textContent =
+          "What do you want to do today?";
+      }
+    }
+
+
+    async function loadCurrentProfile(user = currentUser) {
+
+      if (!user) {
+        currentProfile = null;
+
+        updateAccountDisplay(null, null);
+
+        return;
+      }
+
+      currentUser = user;
+
+      console.log(
+        "Loading BigHelpAI profile for:",
+        user.id
+      );
+
+      const {
+        data,
+        error
+      } = await supabaseClient
+        .from("profiles")
+        .select(
+          "id, full_name, role, created_at, updated_at"
+        )
+        .eq("id", user.id)
+        .maybeSingle();
+
+      if (error) {
+
+        console.error(
+          "BigHelpAI profile loading error:",
+          error
+        );
+
+        currentProfile = null;
+
+        updateAccountDisplay(null, user);
+
+        return;
+      }
+
+      if (!data) {
+
+        console.warn(
+          "No BigHelpAI profile found for this account."
+        );
+
+        currentProfile = null;
+
+        updateAccountDisplay(null, user);
+
+        return;
+      }
+
+      currentProfile = data;
+
+      console.log(
+        "BigHelpAI profile loaded:",
+        data
+      );
+
+      updateAccountDisplay(
+        data,
+        user
+      );
+    }
+
+
+    /* ---------------------------------------------------------
+       SCREEN SWITCHING
+       --------------------------------------------------------- */
+
+    function showWelcomeScreen() {
+
+      hideElement(bigHelpAIScreen);
+
+      welcomeScreen.classList.add("active-screen");
+
+      showElement(welcomeScreen);
     }
 
 
     function enterBigHelpAI() {
 
-      welcomeScreen.classList.add(
-        "welcome-hidden"
-      );
+      hideElement(welcomeScreen);
 
+      welcomeScreen.classList.remove("active-screen");
 
-      mainApp.classList.remove(
-        "welcome-hidden"
-      );
+      showElement(bigHelpAIScreen);
 
+      bigHelpAIScreen.classList.remove("hidden");
 
-      document.body.style.overflow =
-        "";
-
-
-      clearInterval(
-        showcaseInterval
-      );
-
+      window.scrollTo({
+        top: 0,
+        behavior: "instant"
+      });
     }
 
 
-    /* =====================================================
-       PROFILE DISPLAY
-    ===================================================== */
+    function enterGuestMode() {
 
-    function updateAccountDisplay(
-      profile
-    ) {
+      currentUser = null;
+      currentProfile = null;
 
-      if (!profile) {
-        return;
-      }
+      profileName.textContent =
+        "Guest";
 
+      profileEmail.textContent =
+        "Not signed in";
 
-      const fullName =
-        profile.full_name ||
-        "Profile";
-
-
-      const role =
-        String(
-          profile.role ||
-          "free"
-        ).toLowerCase();
-
-
-      if (profileName) {
-
-        profileName.textContent =
-          fullName;
-
-      }
-
-
-      if (profileAvatar) {
-
-        const initials =
-          fullName
-            .split(/\s+/)
-            .filter(Boolean)
-            .slice(0, 2)
-            .map(
-              part =>
-                part
-                  .charAt(0)
-                  .toUpperCase()
-            )
-            .join("");
-
-
-        profileAvatar.textContent =
-          initials ||
-          "?";
-
-      }
-
-
-      if (
-        role ===
-        "owner"
-      ) {
-
-        accountStatusLabel.textContent =
-          "OWNER ACCOUNT";
-
-
-        accountStatusPlan.textContent =
-          "Premium access included";
-
-
-        accountStatusIcon.textContent =
-          "★";
-
-
-        return;
-
-      }
-
-
-      if (
-        role ===
-        "admin"
-      ) {
-
-        accountStatusLabel.textContent =
-          "ADMIN ACCOUNT";
-
-
-        accountStatusPlan.textContent =
-          "Premium access included";
-
-
-        accountStatusIcon.textContent =
-          "◆";
-
-
-        return;
-
-      }
-
-
-      if (
-        role ===
-        "premium"
-      ) {
-
-        accountStatusLabel.textContent =
-          "PREMIUM ACCOUNT";
-
-
-        accountStatusPlan.textContent =
-          "Premium access";
-
-
-        accountStatusIcon.textContent =
-          "✦";
-
-
-        return;
-
-      }
-
-
-      accountStatusLabel.textContent =
-        "FREE ACCOUNT";
-
-
-      accountStatusPlan.textContent =
-        "Standard access";
-
+      profileAvatar.textContent =
+        "?";
 
       accountStatusIcon.textContent =
         "◇";
 
+      accountStatusLabel.textContent =
+        "GUEST ACCESS";
+
+      accountStatusPlan.textContent =
+        "Account features require sign in";
+
+      dashboardGreeting.textContent =
+        "Hi! My name is Hellpy.";
+
+      dashboardGreetingText.textContent =
+        "What do you want to do today?";
+
+      enterBigHelpAI();
     }
 
 
-    /* =====================================================
-       LOAD PROFILE
-    ===================================================== */
+    /* ---------------------------------------------------------
+       SAVED SESSION CHECK
+       IMPORTANT:
+       We DO NOT automatically enter the dashboard.
+       --------------------------------------------------------- */
 
-    async function loadCurrentProfile() {
+    async function checkSavedSession() {
 
-      try {
+      const {
+        data,
+        error
+      } = await supabaseClient.auth.getSession();
+
+      if (error) {
+
+        console.error(
+          "Session check error:",
+          error
+        );
+
+        return;
+      }
+
+      const session =
+        data?.session;
+
+      if (!session) {
+
+        hideElement(continueSessionButton);
+
+        console.log(
+          "No active BigHelpAI session."
+        );
+
+        return;
+      }
+
+      currentUser =
+        session.user;
+
+      console.log(
+        "Saved BigHelpAI session found.",
+        currentUser.email
+      );
+
+      showElement(continueSessionButton);
+
+      document.getElementById(
+        "sessionNotice"
+      ).textContent =
+        `You are already signed in as ${currentUser.email}.`;
+
+      showElement(
+        document.getElementById(
+          "sessionNotice"
+        )
+      );
+    }
+
+
+    /* ---------------------------------------------------------
+       SIGN IN
+       --------------------------------------------------------- */
+
+    signInForm.addEventListener(
+      "submit",
+      async function(event) {
+
+        event.preventDefault();
+
+        setMessage(
+          signInMessage,
+          "Signing in..."
+        );
+
+        const email =
+          document.getElementById(
+            "signInEmail"
+          ).value.trim();
+
+        const password =
+          document.getElementById(
+            "signInPassword"
+          ).value;
 
         const {
           data,
           error
-        } =
-          await supabaseClient.auth.getSession();
+        } = await supabaseClient.auth.signInWithPassword({
+          email,
+          password
+        });
+
+        if (error) {
+
+          console.error(
+            "Sign in error:",
+            error
+          );
+
+          setMessage(
+            signInMessage,
+            error.message,
+            "error"
+          );
+
+          return;
+        }
+
+        currentUser =
+          data.user;
+
+        setMessage(
+          signInMessage,
+          "Sign in successful!",
+          "success"
+        );
+
+        closeAuth();
+
+        enterBigHelpAI();
+
+        await loadCurrentProfile(
+          currentUser
+        );
+      }
+    );
+
+
+    /* ---------------------------------------------------------
+       REGISTER
+       --------------------------------------------------------- */
+
+    registerForm.addEventListener(
+      "submit",
+      async function(event) {
+
+        event.preventDefault();
+
+        setMessage(
+          registerMessage,
+          "Creating your account..."
+        );
+
+        const fullName =
+          document.getElementById(
+            "registerName"
+          ).value.trim();
+
+        const email =
+          document.getElementById(
+            "registerEmail"
+          ).value.trim();
+
+        const password =
+          document.getElementById(
+            "registerPassword"
+          ).value;
+
+        const confirmPassword =
+          document.getElementById(
+            "registerPasswordConfirm"
+          ).value;
+
+
+        if (password !== confirmPassword) {
+
+          setMessage(
+            registerMessage,
+            "The passwords do not match.",
+            "error"
+          );
+
+          return;
+        }
+
+
+        const {
+          data,
+          error
+        } = await supabaseClient.auth.signUp({
+
+          email,
+
+          password,
+
+          options: {
+            data: {
+              full_name: fullName
+            }
+          }
+        });
 
 
         if (error) {
 
           console.error(
-            "BigHelpAI session error:",
+            "Registration error:",
             error
           );
 
-          return false;
+          setMessage(
+            registerMessage,
+            error.message,
+            "error"
+          );
 
+          return;
         }
 
 
-        const session =
-          data &&
-          data.session;
-
-
-        if (!session) {
-
-          return false;
-
-        }
-
-
-        const {
-          data: profile,
-          error: profileError
-        } =
-          await supabaseClient
-            .from("profiles")
-            .select(
-              "id, full_name, role"
-            )
-            .eq(
-              "id",
-              session.user.id
-            )
-            .maybeSingle();
-
-
-        if (profileError) {
-
-          console.error(
-            "BigHelpAI profile lookup error:",
-            profileError
-          );
-
-          return false;
-
-        }
-
-
-        if (profile) {
-
-          updateAccountDisplay(
-            profile
-          );
-
-
-          console.log(
-            "BigHelpAI profile loaded:",
-            profile
-          );
-
-
-          return true;
-
-        }
-
-
-        console.warn(
-          "BigHelpAI profile was not found."
-        );
-
-
-        return false;
-
-      } catch (error) {
-
-        console.error(
-          "Unexpected BigHelpAI profile error:",
-          error
-        );
-
-
-        return false;
-
-      }
-
-    }
-
-
-    /* =====================================================
-       WELCOME BUTTONS
-    ===================================================== */
-
-    welcomeSignIn.addEventListener(
-      "click",
-      () => {
-
-        showAuth(
-          "signin"
-        );
-
-      }
-    );
-
-
-    welcomeRegister.addEventListener(
-      "click",
-      () => {
-
-        showAuth(
-          "register"
-        );
-
-      }
-    );
-
-
-    continueGuest.addEventListener(
-      "click",
-      () => {
-
-        enterBigHelpAI();
-
-      }
-    );
-
-
-    authClose.addEventListener(
-      "click",
-      () => {
-
-        closeAuth();
-
-      }
-    );
-
-
-    showRegister.addEventListener(
-      "click",
-      () => {
-
-        showAuth(
-          "register"
-        );
-
-      }
-    );
-
-
-    showSignIn.addEventListener(
-      "click",
-      () => {
-
-        showAuth(
-          "signin"
-        );
-
-      }
-    );
-
-
-    /* =====================================================
-       REAL SIGN IN
-    ===================================================== */
-
-    signInForm.addEventListener(
-      "submit",
-      async event => {
-
-        event.preventDefault();
-
-
-        const email =
-          document
-            .getElementById(
-              "signInEmail"
-            )
-            .value
-            .trim();
-
-
-        const password =
-          document
-            .getElementById(
-              "signInPassword"
-            )
-            .value;
-
-
-        signInSubmit.disabled =
-          true;
-
-
-        setAuthStatus(
-          signInStatus,
-          "Signing you in...",
-          ""
-        );
-
-
-        try {
-
-          const {
-            data,
-            error
-          } =
-            await supabaseClient.auth
-              .signInWithPassword({
-
-                email,
-
-                password
-
-              });
-
-
-          if (error) {
-
-            console.error(
-              "BigHelpAI sign-in error:",
-              error
-            );
-
-
-            let message =
-              error.message ||
-              "We couldn't sign you in.";
-
-
-            if (
-              error.message &&
-              error.message
-                .toLowerCase()
-                .includes(
-                  "email not confirmed"
-                )
-            ) {
-
-              message =
-                "Please confirm your email address before signing in.";
-
-            }
-
-
-            setAuthStatus(
-              signInStatus,
-              message,
-              "error"
-            );
-
-
-            return;
-
-          }
-
-
-          console.log(
-            "BigHelpAI sign-in successful:",
-            data
-          );
-
-
-          /* ---------------------------------------------
-             IMPORTANT:
-             Enter the dashboard immediately.
-             Do not wait for the profile query.
-          --------------------------------------------- */
+        if (
+          data.user &&
+          data.session
+        ) {
+
+          currentUser =
+            data.user;
 
           closeAuth();
 
           enterBigHelpAI();
 
-
-          setAuthStatus(
-            signInStatus,
-            "",
-            ""
+          await loadCurrentProfile(
+            currentUser
           );
 
-
-          /* Load profile after entering dashboard. */
-
-          const profileLoaded =
-            await loadCurrentProfile();
-
-
-          if (!profileLoaded) {
-
-            console.warn(
-              "BigHelpAI signed in successfully, but the profile could not be loaded yet."
-            );
-
-          }
-
-        } catch (error) {
-
-          console.error(
-            "Unexpected BigHelpAI sign-in error:",
-            error
-          );
-
-
-          setAuthStatus(
-            signInStatus,
-            "Something went wrong while signing you in.",
-            "error"
-          );
-
-        } finally {
-
-          signInSubmit.disabled =
-            false;
-
+          return;
         }
 
+
+        setMessage(
+          registerMessage,
+          "Account created! Check your email to confirm your account before signing in.",
+          "success"
+        );
       }
     );
 
 
-    /* =====================================================
-       REGISTRATION
-    ===================================================== */
+    /* ---------------------------------------------------------
+       PASSWORD RESET
+       --------------------------------------------------------- */
 
-    registerForm.addEventListener(
+    forgotPasswordForm.addEventListener(
       "submit",
-      async event => {
+      async function(event) {
 
         event.preventDefault();
 
-
-        const name =
-          document
-            .getElementById(
-              "registerName"
-            )
-            .value
-            .trim();
-
+        setMessage(
+          forgotPasswordMessage,
+          "Sending reset email..."
+        );
 
         const email =
-          document
-            .getElementById(
-              "registerEmail"
-            )
-            .value
-            .trim();
+          document.getElementById(
+            "forgotPasswordEmail"
+          ).value.trim();
 
 
-        const password =
-          document
-            .getElementById(
-              "registerPassword"
-            )
-            .value;
-
-
-        const confirmPassword =
-          document
-            .getElementById(
-              "registerConfirmPassword"
-            )
-            .value;
-
-
-        if (!name) {
-
-          setAuthStatus(
-            registerStatus,
-            "Please enter your name.",
-            "error"
-          );
-
-
-          return;
-
-        }
-
-
-        if (
-          password !==
-          confirmPassword
-        ) {
-
-          setAuthStatus(
-            registerStatus,
-            "The passwords do not match.",
-            "error"
-          );
-
-
-          return;
-
-        }
-
-
-        if (
-          password.length <
-          8
-        ) {
-
-          setAuthStatus(
-            registerStatus,
-            "Your password must be at least 8 characters.",
-            "error"
-          );
-
-
-          return;
-
-        }
-
-
-        registerSubmit.disabled =
-          true;
-
-
-        setAuthStatus(
-          registerStatus,
-          "Creating your BigHelpAI account...",
-          ""
+        const {
+          error
+        } = await supabaseClient.auth.resetPasswordForEmail(
+          email,
+          {
+            redirectTo:
+              "https://johandj1delgadoacosta-png.github.io/BigHelpAI/"
+          }
         );
 
 
-        try {
-
-          const redirectUrl =
-            window.location.origin +
-            window.location.pathname;
-
-
-          const {
-            data,
-            error
-          } =
-            await supabaseClient.auth
-              .signUp({
-
-                email,
-
-                password,
-
-                options: {
-
-                  emailRedirectTo:
-                    redirectUrl,
-
-                  data: {
-
-                    full_name:
-                      name
-
-                  }
-
-                }
-
-              });
-
-
-          if (error) {
-
-            console.error(
-              "BigHelpAI registration error:",
-              error
-            );
-
-
-            setAuthStatus(
-              registerStatus,
-              error.message ||
-                "We couldn't create your account. Please try again.",
-              "error"
-            );
-
-
-            return;
-
-          }
-
-
-          console.log(
-            "BigHelpAI registration response:",
-            data
-          );
-
-
-          registerForm.reset();
-
-
-          setAuthStatus(
-            registerStatus,
-            "Account created! Check your email to confirm your BigHelpAI account.",
-            "success"
-          );
-
-        } catch (error) {
+        if (error) {
 
           console.error(
-            "Unexpected BigHelpAI registration error:",
+            "Password reset error:",
             error
           );
 
-
-          setAuthStatus(
-            registerStatus,
-            "Something went wrong while creating your account.",
+          setMessage(
+            forgotPasswordMessage,
+            error.message,
             "error"
           );
-
-        } finally {
-
-          registerSubmit.disabled =
-            false;
-
-        }
-
-      }
-    );
-
-
-    /* =====================================================
-       FORGOT PASSWORD
-    ===================================================== */
-
-    forgotPassword.addEventListener(
-      "click",
-      () => {
-
-        const email =
-          document
-            .getElementById(
-              "signInEmail"
-            )
-            .value
-            .trim();
-
-
-        if (!email) {
-
-          setAuthStatus(
-            signInStatus,
-            "Enter your email address first.",
-            "error"
-          );
-
 
           return;
-
         }
 
 
-        setAuthStatus(
-          signInStatus,
-          "Password recovery will be connected next.",
+        setMessage(
+          forgotPasswordMessage,
+          "Password reset email sent. Check your inbox.",
           "success"
         );
-
       }
     );
 
 
-    /* =====================================================
-       AUTH STATE
-    ===================================================== */
+    /* ---------------------------------------------------------
+       CONTINUE SAVED SESSION
+       --------------------------------------------------------- */
+
+    continueSessionButton.addEventListener(
+      "click",
+      async function() {
+
+        const {
+          data,
+          error
+        } = await supabaseClient.auth.getSession();
+
+        if (error) {
+
+          console.error(
+            "Continue session error:",
+            error
+          );
+
+          return;
+        }
+
+        if (!data.session) {
+
+          hideElement(
+            continueSessionButton
+          );
+
+          return;
+        }
+
+        currentUser =
+          data.session.user;
+
+        enterBigHelpAI();
+
+        await loadCurrentProfile(
+          currentUser
+        );
+      }
+    );
+
+
+    /* ---------------------------------------------------------
+       SIGN OUT
+       --------------------------------------------------------- */
+
+    signOutButton.addEventListener(
+      "click",
+      async function() {
+
+        signOutButton.disabled = true;
+
+        signOutButton.textContent =
+          "Signing Out...";
+
+
+        const {
+          error
+        } = await supabaseClient.auth.signOut();
+
+
+        signOutButton.disabled = false;
+
+        signOutButton.textContent =
+          "Sign Out";
+
+
+        if (error) {
+
+          console.error(
+            "Sign out error:",
+            error
+          );
+
+          alert(
+            "Sign out failed: " +
+            error.message
+          );
+
+          return;
+        }
+
+
+        currentUser = null;
+        currentProfile = null;
+
+        hideElement(
+          continueSessionButton
+        );
+
+        hideElement(
+          document.getElementById(
+            "sessionNotice"
+          )
+        );
+
+        showWelcomeScreen();
+      }
+    );
+
+
+    /* ---------------------------------------------------------
+       AUTH BUTTONS
+       --------------------------------------------------------- */
+
+    welcomeSignInButton.addEventListener(
+      "click",
+      function() {
+        openAuth("signin");
+      }
+    );
+
+
+    welcomeRegisterButton.addEventListener(
+      "click",
+      function() {
+        openAuth("register");
+      }
+    );
+
+
+    guestButton.addEventListener(
+      "click",
+      function() {
+        enterGuestMode();
+      }
+    );
+
+
+    closeAuthButton.addEventListener(
+      "click",
+      function() {
+        closeAuth();
+      }
+    );
+
+
+    forgotPasswordButton.addEventListener(
+      "click",
+      function() {
+        showForgotPasswordForm();
+      }
+    );
+
+
+    backToSignInButton.addEventListener(
+      "click",
+      function() {
+        showSignInForm();
+      }
+    );
+
+
+    /* ---------------------------------------------------------
+       CLOSE AUTH WITH BACKDROP
+       --------------------------------------------------------- */
+
+    authOverlay.addEventListener(
+      "click",
+      function(event) {
+
+        if (
+          event.target === authOverlay
+        ) {
+          closeAuth();
+        }
+      }
+    );
+
+
+    /* ---------------------------------------------------------
+       ESC KEY
+       --------------------------------------------------------- */
+
+    document.addEventListener(
+      "keydown",
+      function(event) {
+
+        if (event.key === "Escape") {
+          closeAuth();
+        }
+      }
+    );
+
+
+    /* ---------------------------------------------------------
+       NAVIGATION
+       --------------------------------------------------------- */
+
+    function openView(viewName) {
+
+      currentViewName.textContent =
+        viewName;
+
+      appView.classList.remove(
+        "hidden"
+      );
+
+      viewPlaceholderIcon.textContent =
+        modeIcons[viewName] || "✦";
+
+      viewPlaceholderEyebrow.textContent =
+        "BIGHELPAI";
+
+      viewPlaceholderTitle.textContent =
+        viewName;
+
+      if (viewName === "Premium") {
+
+        viewPlaceholderText.textContent =
+          "Premium features and billing will be connected here.";
+
+      } else {
+
+        viewPlaceholderText.textContent =
+          `${viewName} is part of the BigHelpAI workspace and is being built next.`;
+      }
+
+
+      document
+        .querySelectorAll(
+          ".nav-item"
+        )
+        .forEach(
+          function(item) {
+
+            item.classList.remove(
+              "active"
+            );
+
+            if (
+              item.dataset.view === viewName
+            ) {
+              item.classList.add(
+                "active"
+              );
+            }
+          }
+        );
+    }
+
+
+    document.addEventListener(
+      "click",
+      function(event) {
+
+        const target =
+          event.target.closest(
+            "[data-view]"
+          );
+
+        if (!target) {
+          return;
+        }
+
+        const view =
+          target.dataset.view;
+
+        if (!view) {
+          return;
+        }
+
+        openView(view);
+      }
+    );
+
+
+    /* ---------------------------------------------------------
+       MOBILE SIDEBAR
+       --------------------------------------------------------- */
+
+    const mobileMenuButton =
+      document.getElementById(
+        "mobileMenuButton"
+      );
+
+    const sidebar =
+      document.getElementById(
+        "sidebar"
+      );
+
+
+    mobileMenuButton.addEventListener(
+      "click",
+      function() {
+
+        sidebar.classList.toggle(
+          "sidebar-open"
+        );
+      }
+    );
+
+
+    document.addEventListener(
+      "click",
+      function(event) {
+
+        if (
+          window.innerWidth > 900
+        ) {
+          return;
+        }
+
+        const navItem =
+          event.target.closest(
+            ".nav-item"
+          );
+
+        if (navItem) {
+
+          sidebar.classList.remove(
+            "sidebar-open"
+          );
+        }
+      }
+    );
+
+
+    /* ---------------------------------------------------------
+       FEATURE SHOWCASE
+       --------------------------------------------------------- */
+
+    const showcaseCards =
+      Array.from(
+        document.querySelectorAll(
+          ".showcase-card"
+        )
+      );
+
+    const featureDots =
+      document.getElementById(
+        "featureDots"
+      );
+
+    const featurePrevButton =
+      document.getElementById(
+        "featurePrevButton"
+      );
+
+    const featureNextButton =
+      document.getElementById(
+        "featureNextButton"
+      );
+
+    let featureIndex = 0;
+
+
+    showcaseCards.forEach(
+      function(_, index) {
+
+        const dot =
+          document.createElement(
+            "button"
+          );
+
+        dot.type = "button";
+
+        dot.className =
+          "feature-dot";
+
+        dot.setAttribute(
+          "aria-label",
+          `Show feature ${index + 1}`
+        );
+
+        dot.addEventListener(
+          "click",
+          function() {
+            featureIndex = index;
+            updateFeatureShowcase();
+          }
+        );
+
+        featureDots.appendChild(dot);
+      }
+    );
+
+
+    function updateFeatureShowcase() {
+
+      showcaseCards.forEach(
+        function(card, index) {
+
+          card.classList.toggle(
+            "active-feature",
+            index === featureIndex
+          );
+        }
+      );
+
+
+      Array.from(
+        featureDots.children
+      ).forEach(
+        function(dot, index) {
+
+          dot.classList.toggle(
+            "active",
+            index === featureIndex
+          );
+        }
+      );
+    }
+
+
+    featurePrevButton.addEventListener(
+      "click",
+      function() {
+
+        featureIndex--;
+
+        if (featureIndex < 0) {
+          featureIndex =
+            showcaseCards.length - 1;
+        }
+
+        updateFeatureShowcase();
+      }
+    );
+
+
+    featureNextButton.addEventListener(
+      "click",
+      function() {
+
+        featureIndex++;
+
+        if (
+          featureIndex >=
+          showcaseCards.length
+        ) {
+          featureIndex = 0;
+        }
+
+        updateFeatureShowcase();
+      }
+    );
+
+
+    updateFeatureShowcase();
+
+
+    let featureTimer =
+      setInterval(
+        function() {
+
+          featureIndex++;
+
+          if (
+            featureIndex >=
+            showcaseCards.length
+          ) {
+            featureIndex = 0;
+          }
+
+          updateFeatureShowcase();
+
+        },
+        5000
+      );
+
+
+    document.addEventListener(
+      "visibilitychange",
+      function() {
+
+        if (
+          document.hidden
+        ) {
+
+          clearInterval(
+            featureTimer
+          );
+
+        } else {
+
+          clearInterval(
+            featureTimer
+          );
+
+          featureTimer =
+            setInterval(
+              function() {
+
+                featureIndex++;
+
+                if (
+                  featureIndex >=
+                  showcaseCards.length
+                ) {
+                  featureIndex = 0;
+                }
+
+                updateFeatureShowcase();
+
+              },
+              5000
+            );
+        }
+      }
+    );
+
+
+    /* ---------------------------------------------------------
+       SUPABASE AUTH STATE
+       --------------------------------------------------------- */
 
     supabaseClient.auth.onAuthStateChange(
-      async (
-        event,
-        session
-      ) => {
+      async function(event, session) {
 
         console.log(
-          "BigHelpAI auth state:",
+          "Supabase auth event:",
           event
         );
 
 
         if (
-          session
+          event === "SIGNED_OUT"
         ) {
 
-          /*
-           * Do not block navigation.
-           * The dashboard can load while the
-           * profile is retrieved.
-           */
+          currentUser = null;
+          currentProfile = null;
 
-          await loadCurrentProfile();
+          showWelcomeScreen();
 
+          return;
         }
 
+
+        if (session) {
+
+          currentUser =
+            session.user;
+
+          /*
+             We intentionally DO NOT
+             automatically send the user
+             to the dashboard here.
+
+             The welcome screen remains
+             visible until the user presses
+             "Continue to dashboard" or
+             signs in manually.
+          */
+
+          await loadCurrentProfile(
+            currentUser
+          );
+        }
       }
     );
 
 
-    /* =====================================================
-       STARTUP
-    ===================================================== */
+    /* ---------------------------------------------------------
+       INITIAL PAGE LOAD
+       --------------------------------------------------------- */
 
-    document.body.style.overflow =
-      "hidden";
+    async function initializeBigHelpAI() {
 
-
-    updateShowcase(0);
-
-
-    startShowcase();
-
-
-    /* Check for an existing session. */
-
-    supabaseClient.auth
-      .getSession()
-      .then(
-        async ({
-          data
-        }) => {
-
-          if (
-            data &&
-            data.session
-          ) {
-
-            enterBigHelpAI();
-
-            await loadCurrentProfile();
-
-          }
-
-        }
-      )
-      .catch(
-        error => {
-
-          console.error(
-            "BigHelpAI startup session error:",
-            error
-          );
-
-        }
+      console.log(
+        "Initializing BigHelpAI..."
       );
 
+      showWelcomeScreen();
+
+      await checkSavedSession();
+
+      console.log(
+        "BigHelpAI is ready."
+      );
+    }
+
+
+    initializeBigHelpAI();
+
   </script>
-
-
-  <!-- =====================================================
-       MAIN BIGHELPAI NAVIGATION
-  ===================================================== -->
-
-  <script src="app.js"></script>
 
 </body>
 </html>
